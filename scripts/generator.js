@@ -40,7 +40,7 @@ function getAllHtmlFiles(dirPath, fileList = []) {
     const fileUrl = `file://${htmlPath}`;
 
     await page.setViewport({
-      width: 390,           // مناسب برای موبایل
+      width: 450,           // مناسب برای موبایل
       height: 5000,         // برای نمایش همه 100 کالا
       deviceScaleFactor: 2  // وضوح بالا
     });
