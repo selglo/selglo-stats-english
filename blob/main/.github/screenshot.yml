@@ -24,4 +24,4 @@ sudo apt-get install -y libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev bui
 run: npm install
 
 - name: Run splitter script
-run: node scripts/splitter.js
+run: node scripts/splitter.mjs
