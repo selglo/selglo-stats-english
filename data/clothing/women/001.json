@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Stats for English Women 001</title>
+  <style>
+    body {
+      margin: 0;
+      background: transparent;
+      font-family: sans-serif;
+      font-size: 13px;
+      color: #333;
+    }
+    .item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 12px;
+      height: 120px;
+      box-sizing: border-box;
+    }
+    .icon-line {
+      margin-bottom: 5px;
+    }
+    .icon-line span {
+      margin-left: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div id="stats"></div>
+
+  <script>
+    const stats = {
+      "p001": { "rating": 4.1, "sales": 42, "likes": 22, "trend": 9 },
+      "p002": { "rating": 3.8, "sales": 35, "likes": 18, "trend": 12 },
+      "p003": { "rating": 4.6, "sales": 58, "likes": 37, "trend": 29 },
+      "p004": { "rating": 4.0, "sales": 40, "likes": 20, "trend": 15 },
+      "p005": { "rating": 3.5, "sales": 31, "likes": 17, "trend": 8 },
+      "p006": { "rating": 4.3, "sales": 49, "likes": 28, "trend": 21 },
+      "p007": { "rating": 4.7, "sales": 65, "likes": 41, "trend": 33 },
+      "p008": { "rating": 3.9, "sales": 38, "likes": 19, "trend": 14 },
+      "p009": { "rating": 4.2, "sales": 44, "likes": 25, "trend": 18 },
+      "p010": { "rating": 3.6, "sales": 30, "likes": 16, "trend": 9 }
+    };
+
+    const container = document.getElementById("stats");
+
+    Object.values(stats).forEach(stat => {
+      const div = document.createElement("div");
+      div.className = "item";
+      div.innerHTML = `
+        <div class="icon-line">⭐ ${stat.rating} out of 5</div>
+        <div class="icon-line">🛒 Sold: ${stat.sales} units</div>
+        <div class="icon-line">❤️ Liked by ${stat.likes} customers</div>
+        <div class="icon-line">📊 In the past 7 days, <b>${stat.trend} more</b><br>people bought this product.</div>
+      `;
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>
