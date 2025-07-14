@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "generate": "node scripts/generator.js",
-    "split": "node scripts/splitter.js"
+    "split": "node scripts/splitter.mjs"
   },
   "dependencies": {
     "canvas": "^2.11.2"
