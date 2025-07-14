@@ -1,0 +1,39 @@
+name: Daily screenshot + split
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'  # هر روز ساعت ۶ صبح UTC
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install canvas dependencies
+        run: sudo apt-get install -y libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev build-essential g++
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate tall images
+        run: npm run generate
+
+      - name: Split into 10 items
+        run: npm run split
+
+      - name: Commit & push
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add daily/
+          git commit -m "🔄 Update daily screenshots"
+          git push
