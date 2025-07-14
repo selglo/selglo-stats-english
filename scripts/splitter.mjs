@@ -5,11 +5,10 @@ import { createCanvas, loadImage } from 'canvas';
 const INPUT_PATH = path.join('daily', 'clothing', 'women', '001.png');
 const OUTPUT_DIR = path.join('daily', 'clothing', 'women', 'sliced');
 const TOTAL_ITEMS = 10;
-const ITEM_HEIGHT = 120; // مطابق CSS در HTML
-const IMAGE_WIDTH = 390; // مطابق viewport
-const PADDING = 0; // اگر فاصله‌ای بین آیتم‌ها نباشد
+const ITEM_HEIGHT = 120;
+const IMAGE_WIDTH = 390;
+const PADDING = 0;
 
-// مطمئن شو که فولدر خروجی وجود دارد
 if (!fs.existsSync(OUTPUT_DIR)) {
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 }
