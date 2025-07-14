@@ -1,0 +1,35 @@
+[
+  {
+    "id": "english-women-01-item-001",
+    "url": "https://selglo.com/english-women-01/",
+    "selector": "#item-001",
+    "seed": 101
+  },
+  {
+    "id": "english-women-01-item-002",
+    "url": "https://selglo.com/english-women-01/",
+    "selector": "#item-002",
+    "seed": 102
+  }, {
+    "id": "english-women-01-item-003",
+    "url": "https://selglo.com/english-women-01/",
+    "selector": "#item-003",
+    "seed": 103
+  }, {
+    "id": "english-women-01-item-004",
+    "url": "https://selglo.com/english-women-01/",
+    "selector": "#item-004",
+    "seed": 104
+  }, {
+    "id": "english-women-01-item-005",
+    "url": "https://selglo.com/english-women-01/",
+    "selector": "#item-005",
+    "seed": 105
+  },
+  {
+    "id": "english-women-01-item-006",
+    "url": "https://selglo.com/english-women-01/",
+    "selector": "#item-006",
+    "seed": 106
+  }
+]
