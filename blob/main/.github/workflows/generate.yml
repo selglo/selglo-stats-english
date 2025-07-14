@@ -27,16 +27,5 @@ sudo apt-get install -y libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev lib
 - name: Install dependencies
 run: npm install
 
-- name: Generate tall image
-run: npm run generate
-
-- name: Split image into items
-run: npm run split
-
-- name: Commit changes
-run: |
-git config --global user.name 'github-actions[bot]'
-git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-git add daily/clothing/women/sliced/
-git commit -m "Auto-sliced images"
-git push
+- name: Run stats generator script
+run: node scripts/generator.js
