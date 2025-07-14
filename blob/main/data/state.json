@@ -1,0 +1,15 @@
+{
+  "lastGenerated": "2025-07-14T03:00:00Z",
+  "lastSliced": "2025-07-14T03:01:10Z",
+  "batches": {
+    "clothing/women/001": {
+      "generated": true,
+      "sliced": true,
+      "lastSeed": 110
+    },
+    "clothing/men/001": {
+      "generated": false,
+      "sliced": false
+    }
+  }
+}
