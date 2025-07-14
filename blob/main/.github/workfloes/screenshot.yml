@@ -1,12 +1,7 @@
-name: Generate and Slice Stats Image
+name: Split Image into Items
 
 on:
 workflow_dispatch:
-push:
-paths:
-- 'scripts/**'
-- 'data/**'
-- '.github/workflows/generate.yml'
 
 jobs:
 build:
@@ -28,16 +23,5 @@ sudo apt-get install -y libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev lib
 - name: Install dependencies
 run: npm install
 
-- name: Generate tall images
-run: npm run generate
-
-- name: Split images into items
-run: npm run split
-
-- name: Commit changes
-run: |
-git config --global user.name 'github-actions'
-git config --global user.email 'github-actions@github.com'
-git add .
-git commit -m "Auto update stats image and slices" || echo "No changes to commit"
-git push
+- name: Run splitter script
+run: node scripts/splitter.js
