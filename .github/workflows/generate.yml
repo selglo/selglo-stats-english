@@ -1,22 +1,44 @@
-name: Generate Daily Images
+name: Generate and Slice Stats Image
 
 on:
 workflow_dispatch:
+push:
+paths:
+- 'scripts/**'
+- 'data/**'
+- '.github/workflows/generate.yml'
 
 jobs:
 build:
 runs-on: ubuntu-latest
-defaults:
-run:
-working-directory: .
 
 steps:
 - name: Checkout repo
 uses: actions/checkout@v3
-with:
-path: .
 
 - name: Setup Node.js
 uses: actions/setup-node@v3
 with:
-node-version: '20'
+node-version: 20
+
+- name: Install canvas dependencies
+run: |
+sudo apt-get update
+sudo apt-get install -y libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev librsvg2-dev
+
+- name: Install dependencies
+run: npm install
+
+- name: Generate tall images
+run: npm run generate
+
+- name: Split images into items
+run: npm run split
+
+- name: Commit changes
+run: |
+git config --global user.name 'github-actions'
+git config --global user.email 'actions@github.com'
+git add daily/clothing/women/sliced
+git commit -m "🔄 Auto-generated sliced images"
+git push
