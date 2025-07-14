@@ -28,7 +28,7 @@ jobs:
         run: node scripts/generator.js
 
       - name: Split images into items
-        run: node scripts/splitter.js
+        run: node scripts/splitter.mjs
 
       - name: Commit changes
         run: |
