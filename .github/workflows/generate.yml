@@ -18,11 +18,19 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Install canvas dependencies
+        run: sudo apt-get install -y libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev build-essential g++
+
       - name: Install dependencies
-        run: npm install puppeteer
+        run: |
+          npm install puppeteer
+          npm install canvas
 
       - name: Generate stats images
         run: node scripts/generator.js
+
+      - name: Split images
+        run: node scripts/splitter.js
 
       - name: Commit changes
         run: |
