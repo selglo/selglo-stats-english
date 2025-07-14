@@ -1,0 +1,12 @@
+{
+  "name": "selglo-stats",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "generate": "node scripts/generator.js",
+    "split": "node scripts/splitter.js"
+  },
+  "dependencies": {
+    "canvas": "^2.11.2"
+  }
+}
