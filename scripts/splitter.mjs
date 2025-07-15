@@ -4,38 +4,40 @@ import { createCanvas, loadImage } from 'canvas';
 
 const INPUT_PATH = path.join('daily', 'clothing', 'women', '001.png');
 const OUTPUT_DIR = path.join('daily', 'clothing', 'women', 'sliced');
-const TOTAL_ITEMS = 10;
-const ITEM_HEIGHT = 120;
-const IMAGE_WIDTH = 390;
-const PADDING = 0;
+
+const startX = 0;
+const startY = 30;
+const cropWidth = 450;
+const cropHeight = 516;
+const itemCount = 10;
 
 if (!fs.existsSync(OUTPUT_DIR)) {
-fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 }
 
 (async () => {
-const image = await loadImage(INPUT_PATH);
-const canvas = createCanvas(IMAGE_WIDTH, ITEM_HEIGHT);
-const ctx = canvas.getContext('2d');
+  const image = await loadImage(INPUT_PATH);
 
-for (let i = 0; i < TOTAL_ITEMS; i++) {
-ctx.clearRect(0, 0, IMAGE_WIDTH, ITEM_HEIGHT);
-ctx.drawImage(
-image,
-0,
-i * (ITEM_HEIGHT + PADDING),
-IMAGE_WIDTH,
-ITEM_HEIGHT,
-0,
-0,
-IMAGE_WIDTH,
-ITEM_HEIGHT
-);
+  for (let i = 0; i < itemCount; i++) {
+    const canvas = createCanvas(cropWidth, cropHeight);
+    const ctx = canvas.getContext('2d');
 
-const buffer = canvas.toBuffer('image/png');
-const outputFileName = `001-${String(i + 1).padStart(3, '0')}.png`;
-const outputPath = path.join(OUTPUT_DIR, outputFileName);
-fs.writeFileSync(outputPath, buffer);
-console.log(`✅ Saved: ${outputFileName}`);
-}
+    ctx.drawImage(
+      image,
+      startX,
+      startY + i * cropHeight,
+      cropWidth,
+      cropHeight,
+      0,
+      0,
+      cropWidth,
+      cropHeight
+    );
+
+    const buffer = canvas.toBuffer('image/png');
+    const outputFileName = `001-${String(i + 1).padStart(3, '0')}.png`;
+    const outputPath = path.join(OUTPUT_DIR, outputFileName);
+    fs.writeFileSync(outputPath, buffer);
+    console.log(`✅ Created: ${outputFileName}`);
+  }
 })();
