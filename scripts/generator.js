@@ -38,18 +38,14 @@ function getAllHtmlFiles(dirPath, fileList = []) {
 
   for (const htmlPath of htmlFiles) {
     const relativePath = path.relative(INPUT_ROOT, htmlPath);  // مثلاً clothing/women/001.html
-
-    // تبدیل مسیر خروجی به همان مسیر فعلی ولی با نام جدید 0011.png
     const outputBase = relativePath.replace('.html', '');
-    const outputPngPath = path.join(OUTPUT_ROOT, `${outputBase}1.png`);  // 0011.png
+    const outputDir = path.join(OUTPUT_ROOT, path.dirname(relativePath));
+    const outputPngPath = path.join(outputDir, `${outputBase}1.png`); // مثلاً daily/clothing/women/0011.png
 
-    // ساخت پوشه خروجی فقط در صورت نبود (همان مسیر اصلی قبلی)
-    fs.mkdirSync(path.dirname(outputPngPath), { recursive: true });
+    // ساخت پوشه خروجی فقط در صورت نبود
+    fs.mkdirSync(outputDir, { recursive: true });
 
-    // ساخت مسیر جدید برای فایل خروجی: 0011.png
-    const outputPngPath = path.join(outputDir, `${outputBase}1.png`);
-
-    // آمار نمونه برای تست (بعداً قابل تغییر است)
+    // آمار نمونه
     const sold = Math.min(980, 30 + dayOffset * 5);
     const likes = Math.min(750, Math.floor(sold * 0.75));
     const weekly = Math.floor(30 + (dayOffset % 20));
