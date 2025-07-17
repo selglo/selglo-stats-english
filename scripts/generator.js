@@ -58,10 +58,10 @@ function getAllHtmlFiles(dirPath, fileList = []) {
     // جایگزینی مقادیر در HTML
     let htmlContent = fs.readFileSync(htmlPath, 'utf8');
     htmlContent = htmlContent
-      .replace(/⭐️ .*? out of 5/, ⭐️ ${rating.toFixed(1)} out of 5)
-      .replace(/📦 Sold: .*? units/, 📦 Sold: ${sold} units)
-      .replace(/❤️ Liked by .*? customers/, ❤️ Liked by ${likes} customers)
-      .replace(/📊 In the past 7 days, .*? more/, 📊 In the past 7 days, ${weekly} more);
+      .replace(/⭐️ … out of 5/, `⭐️ ${rating.toFixed(1)} out of 5`)
+      .replace(/📦 Sold: … units/, `📦 Sold: ${sold} units`)
+      .replace(/❤️ Liked by … customers/, `❤️ Liked by ${likes} customers`)
+      .replace(/📊 In the past 7 days, … more/, `📊 In the past 7 days, ${weekly} more`);
 
     const tempHtmlPath = path.join(__dirname, 'temp.html');
     fs.writeFileSync(tempHtmlPath, htmlContent, 'utf8');
