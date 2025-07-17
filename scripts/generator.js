@@ -42,7 +42,7 @@ function getAllHtmlFiles(dirPath, fileList = []) {
     const outputDir = path.dirname(outputPngPath);
     fs.mkdirSync(outputDir, { recursive: true });
 
-    const fileUrl = file://${htmlPath};
+    const fileUrl = `file://${htmlPath}`;
     await page.setViewport({
       width: 390,
       height: 5000,
