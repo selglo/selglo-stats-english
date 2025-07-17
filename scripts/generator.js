@@ -3,13 +3,13 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// تنظیم مسیر‌ها
+// تعیین مسیرهای پایه
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const INPUT_ROOT = path.join(__dirname, '..', 'html');
 const OUTPUT_ROOT = path.join(__dirname, '..', 'daily');
 
-// دریافت همه فایل‌های HTML به صورت بازگشتی
+// تابع بازگشتی برای دریافت همه فایل‌های HTML
 function getAllHtmlFiles(dirPath, fileList = []) {
   const files = fs.readdirSync(dirPath);
   files.forEach(file => {
@@ -37,15 +37,14 @@ function getAllHtmlFiles(dirPath, fileList = []) {
   const htmlFiles = getAllHtmlFiles(INPUT_ROOT);
 
   for (const htmlPath of htmlFiles) {
-    const relativePath = path.relative(INPUT_ROOT, htmlPath);  // مثلاً clothing/women/001.html
-    const outputBase = relativePath.replace('.html', '');
-    const outputDir = path.join(OUTPUT_ROOT, path.dirname(relativePath));
-    const outputPngPath = path.join(outputDir, `${outputBase}1.png`); // مثلاً daily/clothing/women/0011.png
+    const relativePath = path.relative(INPUT_ROOT, htmlPath); // مثلاً clothing/women/001.html
+    const outputBase = relativePath.replace('.html', '');     // مثلاً clothing/women/001
+    const outputPngPath = path.join(OUTPUT_ROOT, `${outputBase}1.png`); // مسیر کامل تا daily/clothing/women/0011.png
 
-    // ساخت پوشه خروجی فقط در صورت نبود
-    fs.mkdirSync(outputDir, { recursive: true });
+    // ساخت پوشه خروجی در صورت نیاز
+    fs.mkdirSync(path.dirname(outputPngPath), { recursive: true });
 
-    // آمار نمونه
+    // تولید آمار نمونه
     const sold = Math.min(980, 30 + dayOffset * 5);
     const likes = Math.min(750, Math.floor(sold * 0.75));
     const weekly = Math.floor(30 + (dayOffset % 20));
@@ -65,7 +64,7 @@ function getAllHtmlFiles(dirPath, fileList = []) {
     fs.writeFileSync(tempHtmlPath, htmlContent, 'utf8');
     console.log(`🧠 HTML replaced and saved to temp file`);
 
-    // بارگذاری و ساخت اسکرین‌شات
+    // تنظیم اندازه و ذخیره اسکرین‌شات
     const fileUrl = `file://${tempHtmlPath}`;
     await page.setViewport({
       width: 390,
