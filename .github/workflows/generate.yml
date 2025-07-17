@@ -3,7 +3,7 @@ name: Generate Daily Stats
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'  # هر روز ساعت 00:00 UTC
+    - cron: '0 1 * * *'  # هر روز ساعت 04:00 ترکیه +3
 
 permissions:
   contents: write
