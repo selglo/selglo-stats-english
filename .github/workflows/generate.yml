@@ -1,31 +1,35 @@
+name: Generate Daily Stats
+
 on:
-workflow_dispatch:
-push:
-paths:
-- 'scripts/**'
-- 'data/**'
-- '.github/workflows/generate.yml'
+  schedule:
+    - cron: '0 0 * * *'  # every day at 00:00 UTC (03:00 Turkey)
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/'
+      - 'data/'
+      - '.github/workflows/generate.yml'
 
 jobs:
-build:
-runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-steps:
-- name: Checkout repo
-uses: actions/checkout@v3
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-- name: Setup Node.js
-uses: actions/setup-node@v3
-with:
-node-version: 20
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
 
-- name: Install canvas dependencies
-run: |
-sudo apt-get update
-sudo apt-get install -y libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev librsvg2-dev
+      - name: Install canvas dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev librsvg2-dev
 
-- name: Install dependencies
-run: npm install
+      - name: Install dependencies
+        run: npm install
 
-- name: Run stats generator script
-run: node scripts/generator.js
+      - name: Run stats generator script
+        run: node scripts/generator.js
