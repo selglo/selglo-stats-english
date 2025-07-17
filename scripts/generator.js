@@ -37,10 +37,14 @@ function getAllHtmlFiles(dirPath, fileList = []) {
   const htmlFiles = getAllHtmlFiles(INPUT_ROOT);
 
   for (const htmlPath of htmlFiles) {
-    const relativePath = path.relative(INPUT_ROOT, htmlPath);
+    const relativePath = path.relative(INPUT_ROOT, htmlPath);  // مثلاً clothing/women/001.html
+
+    // تبدیل مسیر خروجی به همان مسیر فعلی ولی با نام جدید 0011.png
     const outputBase = relativePath.replace('.html', '');
-    const outputDir = path.join(OUTPUT_ROOT, path.dirname(relativePath));
-    fs.mkdirSync(outputDir, { recursive: true });
+    const outputPngPath = path.join(OUTPUT_ROOT, `${outputBase}1.png`);  // 0011.png
+
+    // ساخت پوشه خروجی فقط در صورت نبود (همان مسیر اصلی قبلی)
+    fs.mkdirSync(path.dirname(outputPngPath), { recursive: true });
 
     // ساخت مسیر جدید برای فایل خروجی: 0011.png
     const outputPngPath = path.join(outputDir, `${outputBase}1.png`);
