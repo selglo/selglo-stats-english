@@ -37,9 +37,9 @@ function getAllHtmlFiles(dirPath, fileList = []) {
   const htmlFiles = getAllHtmlFiles(INPUT_ROOT);
 
   for (const htmlPath of htmlFiles) {
-    const relativePath = path.relative(INPUT_ROOT, htmlPath); // مثلاً clothing/women/001.html
-    const outputBase = relativePath.replace('.html', '');     // مثلاً clothing/women/001
-    const outputPngPath = path.join(OUTPUT_ROOT, `${outputBase}1.png`); // مسیر کامل تا daily/clothing/women/0011.png
+    const relativePath = path.relative(INPUT_ROOT, htmlPath); // مثل clothing/women/001.html
+    const outputBase = relativePath.replace('.html', '');     // مثل clothing/women/001
+    const outputPngPath = path.join(OUTPUT_ROOT, `${outputBase}1.png`); // daily/clothing/women/0011.png
 
     // ساخت پوشه خروجی در صورت نیاز
     fs.mkdirSync(path.dirname(outputPngPath), { recursive: true });
@@ -55,10 +55,10 @@ function getAllHtmlFiles(dirPath, fileList = []) {
     // خواندن و ویرایش HTML
     let htmlContent = fs.readFileSync(htmlPath, 'utf8');
     htmlContent = htmlContent
-      .replace(/⭐️ (\.\.\.|…) out of 5/, `⭐️ ${rating.toFixed(1)} out of 5`)
-      .replace(/📦 Sold: (\.\.\.|…) units/, `📦 Sold: ${sold} units`)
-      .replace(/❤️ Liked by (\.\.\.|…) customers/, `❤️ Liked by ${likes} customers`)
-      .replace(/📊 In the past 7 days, (\.\.\.|…) more people bought this product\./, `📊 In the past 7 days, ${weekly} more people bought this product.`);
+      .replace(/<strong>111<\/strong>/g, `<strong>${rating.toFixed(1)}</strong>`)
+      .replace(/<strong>222<\/strong>/g, `<strong>${sold}</strong>`)
+      .replace(/<strong>333<\/strong>/g, `<strong>${likes}</strong>`)
+      .replace(/<strong>444<\/strong>/g, `<strong>${weekly}</strong>`);
 
     const tempHtmlPath = path.join(__dirname, 'temp.html');
     fs.writeFileSync(tempHtmlPath, htmlContent, 'utf8');
