@@ -2,15 +2,14 @@ import puppeteer from 'puppeteer';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 
-// لازم برای __dirname معادل در ES module
+// تنظیمات مسیر و فایل
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
+const __dirname = path.dirname(__filename);
 const INPUT_ROOT = path.join(__dirname, '..', 'html');
 const OUTPUT_ROOT = path.join(__dirname, '..', 'daily');
 
+// دریافت لیست فایل‌های HTML به‌صورت بازگشتی
 function getAllHtmlFiles(dirPath, fileList = []) {
   const files = fs.readdirSync(dirPath);
   files.forEach(file => {
@@ -24,66 +23,65 @@ function getAllHtmlFiles(dirPath, fileList = []) {
   return fileList;
 }
 
-function generateStats(seed) {
-  const rng = (s) => {
-    let x = Math.sin(s) * 10000;
-    return x - Math.floor(x);
-  };
-
-  const sold = Math.floor(30 + rng(seed) * (980 - 30));
-  const likeRatio = 0.6 + rng(seed + 1) * 0.2;
-  const likes = Math.floor(sold * likeRatio);
-  const weekly = 30 + Math.floor(rng(seed + 2) * 21);
-  const star = (3 + rng(seed + 3) * 1.8).toFixed(1);
-
-  return { sold, likes, weekly, star };
+// تابع تولید مقدار عددی با روند افزایشی ملایم و نوسانی
+function generateValue(base, range, dayOffset, factor = 1) {
+  const value = base + Math.floor(Math.sin(dayOffset / 3 + factor) * range + (dayOffset * factor * 0.8));
+  return Math.max(base, Math.floor(value));
 }
 
-function injectStats(html, stats) {
-  return html
-    .replace(/<span class="rating">.*?<\/span>/, `<span class="rating">⭐ ${stats.star} out of 5</span>`)
-    .replace(/<span class="sold">.*?<\/span>/, `<span class="sold">📦 Sold: ${stats.sold} units</span>`)
-    .replace(/<span class="likes">.*?<\/span>/, `<span class="likes">❤️ Liked by ${stats.likes} customers</span>`)
-    .replace(/<span class="weekly">.*?<\/span>/, `<span class="weekly">📊 In the past 7 days, ${stats.weekly} more people bought this product.</span>`);
-}
+(async () => {
+  const today = new Date();
+  const startDate = new Date('2025-07-01'); // تاریخ شروع آمار
+  const dayOffset = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
 
-const browser = await puppeteer.launch({
-  headless: 'new',
-  args: ['--no-sandbox']
-});
-
-const page = await browser.newPage();
-const htmlFiles = getAllHtmlFiles(INPUT_ROOT);
-
-for (const htmlPath of htmlFiles) {
-  const relativePath = path.relative(INPUT_ROOT, htmlPath);
-  const outputPngPath = path.join(OUTPUT_ROOT, relativePath.replace('.html', '.png'));
-
-  fs.mkdirSync(path.dirname(outputPngPath), { recursive: true });
-
-  const seed = parseInt(relativePath.match(/\d+/)?.[0] || '1', 10);
-  const stats = generateStats(seed);
-
-  let html = fs.readFileSync(htmlPath, 'utf8');
-  html = injectStats(html, stats);
-
-  const fileUrl = 'data:text/html,' + encodeURIComponent(html);
-
-  await page.setViewport({
-    width: 390,
-    height: 5000,
-    deviceScaleFactor: 2
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    args: ['--no-sandbox']
   });
 
-  await page.goto(fileUrl, { waitUntil: 'networkidle0' });
+  const page = await browser.newPage();
+  const htmlFiles = getAllHtmlFiles(INPUT_ROOT);
 
-  await page.screenshot({
-    path: outputPngPath,
-    fullPage: true,
-    omitBackground: true
-  });
+  for (const htmlPath of htmlFiles) {
+    const relativePath = path.relative(INPUT_ROOT, htmlPath);
+    const outputPngPath = path.join(OUTPUT_ROOT, relativePath.replace('.html', '.png'));
+    const outputDir = path.dirname(outputPngPath);
+    fs.mkdirSync(outputDir, { recursive: true });
 
-  console.log(`✅ Screenshot created: ${outputPngPath}`);
-}
+    const fileUrl = `file://${htmlPath}`;
+    await page.setViewport({
+      width: 390,
+      height: 5000,
+      deviceScaleFactor: 2
+    });
 
-await browser.close();
+    // محاسبه آمار روزانه برای این محصول
+    const sold = Math.min(980, 30 + dayOffset * 5); // فروش کلی، فقط افزایشی
+    const likes = Math.min(750, Math.floor(sold * 0.75)); // نسبت به فروش
+    const weekly = Math.floor(30 + (dayOffset % 20)); // نوسان بین 30 تا 50
+    const rating = Math.min(4.8, 3 + (dayOffset % 18) * 0.1); // از 3 تا 4.8 با نوسان جزئی
+
+    // جایگزینی مقادیر در HTML
+    let htmlContent = fs.readFileSync(htmlPath, 'utf8');
+    htmlContent = htmlContent
+      .replace(/⭐ (\d+\.\d)/, `⭐ ${rating.toFixed(1)}`)
+      .replace(/📦 (\d+)/, `📦 ${sold}`)
+      .replace(/❤️ (\d+)/, `❤️ ${likes}`)
+      .replace(/📊 (\d+)/, `📊 ${weekly}`);
+
+    const tempHtmlPath = path.join(__dirname, 'temp.html');
+    fs.writeFileSync(tempHtmlPath, htmlContent, 'utf8');
+
+    await page.goto(`file://${tempHtmlPath}`, { waitUntil: 'networkidle0' });
+    await page.screenshot({
+      path: outputPngPath,
+      fullPage: true,
+      omitBackground: true
+    });
+
+    fs.unlinkSync(tempHtmlPath);
+    console.log(`✅ Generated: ${outputPngPath}`);
+  }
+
+  await browser.close();
+})();
