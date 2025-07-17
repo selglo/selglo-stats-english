@@ -3,7 +3,7 @@ name: Generate Daily Stats
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'  # هر روز ساعت 00:00 UTC
+    - cron: '0 0 * * *'  # هر روز ساعت 00:00 به وقت UTC
 
 permissions:
   contents: write
@@ -35,6 +35,6 @@ jobs:
         run: |
           git config --global user.name "selglo-bot"
           git config --global user.email "bot@selglo.com"
-          git add daily/clothing/women/*.png
-          git commit -m "Auto-update product stats images"
+          git add -A
+          git commit -m "Auto-update product stats images" || echo "No changes to commit"
           git push
