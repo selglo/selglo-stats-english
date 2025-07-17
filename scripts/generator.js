@@ -72,7 +72,7 @@ function generateValue(base, range, dayOffset, factor = 1) {
     const tempHtmlPath = path.join(__dirname, 'temp.html');
     fs.writeFileSync(tempHtmlPath, htmlContent, 'utf8');
     console.log(`🔧 Temp HTML written to ${tempHtmlPath}`);
-
+    
     await page.goto(`file://${tempHtmlPath}`, { waitUntil: 'networkidle0' });
     await page.screenshot({
       path: outputPngPath,
