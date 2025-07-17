@@ -3,13 +3,13 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// مسیرها
+// تنظیمات مسیر و فایل
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const INPUT_ROOT = path.join(__dirname, '..', 'html');
 const OUTPUT_ROOT = path.join(__dirname, '..', 'daily');
 
-// خواندن همه فایل‌های .html
+// دریافت لیست فایل‌های HTML به‌صورت بازگشتی
 function getAllHtmlFiles(dirPath, fileList = []) {
   const files = fs.readdirSync(dirPath);
   files.forEach(file => {
@@ -49,34 +49,41 @@ function getAllHtmlFiles(dirPath, fileList = []) {
       deviceScaleFactor: 2
     });
 
-    // محاسبه اعداد
+    // محاسبه آمار
     const sold = Math.min(980, 30 + dayOffset * 5);
     const likes = Math.min(750, Math.floor(sold * 0.75));
     const weekly = Math.floor(30 + (dayOffset % 20));
     const rating = Math.min(4.8, 3 + (dayOffset % 18) * 0.1);
 
-    // جایگزینی محتوای عددی در HTML
+    // جایگزینی مقادیر در HTML
     let htmlContent = fs.readFileSync(htmlPath, 'utf8');
     htmlContent = htmlContent
-      htmlContent = htmlContent
-      .replace('⭐️ … out of 5', `⭐️ ${rating.toFixed(1)} out of 5`)
-      .replace('📦 Sold: … units', `📦 Sold: ${sold} units`)
-      .replace('❤️ Liked by … customers', `❤️ Liked by ${likes} customers`)
-      .replace('📊 In the past 7 days, … more people bought this product.', `📊 In the past 7 days, ${weekly} more people bought this product.`);
+      .replace(/⭐️ (\.\.\.|…) out of 5/, `⭐️ ${rating.toFixed(1)} out of 5`)
+      .replace(/📦 Sold: (\.\.\.|…) units/, `📦 Sold: ${sold} units`)
+      .replace(/❤️ Liked by (\.\.\.|…) customers/, `❤️ Liked by ${likes} customers`)
+      .replace(/📊 In the past 7 days, (\.\.\.|…) more people bought this product\./, `📊 In the past 7 days, ${weekly} more people bought this product.`);
+
+    // برای بررسی مرحله اول
+    console.log('🔍 After Replacement:\n', htmlContent);
+
+    // ذخیره فایل موقت
+    const tempHtmlPath = path.join(__dirname, 'temp.html');
     fs.writeFileSync(tempHtmlPath, htmlContent, 'utf8');
-    console.log(`🛠 Temp HTML written to ${tempHtmlPath}`);
 
+    // بررسی مرحله دوم
+    console.log('📝 Saved temp.html content:\n', fs.readFileSync(tempHtmlPath, 'utf8'));
+
+    // ساخت اسکرین‌شات
     await page.goto(`file://${tempHtmlPath}`, { waitUntil: 'networkidle0' });
-
     await page.screenshot({
       path: outputPngPath,
       fullPage: true,
       omitBackground: true
     });
-
     console.log(`📸 Screenshot saved to ${outputPngPath}`);
+
     fs.unlinkSync(tempHtmlPath);
-    console.log(`✅ Done for: ${outputPngPath}`);
+    console.log(`✅ Generated: ${outputPngPath}`);
   }
 
   await browser.close();
