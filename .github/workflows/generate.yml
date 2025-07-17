@@ -1,19 +1,16 @@
 name: Generate Daily Stats
 
 on:
-  schedule:
-    - cron: '0 0 * * *'  # every day at 00:00 UTC (03:00 Turkey)
   workflow_dispatch:
-  push:
-    paths:
-      - 'scripts/'
-      - 'data/'
-      - '.github/workflows/generate.yml'
-      
+  schedule:
+    - cron: '0 0 * * *'  # هر روز ساعت 00:00 UTC
+
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -33,3 +30,11 @@ jobs:
 
       - name: Run stats generator script
         run: node scripts/generator.js
+
+      - name: Push updated PNGs
+        run: |
+          git config --global user.name "selglo-bot"
+          git config --global user.email "bot@selglo.com"
+          git add daily/clothing/women/*.png
+          git commit -m "Auto-update product stats images"
+          git push
