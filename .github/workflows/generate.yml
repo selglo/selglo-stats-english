@@ -9,7 +9,7 @@ on:
       - 'scripts/'
       - 'data/'
       - '.github/workflows/generate.yml'
-
+      
 jobs:
   build:
     runs-on: ubuntu-latest
