@@ -2,10 +2,14 @@ name: Split Images
 
 on:
   workflow_dispatch:
+
+  schedule:
+    - cron: '0 3 * * *'  # 6:00 صبح ترکیه = 3:00 UTC
+
   push:
     paths:
-      - 'scripts/splitter.mjs'
       - 'daily/clothing/women/001.png'
+      - 'scripts/splitter.mjs'
       - '.github/workflows/split.yml'
 
 jobs:
@@ -26,16 +30,16 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 
-      - name: Install dependencies
+      - name: Install npm packages
         run: npm install
 
       - name: Run splitter script
         run: node scripts/splitter.mjs
 
-      - name: Commit results
+      - name: Commit and push sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add daily/clothing/women/sliced/
-          git commit -m "Auto split updated 001.png" || echo "No changes to commit"
+          git commit -m "Auto-split: updated sliced images from 001.png" || echo "No changes to commit"
           git push
