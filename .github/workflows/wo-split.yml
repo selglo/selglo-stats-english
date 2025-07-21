@@ -8,9 +8,9 @@ on:
 
   push:
     paths:
-      - 'daily/clothing/women/001.png'
+      - 'daily/clothing/women/wo-001.png'
       - 'scripts/splitter.mjs'
-      - '.github/workflows/split.yml'
+      - '.github/workflows/wo-split.yml'
 
 jobs:
   split-images:
@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run splitter script
-        run: node scripts/splitter.mjs
+        run: node scripts/wo-splitter.mjs
 
       - name: Commit and push sliced images
         run: |
