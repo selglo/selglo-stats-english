@@ -33,7 +33,7 @@ function getAllHtmlFiles(dirPath, fileList = []) {
   const htmlFiles = getAllHtmlFiles(INPUT_ROOT);
 
   for (const htmlPath of htmlFiles) {
-    const relativePath = path.relative(INPUT_ROOT, htmlPath); // مثل clothing/women/001.html
+    const relativePath = path.relative(INPUT_ROOT, htmlPath); // مثل clothing/women/001.html یا clothing/men/M-001.html
     const outputBase = relativePath.replace('.html', '');      // مثل clothing/women/001
     const outputPngPath = path.join(OUTPUT_ROOT, `${outputBase}.png`); // خروجی روی خود 001.png
 
@@ -47,10 +47,20 @@ function getAllHtmlFiles(dirPath, fileList = []) {
       const index = parseInt(productId.slice(1));
       const offset = dayOffset + index * 3;
 
+      // 📦 فروش کل: فقط افزایشی
       const sold = Math.min(980, 30 + offset * 5);
-      const likes = Math.min(750, Math.floor(sold * (0.6 + Math.random() * 0.2)));
-      const weekly = Math.floor(30 + (sold % 20));
-      const rating = Math.min(4.8, 3 + ((offset % 18) * 0.1 + Math.random() * 0.2));
+
+      // ❤️ لایک‌ها: افزایشی با نوسان نرم
+      const baseLikeRatio = 0.65 + (Math.sin(offset / 7) * 0.05); // نوسان بین 0.6 تا 0.7
+      const likes = Math.min(750, Math.floor(sold * baseLikeRatio));
+
+      // 📊 فروش ۷ روز اخیر: نوسانی ولی نزدیک به 4٪–5٪ فروش
+      const weekly = Math.max(10, Math.floor((sold * 0.045) + (Math.random() * 6 - 3)));
+
+      // ⭐️ امتیاز: رشد ملایم با نوسان جزئی
+      const ratingBase = 3.5 + (offset / 120); // رشد بسیار آهسته
+      const ratingNoise = (Math.random() - 0.5) * 0.2; // نوسان ±0.1
+      const rating = Math.max(3.0, Math.min(4.9, ratingBase + ratingNoise));
 
       return `<div class="product" id="${productId}">
         <p><span class="icon">⭐️</span> <strong>${rating.toFixed(1)}</strong> out of 5</p>
