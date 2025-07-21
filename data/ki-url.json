@@ -1,1 +1,62 @@
-dfgfg
+[
+  {
+    "id": "english-kids-01-item-001",
+    "url": "https://selglo.com/english-kids-01/",
+    "selector": "#item-001",
+    "seed": 301
+  },
+  {
+    "id": "english-kids-01-item-002",
+    "url": "https://selglo.com/english-kids-01/",
+    "selector": "#item-002",
+    "seed": 302
+  },
+  {
+    "id": "english-kids-01-item-003",
+    "url": "https://selglo.com/english-kids-01/",
+    "selector": "#item-003",
+    "seed": 303
+  },
+  {
+    "id": "english-kids-01-item-004",
+    "url": "https://selglo.com/english-kids-01/",
+    "selector": "#item-004",
+    "seed": 304
+  },
+  {
+    "id": "english-kids-01-item-005",
+    "url": "https://selglo.com/english-kids-01/",
+    "selector": "#item-005",
+    "seed": 305
+  },
+  {
+    "id": "english-kids-01-item-006",
+    "url": "https://selglo.com/english-kids-01/",
+    "selector": "#item-006",
+    "seed": 306
+  },
+  {
+    "id": "english-kids-01-item-007",
+    "url": "https://selglo.com/english-kids-01/",
+    "selector": "#item-007",
+    "seed": 307
+  },
+  {
+    "id": "english-kids-01-item-008",
+    "url": "https://selglo.com/english-kids-01/",
+    "selector": "#item-008",
+    "seed": 308
+  },
+  {
+    "id": "english-kids-01-item-009",
+    "url": "https://selglo.com/english-kids-01/",
+    "selector": "#item-009",
+    "seed": 309
+  },
+  {
+    "id": "english-kids-01-item-010",
+    "url": "https://selglo.com/english-kids-01/",
+    "selector": "#item-010",
+    "seed": 310
+  }
+]
