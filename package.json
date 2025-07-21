@@ -4,7 +4,6 @@
   "type": "module",
   "scripts": {
     "generate": "node scripts/generator.js",
-    "split": "node scripts/splitter.mjs",
     "wo-split": "node scripts/wo-splitter.mjs",
     "me-split": "node scripts/me-splitter.mjs",
     "ki-split": "node scripts/ki-splitter.mjs",
