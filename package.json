@@ -4,10 +4,11 @@
   "type": "module",
   "scripts": {
     "generate": "node scripts/generator.js",
-    "split": "node scripts/splitter.mjs"
+    "split": "node scripts/splitter.mjs",
+    "men-split": "node scripts/Men-Splitter.mjs"
   },
   "dependencies": {
-  "canvas": "^2.11.2",
-  "puppeteer": "^22.0.0"
+    "canvas": "^2.11.2",
+    "puppeteer": "^22.0.0"
   }
 }
