@@ -1,0 +1,62 @@
+[
+  {
+    "id": "english-men-01-item-001",
+    "url": "https://selglo.com/english-men-01/",
+    "selector": "#item-001",
+    "seed": 201
+  },
+  {
+    "id": "english-men-01-item-002",
+    "url": "https://selglo.com/english-men-01/",
+    "selector": "#item-002",
+    "seed": 202
+  },
+  {
+    "id": "english-men-01-item-003",
+    "url": "https://selglo.com/english-men-01/",
+    "selector": "#item-003",
+    "seed": 203
+  },
+  {
+    "id": "english-men-01-item-004",
+    "url": "https://selglo.com/english-men-01/",
+    "selector": "#item-004",
+    "seed": 204
+  },
+  {
+    "id": "english-men-01-item-005",
+    "url": "https://selglo.com/english-men-01/",
+    "selector": "#item-005",
+    "seed": 205
+  },
+  {
+    "id": "english-men-01-item-006",
+    "url": "https://selglo.com/english-men-01/",
+    "selector": "#item-006",
+    "seed": 206
+  },
+  {
+    "id": "english-men-01-item-007",
+    "url": "https://selglo.com/english-men-01/",
+    "selector": "#item-007",
+    "seed": 207
+  },
+  {
+    "id": "english-men-01-item-008",
+    "url": "https://selglo.com/english-men-01/",
+    "selector": "#item-008",
+    "seed": 208
+  },
+  {
+    "id": "english-men-01-item-009",
+    "url": "https://selglo.com/english-men-01/",
+    "selector": "#item-009",
+    "seed": 209
+  },
+  {
+    "id": "english-men-01-item-010",
+    "url": "https://selglo.com/english-men-01/",
+    "selector": "#item-010",
+    "seed": 210
+  }
+]
