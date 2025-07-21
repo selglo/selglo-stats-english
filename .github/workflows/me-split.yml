@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run men splitter script
-        run: node scripts/me-Splitter.mjs
+        run: node scripts/me-splitter.mjs
 
       - name: Commit and push men sliced images
         run: |
