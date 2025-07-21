@@ -8,7 +8,7 @@ on:
 
   push:
     paths:
-      - 'daily/clothing/men/M001.png'
+      - 'daily/clothing/men/M-001.png'
       - 'scripts/Men-Splitter.mjs'
       - '.github/workflows/Men-Split.yml'
 
