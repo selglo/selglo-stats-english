@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// مسیر پایه
+// مسیرهای پایه
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -21,9 +21,9 @@ const batches = state.batches;
 const generateHtmlForBatch = (batchPath, lastSeed = 100) => {
   let html = fs.readFileSync(INPUT_HTML, 'utf8');
 
-  html = html.replace(/<div class="product" id="(p\d+)">([\s\S]*?)<\/div>/g, (match, productId, content) => {
-    const index = parseInt(productId.slice(1));
-    const seed = lastSeed + index;
+  for (let i = 1; i <= 10; i++) {
+    const productId = `p${i.toString().padStart(3, '0')}`;
+    const seed = lastSeed + i;
     const offset = dayOffset + seed;
 
     const sold = Math.min(980, 30 + offset * 5);
@@ -34,13 +34,17 @@ const generateHtmlForBatch = (batchPath, lastSeed = 100) => {
     const ratingNoise = (Math.random() - 0.5) * 0.2;
     const rating = Math.max(3.0, Math.min(4.9, ratingBase + ratingNoise));
 
-    return `<div class="product" id="${productId}">
+    const pattern = new RegExp(`<div class="product" id="${productId}">([\\s\\S]*?)<\\/div>`, 'g');
+
+    const replacement = `<div class="product" id="${productId}">
       <p><span class="icon">⭐️</span> <strong>${rating.toFixed(1)}</strong> out of 5</p>
       <p><span class="icon">📦</span> Sold: <strong>${sold}</strong> units</p>
       <p><span class="icon">❤️</span> Liked by <strong>${likes}</strong> customers</p>
       <p><span class="icon">📊</span> In the past 7 days, <strong>${weekly}</strong> more<br><span style="color: transparent;">---</span>people bought this product.</p>
     </div>`;
-  });
+
+    html = html.replace(pattern, replacement);
+  }
 
   return html;
 };
