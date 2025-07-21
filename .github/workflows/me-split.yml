@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/clothing/men/me-001.png'
-      - 'scripts/me-Splitter.mjs'
-      - '.github/workflows/me-Split.yml'
+      - 'scripts/me-splitter.mjs'
+      - '.github/workflows/me-split.yml'
 
 jobs:
   split-men-images:
