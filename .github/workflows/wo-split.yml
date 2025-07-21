@@ -1,4 +1,4 @@
-name: Split Images
+name: split Images
 
 on:
   workflow_dispatch:
@@ -9,7 +9,7 @@ on:
   push:
     paths:
       - 'daily/clothing/women/wo-001.png'
-      - 'scripts/splitter.mjs'
+      - 'scripts/wo-splitter.mjs'
       - '.github/workflows/wo-split.yml'
 
 jobs:
