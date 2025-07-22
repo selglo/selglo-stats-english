@@ -3,13 +3,13 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// مسیرهای پایه
+// تعیین مسیرهای پایه
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const INPUT_ROOT = path.join(__dirname, '..', 'html');
-const OUTPUT_ROOT = path.join(__dirname, '..', 'daily/clothing');
+const OUTPUT_ROOT = path.join(__dirname, '..', 'daily');
 
-// دریافت همه فایل‌های HTML
+// تابع بازگشتی برای دریافت همه فایل‌های HTML
 function getAllHtmlFiles(dirPath, fileList = []) {
   const files = fs.readdirSync(dirPath);
   files.forEach(file => {
@@ -23,17 +23,6 @@ function getAllHtmlFiles(dirPath, fileList = []) {
   return fileList;
 }
 
-// نگاشت پیشوند به پوشه
-function groupCodeToFolder(code) {
-  return {
-    ba: 'bags',
-    me: 'men',
-    wo: 'women',
-    sh: 'shoes',
-    ki: 'kids'
-  }[code] || 'unknown';
-}
-
 (async () => {
   const today = new Date();
   const startDate = new Date('2025-07-01');
@@ -44,24 +33,34 @@ function groupCodeToFolder(code) {
   const htmlFiles = getAllHtmlFiles(INPUT_ROOT);
 
   for (const htmlPath of htmlFiles) {
-    const parsed = path.parse(htmlPath);           // مانند wo-001.html
-    const groupCode = parsed.name.slice(0, 2);     // استخراج "wo"
-    const groupFolder = groupCodeToFolder(groupCode);  // تبدیل به women
+    const fileName = path.basename(htmlPath);         // مثلاً "wo-001.html"
+    const prefix = fileName.split('-')[0];            // "wo"
 
-    const outputDir = path.join(OUTPUT_ROOT, groupFolder);  // مسیر خروجی نهایی
-    const outputFile = parsed.name + '.png';       // مانند wo-001.png
-    const outputPath = path.join(outputDir, outputFile);    // مسیر کامل ذخیره
+    // تعیین دایرکتوری خروجی بر اساس پیشوند
+    let targetDir = '';
+    switch (prefix) {
+      case 'wo': targetDir = 'women'; break;
+      case 'me': targetDir = 'men'; break;
+      case 'ba': targetDir = 'bags'; break;
+      case 'sh': targetDir = 'shoes'; break;
+      case 'ki': targetDir = 'kids'; break;
+      default: targetDir = ''; break;
+    }
 
+    const outputDir = path.join(OUTPUT_ROOT, 'clothing', targetDir);
+    const outputFile = fileName.replace('.html', '.png'); // مثل wo-001.png
+    const outputPngPath = path.join(outputDir, outputFile);
     fs.mkdirSync(outputDir, { recursive: true });
 
+    // خواندن HTML
     let htmlContent = fs.readFileSync(htmlPath, 'utf8');
 
-    // استخراج seed از نام فایل
-    const seedMatch = parsed.name.match(/\d+/);
+    // استخراج seed برای آمار مستقل
+    const seedMatch = fileName.match(/\d+/);
     const seedBase = seedMatch ? parseInt(seedMatch[0]) : 1;
     const baseOffset = seedBase;
 
-    // جایگزینی محتوای محصول‌ها
+    // پردازش HTML برای درج آمار دینامیک
     htmlContent = htmlContent.replace(/<div class="product" id="(p\d+)">([\s\S]*?)<\/div>/g, (match, productId) => {
       const index = parseInt(productId.slice(1));
       const offset = baseOffset + index;
@@ -79,6 +78,7 @@ function groupCodeToFolder(code) {
       </div>`;
     });
 
+    // ایجاد فایل موقت و گرفتن اسکرین‌شات
     const tempHtmlPath = path.join(__dirname, 'temp.html');
     fs.writeFileSync(tempHtmlPath, htmlContent, 'utf8');
 
@@ -86,7 +86,7 @@ function groupCodeToFolder(code) {
     await page.goto(`file://${tempHtmlPath}`, { waitUntil: 'networkidle0' });
 
     await page.screenshot({
-      path: outputPath,
+      path: outputPngPath,
       fullPage: true,
       omitBackground: true
     });
