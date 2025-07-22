@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// مسیرهای پایه
+// تعیین مسیرهای پایه
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const INPUT_ROOT = path.join(__dirname, '..', 'html');
@@ -32,31 +32,25 @@ function getAllHtmlFiles(dirPath, fileList = []) {
   const page = await browser.newPage();
   const htmlFiles = getAllHtmlFiles(INPUT_ROOT);
 
-  console.log('✅ HTML files found:', htmlFiles.map(f => path.relative(INPUT_ROOT, f)));
-
   for (const htmlPath of htmlFiles) {
-    const relativePath = path.relative(INPUT_ROOT, htmlPath); // مثل clothing/women/wo-001.html
-    console.log('🚀 Processing:', relativePath);
+    const relativePath = path.relative(INPUT_ROOT, htmlPath); // مثل clothing/women/001.html
+    const outputBase = relativePath.replace('.html', '');      // مثل clothing/women/001
+    const outputPngPath = path.join(OUTPUT_ROOT, `${outputBase}.png`); // خروجی روی خود 001.png
 
-    const outputBase = relativePath.replace(/\.html$/, '').replace(/\\/g, '/'); // اصلاح مسیر ویندوز
-    const outputPngPath = path.join(OUTPUT_ROOT, `${outputBase}.png`);
     fs.mkdirSync(path.dirname(outputPngPath), { recursive: true });
 
-    // خواندن محتوای HTML
+    // خواندن HTML
     let htmlContent = fs.readFileSync(htmlPath, 'utf8');
 
-    // جایگزینی محتوای آماری برای هر محصول
+    // پردازش برای هر محصول
     htmlContent = htmlContent.replace(/<div class="product" id="(p\d+)">([\s\S]*?)<\/div>/g, (match, productId, content) => {
       const index = parseInt(productId.slice(1));
       const offset = dayOffset + index * 3;
 
       const sold = Math.min(980, 30 + offset * 5);
-      const baseLikeRatio = 0.65 + (Math.sin(offset / 7) * 0.05);
-      const likes = Math.min(750, Math.floor(sold * baseLikeRatio));
-      const weekly = Math.max(10, Math.floor((sold * 0.045) + (Math.random() * 6 - 3)));
-      const ratingBase = 3.5 + (offset / 120);
-      const ratingNoise = (Math.random() - 0.5) * 0.2;
-      const rating = Math.max(3.0, Math.min(4.9, ratingBase + ratingNoise));
+      const likes = Math.min(750, Math.floor(sold * (0.6 + Math.random() * 0.2)));
+      const weekly = Math.floor(30 + (sold % 20));
+      const rating = Math.min(4.8, 3 + ((offset % 18) * 0.1 + Math.random() * 0.2));
 
       return `<div class="product" id="${productId}">
         <p><span class="icon">⭐️</span> <strong>${rating.toFixed(1)}</strong> out of 5</p>
@@ -79,9 +73,7 @@ function getAllHtmlFiles(dirPath, fileList = []) {
     });
 
     fs.unlinkSync(tempHtmlPath);
-    console.log('✅ Created:', outputPngPath);
   }
 
   await browser.close();
-  console.log('🎉 All screenshots generated successfully.');
 })();
