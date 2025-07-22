@@ -69,11 +69,18 @@ function getAllHtmlFiles(dirPath, fileList = []) {
       const index = parseInt(productId.slice(1));
       const productSeed = groupOffset + seedBase * 100 + index;
 
+      // محاسبه dateFactor با نوسان نرم
+      const today = new Date();
+      const year = today.getFullYear() % 100;
+      const month = today.getMonth() + 1;
+      const day = today.getDate();
+      const dateFactor = Math.sqrt(year + month + Math.cbrt(day));
+
       const maxSold = 980;
-      const sold = Math.min(maxSold, Math.floor(30 + productSeed + dayOffset * 2.2 + (productSeed % 5) * Math.sin(dayOffset / 7)));
-      const weekly = Math.min(Math.floor(sold / 4), Math.floor(10 + (sold % 10) + (Math.cos(dayOffset / 4 + productSeed) * 3)));
-      const likes = Math.min(750, Math.floor(sold * (0.6 + Math.sin((productSeed + dayOffset) / 11) * 0.1)));
-      const rating = Math.min(4.8, 3 + ((productSeed % 20) * 0.1 + (Math.sin(productSeed + dayOffset / 10) * 0.2)));
+      const sold = Math.min(maxSold, Math.floor(30 + productSeed + dateFactor * 8 + (productSeed % 5) * Math.sin(dateFactor)));
+      const weekly = Math.min(Math.floor(sold / 4), Math.floor(10 + (sold % 10) + Math.cos(dateFactor + productSeed) * 3));
+      const likes = Math.min(750, Math.floor(sold * (0.6 + Math.sin((productSeed + dateFactor) / 11) * 0.1)));
+      const rating = Math.min(4.8, 3 + ((productSeed % 20) * 0.1 + Math.sin(productSeed + dateFactor / 2) * 0.2));
 
       return `<div class="product" id="${productId}">
         <p><span class="icon">⭐️</span> <strong>${rating.toFixed(1)}</strong> out of 5</p>
