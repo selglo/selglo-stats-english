@@ -37,14 +37,14 @@ function getAllHtmlFiles(dirPath, fileList = []) {
     const prefix = fileName.split('-')[0];            // "wo"
 
     // تعیین دایرکتوری خروجی بر اساس پیشوند
-    let targetDir = '';
+    let groupOffset = 0;
     switch (prefix) {
-      case 'wo': targetDir = 'women'; break;
-      case 'me': targetDir = 'men'; break;
-      case 'ba': targetDir = 'bags'; break;
-      case 'sh': targetDir = 'shoes'; break;
-      case 'ki': targetDir = 'kids'; break;
-      default: targetDir = ''; break;
+      case 'wo': groupOffset = 1000; break;
+      case 'me': groupOffset = 2000; break;
+      case 'ba': groupOffset = 3000; break;
+      case 'sh': groupOffset = 4000; break;
+      case 'ki': groupOffset = 5000; break;
+      default: groupOffset = 0;
     }
 
     const outputDir = path.join(OUTPUT_ROOT, 'clothing', targetDir);
@@ -63,7 +63,7 @@ function getAllHtmlFiles(dirPath, fileList = []) {
     // محاسبه آمار برای هر محصول
     htmlContent = htmlContent.replace(/<div class="product" id="(p\d+)">([\s\S]*?)<\/div>/g, (match, productId) => {
       const index = parseInt(productId.slice(1));
-      const productSeed = seedBase + index;
+      const productSeed = groupOffset + seedBase * 100 + index;
 
       const maxSold = 980;
       const sold = Math.min(maxSold, Math.floor(30 + productSeed + dayOffset * 2.2 + (productSeed % 5) * Math.sin(dayOffset / 7)));
