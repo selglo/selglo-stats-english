@@ -60,15 +60,16 @@ function getAllHtmlFiles(dirPath, fileList = []) {
     const seedBase = seedMatch ? parseInt(seedMatch[0]) : 1;
     const baseOffset = seedBase;
 
-    // پردازش HTML برای درج آمار دینامیک
+    // محاسبه آمار برای هر محصول
     htmlContent = htmlContent.replace(/<div class="product" id="(p\d+)">([\s\S]*?)<\/div>/g, (match, productId) => {
       const index = parseInt(productId.slice(1));
-      const offset = baseOffset + index;
+      const productSeed = seedBase + index;
 
-      const sold = Math.min(980, 30 + offset * 5);
-      const likes = Math.min(750, Math.floor(sold * (0.6 + Math.sin(offset / 5) * 0.1)));
-      const weekly = Math.floor(30 + (sold % 20));
-      const rating = Math.min(4.8, 3 + ((offset % 20) * 0.1 + (Math.random() - 0.5) * 0.2));
+      const maxSold = 980;
+      const sold = Math.min(maxSold, Math.floor(30 + productSeed + dayOffset * 2.2 + (productSeed % 5) * Math.sin(dayOffset / 7)));
+      const weekly = Math.min(Math.floor(sold / 4), Math.floor(10 + (sold % 10) + (Math.cos(dayOffset / 4 + productSeed) * 3)));
+      const likes = Math.min(750, Math.floor(sold * (0.6 + Math.sin((productSeed + dayOffset) / 11) * 0.1)));
+      const rating = Math.min(4.8, 3 + ((productSeed % 20) * 0.1 + (Math.sin(productSeed + dayOffset / 10) * 0.2)));
 
       return `<div class="product" id="${productId}">
         <p><span class="icon">⭐️</span> <strong>${rating.toFixed(1)}</strong> out of 5</p>
