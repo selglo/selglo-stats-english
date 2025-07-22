@@ -33,9 +33,9 @@ function getAllHtmlFiles(dirPath, fileList = []) {
   const htmlFiles = getAllHtmlFiles(INPUT_ROOT);
 
   for (const htmlPath of htmlFiles) {
-    const relativePath = path.relative(INPUT_ROOT, htmlPath); // مثل clothing/women/001.html
-    const outputBase = relativePath.replace('.html', '');      // مثل clothing/women/001
-    const outputPngPath = path.join(OUTPUT_ROOT, `${outputBase}.png`); // خروجی روی خود 001.png
+    const relativePath = path.relative(INPUT_ROOT, htmlPath); // مثل clothing/women/wo-001.html
+    const outputBase = relativePath.replace('.html', '');      // مثل clothing/women/wo-001
+    const outputPngPath = path.join(OUTPUT_ROOT, `${outputBase}.png`); // خروجی روی خود wo-001.png
 
     fs.mkdirSync(path.dirname(outputPngPath), { recursive: true });
 
