@@ -38,13 +38,17 @@ function getAllHtmlFiles(dirPath, fileList = []) {
 
     // تعیین دایرکتوری خروجی بر اساس پیشوند
     let groupOffset = 0;
+    let targetDir = '';  // ✅ خط اضافه‌شده برای رفع خطا
+
     switch (prefix) {
-      case 'wo': groupOffset = 1000; break;
-      case 'me': groupOffset = 2000; break;
-      case 'ba': groupOffset = 3000; break;
-      case 'sh': groupOffset = 4000; break;
-      case 'ki': groupOffset = 5000; break;
-      default: groupOffset = 0;
+      case 'wo': groupOffset = 1000; targetDir = 'women'; break;
+      case 'me': groupOffset = 2000; targetDir = 'men'; break;
+      case 'ba': groupOffset = 3000; targetDir = 'bags'; break;
+      case 'sh': groupOffset = 4000; targetDir = 'shoes'; break;
+      case 'ki': groupOffset = 5000; targetDir = 'kids'; break;
+      default:
+        console.warn(`⚠️ Unknown prefix "${prefix}" in file ${fileName}, skipping.`);
+        continue;
     }
 
     const outputDir = path.join(OUTPUT_ROOT, 'clothing', targetDir);
