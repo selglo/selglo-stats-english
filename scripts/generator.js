@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const INPUT_ROOT = path.join(__dirname, '..', 'html');
-const OUTPUT_ROOT = path.join(__dirname, '..', 'daily');
+const OUTPUT_ROOT = path.join(__dirname, '..', 'daily/clothing');
 
 function getAllHtmlFiles(dirPath, fileList = []) {
   const files = fs.readdirSync(dirPath);
@@ -31,17 +31,16 @@ function getAllHtmlFiles(dirPath, fileList = []) {
   const htmlFiles = getAllHtmlFiles(INPUT_ROOT);
 
   for (const htmlPath of htmlFiles) {
-    const relativePath = path.relative(INPUT_ROOT, htmlPath); // مثل clothing/bags/ba-001.html
-    const parsed = path.parse(relativePath);
-    const outputDir = path.join(OUTPUT_ROOT, parsed.dir);     // مثل daily/clothing/bags
-    const outputFile = parsed.name + '.png';                  // مثل ba-001.png
+    const parsed = path.parse(htmlPath); // مثلا name = ba-001
+    const groupCode = parsed.name.slice(0, 2); // "ba", "me", "wo", ...
+    const outputDir = path.join(OUTPUT_ROOT, groupCodeToFolder(groupCode));
+    const outputFile = parsed.name + '.png';
     const outputPath = path.join(outputDir, outputFile);
 
     fs.mkdirSync(outputDir, { recursive: true });
 
     let htmlContent = fs.readFileSync(htmlPath, 'utf8');
 
-    // seed بر اساس نام فایل (ba-001 → 101, ki-001 → 201 ...)
     const seedMatch = parsed.name.match(/\d+/);
     const seedBase = seedMatch ? parseInt(seedMatch[0]) : 1;
     const baseOffset = seedBase;
@@ -80,3 +79,14 @@ function getAllHtmlFiles(dirPath, fileList = []) {
 
   await browser.close();
 })();
+
+// تابع نگاشت کد به پوشه
+function groupCodeToFolder(code) {
+  return {
+    ba: 'bags',
+    me: 'men',
+    wo: 'women',
+    sh: 'shoes',
+    ki: 'kids'
+  }[code] || 'unknown';
+}
