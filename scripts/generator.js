@@ -3,67 +3,86 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// تعیین مسیرهای پایه
+// مسیرهای اصلی
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const INPUT_ROOT = path.join(__dirname, '..', 'html');
-const OUTPUT_ROOT = path.join(__dirname, '..', 'daily');
+const OUTPUT_ROOT = path.join(__dirname, '..', 'daily', 'clothing');
 
-// تابع بازگشتی برای دریافت همه فایل‌های HTML
+// تابع بازگشتی برای دریافت همه HTML‌ها
 function getAllHtmlFiles(dirPath, fileList = []) {
   const files = fs.readdirSync(dirPath);
-  files.forEach(file => {
+  for (const file of files) {
     const fullPath = path.join(dirPath, file);
     if (fs.statSync(fullPath).isDirectory()) {
       getAllHtmlFiles(fullPath, fileList);
     } else if (file.endsWith('.html')) {
       fileList.push(fullPath);
     }
-  });
+  }
   return fileList;
 }
 
 (async () => {
-  const today = new Date();
-  const startDate = new Date('2025-07-01');
-  const dayOffset = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
-
   const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox'] });
   const page = await browser.newPage();
   const htmlFiles = getAllHtmlFiles(INPUT_ROOT);
 
   for (const htmlPath of htmlFiles) {
-    const fileName = path.basename(htmlPath);         // مثلاً "wo-001.html"
-    const prefix = fileName.split('-')[0];            // "wo"
+    const baseName = path.basename(htmlPath); // مثال: wo-001.html
+    const prefix = baseName.split('-')[0];    // مثال: "wo"
 
-    // تعیین دایرکتوری خروجی بر اساس پیشوند
+    // 🔢 تنظیم پوشه و seed اختصاصی
     let targetDir = '';
+    let baseSeed = 0;
+
     switch (prefix) {
-      case 'wo': targetDir = 'women'; break;
-      case 'me': targetDir = 'men'; break;
-      case 'ba': targetDir = 'bags'; break;
-      case 'sh': targetDir = 'shoes'; break;
-      case 'ki': targetDir = 'kids'; break;
-      default: targetDir = ''; break;
+      case 'wo':
+        targetDir = 'women';
+        baseSeed = 100;
+        break;
+      case 'me':
+        targetDir = 'men';
+        baseSeed = 200;
+        break;
+      case 'ba':
+        targetDir = 'bags';
+        baseSeed = 300;
+        break;
+      case 'sh':
+        targetDir = 'shoes';
+        baseSeed = 400;
+        break;
+      case 'ki':
+        targetDir = 'kids';
+        baseSeed = 500;
+        break;
+      case 'to':
+        targetDir = 'toys';
+        baseSeed = 600;
+        break;
+      case 'be':
+        targetDir = 'beauty';
+        baseSeed = 700;
+        break;
+      default:
+        targetDir = 'unknown';
+        baseSeed = 999;
+        break;
     }
 
-    const outputDir = path.join(OUTPUT_ROOT, 'clothing', targetDir);
-    const outputFile = fileName.replace('.html', '.png'); // مثل wo-001.png
-    const outputPngPath = path.join(outputDir, outputFile);
+    const outputDir = path.join(OUTPUT_ROOT, targetDir);
     fs.mkdirSync(outputDir, { recursive: true });
 
-    // خواندن HTML
+    const outputFile = baseName.replace('.html', '.png');
+    const outputPath = path.join(outputDir, outputFile);
+
+    // خواندن و پردازش HTML
     let htmlContent = fs.readFileSync(htmlPath, 'utf8');
 
-    // استخراج seed برای آمار مستقل
-    const seedMatch = fileName.match(/\d+/);
-    const seedBase = seedMatch ? parseInt(seedMatch[0]) : 1;
-    const baseOffset = seedBase;
-
-    // پردازش HTML برای درج آمار دینامیک
     htmlContent = htmlContent.replace(/<div class="product" id="(p\d+)">([\s\S]*?)<\/div>/g, (match, productId) => {
-      const index = parseInt(productId.slice(1));
-      const offset = baseOffset + index;
+      const index = parseInt(productId.slice(1));   // 1 تا 10
+      const offset = baseSeed + index;              // عدد یکتا و متفاوت برای هر محصول
 
       const sold = Math.min(980, 30 + offset * 5);
       const likes = Math.min(750, Math.floor(sold * (0.6 + Math.sin(offset / 5) * 0.1)));
@@ -78,7 +97,6 @@ function getAllHtmlFiles(dirPath, fileList = []) {
       </div>`;
     });
 
-    // ایجاد فایل موقت و گرفتن اسکرین‌شات
     const tempHtmlPath = path.join(__dirname, 'temp.html');
     fs.writeFileSync(tempHtmlPath, htmlContent, 'utf8');
 
@@ -86,7 +104,7 @@ function getAllHtmlFiles(dirPath, fileList = []) {
     await page.goto(`file://${tempHtmlPath}`, { waitUntil: 'networkidle0' });
 
     await page.screenshot({
-      path: outputPngPath,
+      path: outputPath,
       fullPage: true,
       omitBackground: true
     });
