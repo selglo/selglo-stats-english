@@ -23,6 +23,18 @@
     "clothing/bags/001": {
       "generated": false,
       "sliced": false
+    },
+    "clothing/Jewelry/001": {
+      "generated": false,
+      "sliced": false
+    },
+    "clothing/Watches/001": {
+      "generated": false,
+      "sliced": false
+    },
+    "clothing/Sunglasses/001": {
+      "generated": false,
+      "sliced": false
     }
   }
 }
