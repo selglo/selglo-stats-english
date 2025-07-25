@@ -9,8 +9,8 @@
     "ki-split": "node scripts/ki-splitter.mjs",
     "sh-split": "node scripts/sh-splitter.mjs",
     "ba-split": "node scripts/ba-splitter.mjs",
-    "je-split": "node scripts/je-splitter.mjs"
-    "wa-split": "node scripts/wa-splitter.mjs"
+    "je-split": "node scripts/je-splitter.mjs",
+    "wa-split": "node scripts/wa-splitter.mjs",
     "su-split": "node scripts/su-splitter.mjs"
   },
   "dependencies": {
