@@ -1,10 +1,10 @@
-name: split Images
+name: Split women Images
 
 on:
   workflow_dispatch:
 
   schedule:
-    - cron: '0 3 * * *'  # 6:00 صبح ترکیه UTC
+    - cron: '0 3 * * *'  # هر روز 06:00 صبح ترکیه (UTC 3:00)
 
   push:
     paths:
@@ -13,7 +13,7 @@ on:
       - '.github/workflows/wo-split.yml'
 
 jobs:
-  split-images:
+  split-women-images:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,13 +33,13 @@ jobs:
       - name: Install npm packages
         run: npm install
 
-      - name: Run splitter script
+      - name: Run women splitter script
         run: node scripts/wo-splitter.mjs
 
-      - name: Commit and push sliced images
+      - name: Commit and push women sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add daily/clothing/women/sliced/
-          git commit -m "Auto-split: updated sliced images from 001.png" || echo "No changes to commit"
+          git commit -m "Auto-split: updated sliced images from wo-001.png" || echo "No changes to commit"
           git push
