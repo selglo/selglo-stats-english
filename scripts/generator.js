@@ -78,7 +78,10 @@ function getAllHtmlFiles(dirPath, fileList = []) {
       const productSeed = groupOffset + seedBase * 100 + index;
 
       const baseSold = 30 + (productSeed % 15);  // بین 30 تا 44
-      const sold = Math.min(980, Math.floor(baseSold + dateFactor * (2.5 + (productSeed % 7) * 0.1)));
+      const maxSold = 980;
+      const daysPassed = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+      const progress = Math.min(1, daysPassed / 180);
+      const sold = Math.floor(baseSold + (maxSold - baseSold) * progress);
       const weekly = Math.min(Math.floor(sold / 4), Math.floor(10 + (sold % 10) + Math.cos(productSeed / 3 + dateFactor) * 2.5));
       const likes = Math.min(750, Math.floor(sold * (0.6 + Math.sin((productSeed + dateFactor) / 11) * 0.1)));
       const rating = Math.min(4.8, 3 + ((productSeed % 20) * 0.1 + Math.sin(productSeed + dateFactor / 10) * 0.2));
