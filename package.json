@@ -11,9 +11,9 @@
     "ba-split": "node scripts/ba-splitter.mjs",
     "je-split": "node scripts/je-splitter.mjs",
     "wa-split": "node scripts/wa-splitter.mjs",
-    "wa-split": "node scripts/su-splitter.mjs",
-    "wa-split": "node scripts/ha-splitter.mjs",
-    "su-split": "node scripts/sc-splitter.mjs"
+    "su-split": "node scripts/su-splitter.mjs",
+    "ha-split": "node scripts/ha-splitter.mjs",
+    "sc-split": "node scripts/sc-splitter.mjs"
   },
   "dependencies": {
     "canvas": "^2.11.2",
