@@ -44,7 +44,8 @@ function getAllHtmlFiles(dirPath, fileList = []) {
     // تعیین دایرکتوری خروجی بر اساس پیشوند
     let groupOffset = 0;
     let targetDir = '';  
-    
+    let groupName = '';
+
     switch (prefix) {
       // گروه clothing
       case 'wo': groupOffset = 1000; targetDir = 'women'; groupName = 'clothing'; break;
