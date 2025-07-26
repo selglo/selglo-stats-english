@@ -24,15 +24,23 @@
       "generated": false,
       "sliced": false
     },
-    "clothing/Jewelry/001": {
+    "clothing/jewelry/001": {
       "generated": false,
       "sliced": false
     },
-    "clothing/Watches/001": {
+    "clothing/watches/001": {
       "generated": false,
       "sliced": false
     },
-    "clothing/Sunglasses/001": {
+    "clothing/sunglasses/001": {
+      "generated": false,
+      "sliced": false
+    },
+    "clothing/hats/001": {
+      "generated": false,
+      "sliced": false
+    },
+    "clothing/scarves/001": {
       "generated": false,
       "sliced": false
     }
