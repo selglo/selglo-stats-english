@@ -46,22 +46,33 @@ function getAllHtmlFiles(dirPath, fileList = []) {
     let targetDir = '';  
     
     switch (prefix) {
-      case 'wo': groupOffset = 1000; targetDir = 'women'; break;
-      case 'me': groupOffset = 2000; targetDir = 'men'; break;
-      case 'ba': groupOffset = 3000; targetDir = 'bags'; break;
-      case 'sh': groupOffset = 4000; targetDir = 'shoes'; break;
-      case 'ki': groupOffset = 5000; targetDir = 'kids'; break;
-      case 'je': groupOffset = 6000; targetDir = 'jewelry'; break;
-      case 'wa': groupOffset = 7000; targetDir = 'watches'; break;
-      case 'su': groupOffset = 8000; targetDir = 'sunglasses'; break;
-      case 'ha': groupOffset = 9000; targetDir = 'hats'; break;
-      case 'sc': groupOffset = 10000; targetDir = 'scarves'; break;
+      // گروه clothing
+      case 'wo': groupOffset = 1000; targetDir = 'women'; groupName = 'clothing'; break;
+      case 'me': groupOffset = 2000; targetDir = 'men'; groupName = 'clothing'; break;
+      case 'ba': groupOffset = 3000; targetDir = 'bags'; groupName = 'clothing'; break;
+      case 'sh': groupOffset = 4000; targetDir = 'shoes'; groupName = 'clothing'; break;
+      case 'ki': groupOffset = 5000; targetDir = 'kids'; groupName = 'clothing'; break;
+      case 'je': groupOffset = 6000; targetDir = 'jewelry'; groupName = 'clothing'; break;
+      case 'wa': groupOffset = 7000; targetDir = 'watches'; groupName = 'clothing'; break;
+      case 'su': groupOffset = 8000; targetDir = 'sunglasses'; groupName = 'clothing'; break;
+      case 'ha': groupOffset = 9000; targetDir = 'hats'; groupName = 'clothing'; break;
+      case 'sc': groupOffset = 10000; targetDir = 'scarves'; groupName = 'clothing'; break;
+      
+      // 🔻 گروه beauty
+      case 'sk': groupOffset = 11000; targetDir = 'skincare'; groupName = 'beauty'; break;
+      case 'hi': groupOffset = 12000; targetDir = 'haircare'; groupName = 'beauty'; break;
+      case 'bo': groupOffset = 13000; targetDir = 'bodycare'; groupName = 'beauty'; break;
+      case 'ma': groupOffset = 14000; targetDir = 'makeup'; groupName = 'beauty'; break;
+      case 'pe': groupOffset = 15000; targetDir = 'perfume'; groupName = 'beauty'; break;
+      case 'hy': groupOffset = 16000; targetDir = 'hygiene'; groupName = 'beauty'; break;
+      case 'bt': groupOffset = 17000; targetDir = 'tools'; groupName = 'beauty'; break;
+      
       default:
         console.warn(`⚠️ Unknown prefix "${prefix}" in file ${fileName}, skipping.`);
         continue;
     }
 
-    const outputDir = path.join(OUTPUT_ROOT, 'clothing', targetDir);
+    const outputDir = path.join(OUTPUT_ROOT, groupName, targetDir);
     const outputFile = fileName.replace('.html', '.png'); // مثل wo-001.png
     const outputPngPath = path.join(outputDir, outputFile);
     fs.mkdirSync(outputDir, { recursive: true });
@@ -81,8 +92,9 @@ function getAllHtmlFiles(dirPath, fileList = []) {
 
       const baseSold = 30 + (productSeed % 15);  // بین 30 تا 44
       const maxSold = 980;
+      const cycleDays = 180;
       const daysPassed = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
-      const progress = Math.min(1, daysPassed / 180);
+      const progress = (daysPassed % cycleDays) / cycleDays;
       const sold = Math.floor(baseSold + (maxSold - baseSold) * progress);
       const weekly = Math.min(Math.floor(sold / 4), Math.floor(10 + (sold % 10) + Math.cos(productSeed / 3 + dateFactor) * 2.5));
       const likes = Math.min(750, Math.floor(sold * (0.6 + Math.sin((productSeed + dateFactor) / 11) * 0.1)));
