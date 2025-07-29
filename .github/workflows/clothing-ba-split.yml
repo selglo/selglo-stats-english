@@ -1,4 +1,4 @@
-name: Split Bags Images
+name: Split bags Images
 
 on:
   workflow_dispatch:
