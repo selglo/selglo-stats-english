@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/clothing/jewelry/je-001.png'
-      - 'scripts/je-splitter.mjs'
-      - '.github/workflows/je-split.yml'
+      - 'scripts/clothing/je-splitter.mjs'
+      - '.github/workflows/clothing-je-split.yml'
 
 jobs:
   split-jewelry-images:
@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run jewelry splitter script
-        run: node scripts/je-splitter.mjs
+        run: node scripts/clothing/je-splitter.mjs
 
       - name: Commit and push jewelry sliced images
         run: |
@@ -42,4 +42,5 @@ jobs:
           git config --global user.email "actions@github.com"
           git add daily/clothing/jewelry/sliced/
           git commit -m "Auto-split: updated sliced images from je-001.png" || echo "No changes to commit"
+          git pull --rebase
           git push
