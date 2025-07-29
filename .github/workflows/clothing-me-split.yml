@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/clothing/men/me-001.png'
-      - 'scripts/me-splitter.mjs'
-      - '.github/workflows/me-split.yml'
+      - 'scripts/clothing/me-splitter.mjs'
+      - '.github/workflows/clothing-me-split.yml'
 
 jobs:
   split-men-images:
@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run men splitter script
-        run: node scripts/me-splitter.mjs
+        run: node scripts/clothing/me-splitter.mjs
 
       - name: Commit and push men sliced images
         run: |
@@ -42,4 +42,5 @@ jobs:
           git config --global user.email "actions@github.com"
           git add daily/clothing/men/sliced/
           git commit -m "Auto-split: updated sliced images from me-001.png" || echo "No changes to commit"
+          git pull --rebase
           git push
