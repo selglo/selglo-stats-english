@@ -1,4 +1,4 @@
-name: Split Perfume Images
+name: Split perfume Images
 
 on:
   workflow_dispatch:
