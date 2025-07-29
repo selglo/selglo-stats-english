@@ -4,16 +4,16 @@
   "type": "module",
   "scripts": {
     "generate": "node scripts/generator.js",
-    "wo-split": "node scripts/wo-splitter.mjs",
-    "me-split": "node scripts/me-splitter.mjs",
-    "ki-split": "node scripts/ki-splitter.mjs",
-    "sh-split": "node scripts/sh-splitter.mjs",
-    "ba-split": "node scripts/ba-splitter.mjs",
-    "je-split": "node scripts/je-splitter.mjs",
-    "wa-split": "node scripts/wa-splitter.mjs",
-    "su-split": "node scripts/su-splitter.mjs",
-    "ha-split": "node scripts/ha-splitter.mjs",
-    "sc-split": "node scripts/sc-splitter.mjs"
+    "wo-split": "node scripts/clothing/wo-splitter.mjs",
+    "me-split": "node scripts/clothing/me-splitter.mjs",
+    "ki-split": "node scripts/clothing/ki-splitter.mjs",
+    "sh-split": "node scripts/clothing/sh-splitter.mjs",
+    "ba-split": "node scripts/clothing/ba-splitter.mjs",
+    "je-split": "node scripts/clothing/je-splitter.mjs",
+    "wa-split": "node scripts/clothing/wa-splitter.mjs",
+    "su-split": "node scripts/clothing/su-splitter.mjs",
+    "ha-split": "node scripts/clothing/ha-splitter.mjs",
+    "sc-split": "node scripts/clothing/sc-splitter.mjs"
   },
   "dependencies": {
     "canvas": "^2.11.2",
