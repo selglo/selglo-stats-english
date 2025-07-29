@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/clothing/hats/ha-001.png'
-      - 'scripts/ha-splitter.mjs'
-      - '.github/workflows/ha-split.yml'
+      - 'scripts/clothing/ha-splitter.mjs'
+      - '.github/workflows/clothing-ha-split.yml'
 
 jobs:
   split-hats-images:
@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run hats splitter script
-        run: node scripts/ha-splitter.mjs
+        run: node scripts/clothing/ha-splitter.mjs
 
       - name: Commit and push hats sliced images
         run: |
