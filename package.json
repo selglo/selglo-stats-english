@@ -5,7 +5,6 @@
   "scripts": {
     "generate": "node scripts/generator.js",
 
-    // Clothing
     "wo-split": "node scripts/clothing/wo-splitter.mjs",
     "me-split": "node scripts/clothing/me-splitter.mjs",
     "ki-split": "node scripts/clothing/ki-splitter.mjs",
@@ -17,14 +16,13 @@
     "ha-split": "node scripts/clothing/ha-splitter.mjs",
     "sc-split": "node scripts/clothing/sc-splitter.mjs",
 
-    // Beauty
-    "sk-split": "node scripts/beauty/sk-splitter.mjs",  // Skincare
-    "hi-split": "node scripts/beauty/ha-splitter.mjs", // Haircare
-    "bo-split": "node scripts/beauty/bo-splitter.mjs",  // Body care
-    "ma-split": "node scripts/beauty/ma-splitter.mjs",  // Makeup
-    "pe-split": "node scripts/beauty/pe-splitter.mjs",  // Perfume & Fragrance
-    "hy-split": "node scripts/beauty/pr-splitter.mjs",  // Personal hygiene
-    "be-split": "node scripts/beauty/be-splitter.mjs"   // Beauty tools
+    "sk-split": "node scripts/beauty/sk-splitter.mjs",
+    "hi-split": "node scripts/beauty/ha-splitter.mjs",
+    "bo-split": "node scripts/beauty/bo-splitter.mjs",
+    "ma-split": "node scripts/beauty/ma-splitter.mjs",
+    "pe-split": "node scripts/beauty/pe-splitter.mjs",
+    "hy-split": "node scripts/beauty/pr-splitter.mjs",
+    "be-split": "node scripts/beauty/be-splitter.mjs"
   },
   "dependencies": {
     "canvas": "^2.11.2",
