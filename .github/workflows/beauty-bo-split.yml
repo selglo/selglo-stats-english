@@ -1,4 +1,4 @@
-name: Split Bodycare Images
+name: Split bodycare Images
 
 on:
   workflow_dispatch:
