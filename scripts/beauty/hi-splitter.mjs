@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { createCanvas, loadImage } from 'canvas';
 
-const INPUT_PATH = path.join('daily', 'beauty', 'haircare', 'ha-001.png');
+const INPUT_PATH = path.join('daily', 'beauty', 'haircare', 'hi-001.png');
 const OUTPUT_DIR = path.join('daily', 'beauty', 'haircare', 'sliced');
 
 const startX = 0;
@@ -35,7 +35,7 @@ if (!fs.existsSync(OUTPUT_DIR)) {
     );
 
     const buffer = canvas.toBuffer('image/png');
-    const outputFileName = `ha001-${String(i + 1).padStart(3, '0')}.png`;
+    const outputFileName = `hi001-${String(i + 1).padStart(3, '0')}.png`;
     const outputPath = path.join(OUTPUT_DIR, outputFileName);
     fs.writeFileSync(outputPath, buffer);
     console.log(`✅ Created: ${outputFileName}`);
