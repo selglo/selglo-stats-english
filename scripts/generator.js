@@ -66,7 +66,7 @@ function getAllHtmlFiles(dirPath, fileList = []) {
       case 'ma': groupOffset = 14000; targetDir = 'makeup'; groupName = 'beauty'; break;
       case 'pe': groupOffset = 15000; targetDir = 'perfume'; groupName = 'beauty'; break;
       case 'hy': groupOffset = 16000; targetDir = 'hygiene'; groupName = 'beauty'; break;
-      case 'bt': groupOffset = 17000; targetDir = 'tools'; groupName = 'beauty'; break;
+      case 'bt': groupOffset = 17000; targetDir = 'beautytools'; groupName = 'beauty'; break;
       
       default:
         console.warn(`⚠️ Unknown prefix "${prefix}" in file ${fileName}, skipping.`);
