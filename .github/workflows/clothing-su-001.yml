@@ -9,7 +9,7 @@ on:
   push:
     paths:
       - 'daily/clothing/sunglasses/su-001.png'
-      - 'scripts/su-splitter.mjs'
+      - 'scripts/clothing/su-splitter.mjs'
       - '.github/workflows/su-split.yml'
 
 jobs:
@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run sunglasses splitter script
-        run: node scripts/su-splitter.mjs
+        run: node scripts/clothing/su-splitter.mjs
 
       - name: Commit and push sunglasses sliced images
         run: |
@@ -42,4 +42,5 @@ jobs:
           git config --global user.email "actions@github.com"
           git add daily/clothing/sunglasses/sliced/
           git commit -m "Auto-split: updated sliced images from su-001.png" || echo "No changes to commit"
+          git pull --rebase
           git push
