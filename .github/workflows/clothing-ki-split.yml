@@ -1,4 +1,4 @@
-name: Split Kids Images
+name: Split kids Images
 
 on:
   workflow_dispatch:
