@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/clothing/bags/ba-001.png'
       - 'scripts/clothing/ba-splitter.mjs'
-      - '.github/workflows/clothing/ba-split.yml'
+      - '.github/workflows/clothing-ba-split.yml'
 
 jobs:
   split-bags-images:
