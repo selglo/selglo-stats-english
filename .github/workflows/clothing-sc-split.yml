@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/clothing/scarves/sc-001.png'
-      - 'scripts/sc-splitter.mjs'
-      - '.github/workflows/sc-split.yml'
+      - 'scripts/clothing/sc-splitter.mjs'
+      - '.github/workflows/clothing-sc-split.yml'
 
 jobs:
   split-scarves-images:
@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run scarves splitter script
-        run: node scripts/sc-splitter.mjs
+        run: node scripts/clothing/sc-splitter.mjs
 
       - name: Commit and push scarves sliced images
         run: |
@@ -42,4 +42,5 @@ jobs:
           git config --global user.email "actions@github.com"
           git add daily/clothing/scarves/sliced/
           git commit -m "Auto-split: updated sliced images from sc-001.png" || echo "No changes to commit"
+          git pull --rebase
           git push
