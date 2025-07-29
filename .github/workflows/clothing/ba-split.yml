@@ -9,7 +9,7 @@ on:
   push:
     paths:
       - 'daily/clothing/bags/ba-001.png'
-      - 'scripts/ba-splitter.mjs'
+      - 'scripts/clothing/ba-splitter.mjs'
       - '.github/workflows/clothing/ba-split.yml'
 
 jobs:
@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run bags splitter script
-        run: node scripts/ba-splitter.mjs
+        run: node scripts/clothing/ba-splitter.mjs
 
       - name: Commit and push bags sliced images
         run: |
