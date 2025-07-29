@@ -1,4 +1,4 @@
-name: Split Beauty Tools Images
+name: Split beautytools Images
 
 on:
   workflow_dispatch:
@@ -33,10 +33,10 @@ jobs:
       - name: Install npm packages
         run: npm install
 
-      - name: Run beauty tools splitter script
+      - name: Run beautytools splitter script
         run: node scripts/beauty/be-splitter.mjs
 
-      - name: Commit and push beauty tools sliced images
+      - name: Commit and push beautytools sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
