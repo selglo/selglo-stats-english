@@ -1,4 +1,4 @@
-name: Split Shoes Images
+name: Split shoes Images
 
 on:
   workflow_dispatch:
