@@ -1,4 +1,4 @@
-name: Split Hygiene Images
+name: Split hygiene Images
 
 on:
   workflow_dispatch:
