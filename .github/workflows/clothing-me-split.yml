@@ -1,4 +1,4 @@
-name: Split Men Images
+name: Split men Images
 
 on:
   workflow_dispatch:
