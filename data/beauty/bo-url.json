@@ -1,1 +1,62 @@
-sds
+[
+  {
+    "id": "english-bodycare-01-item-001",
+    "url": "https://selglo.com/english-bags-01/",
+    "selector": "#item-001",
+    "seed": 501
+  },
+  {
+    "id": "english-bodycare-01-item-002",
+    "url": "https://selglo.com/english-bags-01/",
+    "selector": "#item-002",
+    "seed": 502
+  },
+  {
+    "id": "english-bodycare-01-item-003",
+    "url": "https://selglo.com/english-bags-01/",
+    "selector": "#item-003",
+    "seed": 503
+  },
+  {
+    "id": "english-bodycare-01-item-004",
+    "url": "https://selglo.com/english-bags-01/",
+    "selector": "#item-004",
+    "seed": 504
+  },
+  {
+    "id": "english-bodycare-01-item-005",
+    "url": "https://selglo.com/english-bags-01/",
+    "selector": "#item-005",
+    "seed": 505
+  },
+  {
+    "id": "english-bodycare-01-item-006",
+    "url": "https://selglo.com/english-bags-01/",
+    "selector": "#item-006",
+    "seed": 506
+  },
+  {
+    "id": "english-bodycare-01-item-007",
+    "url": "https://selglo.com/english-bags-01/",
+    "selector": "#item-007",
+    "seed": 507
+  },
+  {
+    "id": "english-bodycare-01-item-008",
+    "url": "https://selglo.com/english-bags-01/",
+    "selector": "#item-008",
+    "seed": 508
+  },
+  {
+    "id": "english-bodycare-01-item-009",
+    "url": "https://selglo.com/english-bags-01/",
+    "selector": "#item-009",
+    "seed": 509
+  },
+  {
+    "id": "english-bodycare-01-item-010",
+    "url": "https://selglo.com/english-bags-01/",
+    "selector": "#item-010",
+    "seed": 510
+  }
+]
