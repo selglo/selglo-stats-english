@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/clothing/watches/wa-001.png'
-      - 'scripts/wa-splitter.mjs'
-      - '.github/workflows/wa-split.yml'
+      - 'scripts/clothing/wa-splitter.mjs'
+      - '.github/workflows/clothing-wa-split.yml'
 
 jobs:
   split-watches-images:
@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run watches splitter script
-        run: node scripts/wa-splitter.mjs
+        run: node scripts/clothing/wa-splitter.mjs
 
       - name: Commit and push watches sliced images
         run: |
@@ -42,4 +42,5 @@ jobs:
           git config --global user.email "actions@github.com"
           git add daily/clothing/watches/sliced/
           git commit -m "Auto-split: updated sliced images from wa-001.png" || echo "No changes to commit"
+          git pull --rebase
           git push
