@@ -1,4 +1,4 @@
-name: Split Makeup Images
+name: Split makeup Images
 
 on:
   workflow_dispatch:
