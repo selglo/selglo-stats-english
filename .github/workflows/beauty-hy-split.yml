@@ -1,0 +1,46 @@
+name: Split Hygiene Images
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '0 3 * * *'  # هر روز 06:00 صبح ترکیه (UTC 3:00)
+
+  push:
+    paths:
+      - 'daily/beauty/hygiene/hy-001.png'
+      - 'scripts/beauty/hy-splitter.mjs'
+      - '.github/workflows/beauty-hy-split.yml'
+
+jobs:
+  split-hygiene-images:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install canvas dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+
+      - name: Install npm packages
+        run: npm install
+
+      - name: Run hygiene splitter script
+        run: node scripts/beauty/hy-splitter.mjs
+
+      - name: Commit and push hygiene sliced images
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add daily/beauty/hygiene/sliced/
+          git commit -m "Auto-split: updated sliced images from hy-001.png" || echo "No changes to commit"
+          git pull --rebase
+          git push
