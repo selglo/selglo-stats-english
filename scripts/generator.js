@@ -58,15 +58,17 @@ function getAllHtmlFiles(dirPath, fileList = []) {
       case 'su': groupOffset = 8000; targetDir = 'sunglasses'; groupName = 'clothing'; break;
       case 'ha': groupOffset = 9000; targetDir = 'hats'; groupName = 'clothing'; break;
       case 'sc': groupOffset = 10000; targetDir = 'scarves'; groupName = 'clothing'; break;
+      case 'clo': groupOffset = 11000; targetDir = 'clothingother'; groupName = 'clothing'; break;
       
       // 🔻 گروه beauty
-      case 'sk': groupOffset = 11000; targetDir = 'skincare'; groupName = 'beauty'; break;
-      case 'hi': groupOffset = 12000; targetDir = 'haircare'; groupName = 'beauty'; break;
-      case 'bo': groupOffset = 13000; targetDir = 'bodycare'; groupName = 'beauty'; break;
-      case 'ma': groupOffset = 14000; targetDir = 'makeup'; groupName = 'beauty'; break;
-      case 'pe': groupOffset = 15000; targetDir = 'perfume'; groupName = 'beauty'; break;
-      case 'hy': groupOffset = 16000; targetDir = 'hygiene'; groupName = 'beauty'; break;
-      case 'be': groupOffset = 17000; targetDir = 'beautytools'; groupName = 'beauty'; break;
+      case 'sk': groupOffset = 12000; targetDir = 'skincare'; groupName = 'beauty'; break;
+      case 'hi': groupOffset = 13000; targetDir = 'haircare'; groupName = 'beauty'; break;
+      case 'bo': groupOffset = 14000; targetDir = 'bodycare'; groupName = 'beauty'; break;
+      case 'ma': groupOffset = 15000; targetDir = 'makeup'; groupName = 'beauty'; break;
+      case 'pe': groupOffset = 16000; targetDir = 'perfume'; groupName = 'beauty'; break;
+      case 'hy': groupOffset = 17000; targetDir = 'hygiene'; groupName = 'beauty'; break;
+      case 'be': groupOffset = 18000; targetDir = 'beautytools'; groupName = 'beauty'; break;
+      case 'beo': groupOffset = 19000; targetDir = 'beautyother'; groupName = 'beauty'; break;
       
       default:
         console.warn(`⚠️ Unknown prefix "${prefix}" in file ${fileName}, skipping.`);
