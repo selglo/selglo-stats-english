@@ -15,6 +15,7 @@
     "su-split": "node scripts/clothing/su-splitter.mjs",
     "ha-split": "node scripts/clothing/ha-splitter.mjs",
     "sc-split": "node scripts/clothing/sc-splitter.mjs",
+    "clo-split": "node scripts/clothing/clo-splitter.mjs",
 
     "sk-split": "node scripts/beauty/sk-splitter.mjs",
     "hi-split": "node scripts/beauty/ha-splitter.mjs",
@@ -22,7 +23,8 @@
     "ma-split": "node scripts/beauty/ma-splitter.mjs",
     "pe-split": "node scripts/beauty/pe-splitter.mjs",
     "hy-split": "node scripts/beauty/pr-splitter.mjs",
-    "be-split": "node scripts/beauty/be-splitter.mjs"
+    "be-split": "node scripts/beauty/be-splitter.mjs",
+    "beo-split": "node scripts/beauty/beo-splitter.mjs"
   },
   "dependencies": {
     "canvas": "^2.11.2",
