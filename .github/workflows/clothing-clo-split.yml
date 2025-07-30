@@ -1,0 +1,46 @@
+name: Split clothingother Images
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '0 3 * * *'  # هر روز 06:00 صبح ترکیه (UTC 3:00)
+
+  push:
+    paths:
+      - 'daily/clothing/clothingother/clo-001.png'
+      - 'scripts/clothing/clo-splitter.mjs'
+      - '.github/workflows/clothing-clo-split.yml'
+
+jobs:
+  split-clothingother-images:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install canvas dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+
+      - name: Install npm packages
+        run: npm install
+
+      - name: Run clothingother splitter script
+        run: node scripts/clothing/clo-splitter.mjs
+
+      - name: Commit and push clothingother sliced images
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add daily/clothing/clothingother/sliced/
+          git commit -m "Auto-split: updated sliced images from clo-001.png" || echo "No changes to commit"
+          git pull --rebase
+          git push
