@@ -22,7 +22,7 @@
     "bo-split": "node scripts/beauty/bo-splitter.mjs",
     "ma-split": "node scripts/beauty/ma-splitter.mjs",
     "pe-split": "node scripts/beauty/pe-splitter.mjs",
-    "hy-split": "node scripts/beauty/pr-splitter.mjs",
+    "hy-split": "node scripts/beauty/hy-splitter.mjs",
     "be-split": "node scripts/beauty/be-splitter.mjs",
     "beo-split": "node scripts/beauty/beo-splitter.mjs"
   },
