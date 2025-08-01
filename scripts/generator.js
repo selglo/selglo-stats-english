@@ -66,7 +66,7 @@ function getAllHtmlFiles(dirPath, fileList = []) {
       case 'bo': groupOffset = 14000; targetDir = 'bodycare'; groupName = 'beauty'; break;
       case 'ma': groupOffset = 15000; targetDir = 'makeup'; groupName = 'beauty'; break;
       case 'pe': groupOffset = 16000; targetDir = 'perfume'; groupName = 'beauty'; break;
-      case 'hy': groupOffset = 17000; targetDir = 'hygiene'; groupName = 'beauty'; break;
+      case 'hy': groupOffset = 17000; targetDir = 'hygienecare'; groupName = 'beauty'; break;
       case 'be': groupOffset = 18000; targetDir = 'beautytools'; groupName = 'beauty'; break;
       case 'beo': groupOffset = 19000; targetDir = 'beautyother'; groupName = 'beauty'; break;
       
