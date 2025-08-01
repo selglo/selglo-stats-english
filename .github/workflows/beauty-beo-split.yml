@@ -8,7 +8,7 @@ on:
 
   push:
     paths:
-      - 'daily/beauty/beautyother/beo-001.png'
+      - 'daily/beauty/beauty/beo-001.png'
       - 'scripts/beauty/beo-splitter.mjs'
       - '.github/workflows/beauty-beo-split.yml'
 
