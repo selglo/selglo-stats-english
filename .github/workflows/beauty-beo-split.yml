@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/beauty/beautyother/beo-001.png'
       - 'scripts/beauty/beo-splitter.mjs'
-      - '.github/workflows/beautyother-beo-split.yml'
+      - '.github/workflows/beauty-beo-split.yml'
 
 jobs:
   split-beautyother-images:
