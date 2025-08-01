@@ -1,0 +1,63 @@
+
+[
+  {
+    "id": "english-clothingother-01-item-001",
+    "url": "https://selglo.com/english-clothingother-01/",
+    "selector": "#item-001",
+    "seed": 1101
+  },
+  {
+    "id": "english-clothingother-01-item-002",
+    "url": "https://selglo.com/english-clothingother-01/",
+    "selector": "#item-002",
+    "seed": 1102
+  },
+  {
+    "id": "english-clothingother-01-item-003",
+    "url": "https://selglo.com/english-clothingother-01/",
+    "selector": "#item-003",
+    "seed": 1103
+  },
+  {
+    "id": "english-clothingother-01-item-004",
+    "url": "https://selglo.com/english-clothingother-01/",
+    "selector": "#item-004",
+    "seed": 1104
+  },
+  {
+    "id": "english-clothingother-01-item-005",
+    "url": "https://selglo.com/english-clothingother-01/",
+    "selector": "#item-005",
+    "seed": 1105
+  },
+  {
+    "id": "english-clothingother-01-item-006",
+    "url": "https://selglo.com/english-clothingother-01/",
+    "selector": "#item-006",
+    "seed": 1106
+  },
+  {
+    "id": "english-clothingother-01-item-007",
+    "url": "https://selglo.com/english-clothingother-01/",
+    "selector": "#item-007",
+    "seed": 1107
+  },
+  {
+    "id": "english-clothingother-01-item-008",
+    "url": "https://selglo.com/english-clothingother-01/",
+    "selector": "#item-008",
+    "seed": 1108
+  },
+  {
+    "id": "english-clothingother-01-item-009",
+    "url": "https://selglo.com/english-clothingother-01/",
+    "selector": "#item-009",
+    "seed": 1109
+  },
+  {
+    "id": "english-clothingother-01-item-010",
+    "url": "https://selglo.com/english-clothingother-01/",
+    "selector": "#item-010",
+    "seed": 1110
+  }
+]
