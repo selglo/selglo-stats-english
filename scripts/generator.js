@@ -69,7 +69,31 @@ function getAllHtmlFiles(dirPath, fileList = []) {
       case 'hy': groupOffset = 17000; targetDir = 'hygienecare'; groupName = 'beauty'; break;
       case 'be': groupOffset = 18000; targetDir = 'beautytools'; groupName = 'beauty'; break;
       case 'beo': groupOffset = 19000; targetDir = 'beautyother'; groupName = 'beauty'; break;
-      
+
+      // 🔻 گروه Food
+      case 're': groupOffset = 20000; targetDir = 'restaurants'; groupName = 'food'; break;
+      case 'sn': groupOffset = 21000; targetDir = 'snacksstreet'; groupName = 'food'; break;
+      case 'nu': groupOffset = 22000; targetDir = 'nutsfruits'; groupName = 'food'; break;
+      case 'sw': groupOffset = 23000; targetDir = 'sweets'; groupName = 'food'; break;
+      case 'ja': groupOffset = 24000; targetDir = 'jams'; groupName = 'food'; break;
+      case 'pf': groupOffset = 25000; targetDir = 'picklesferments'; groupName = 'food'; break;
+      case 'sp': groupOffset = 26000; targetDir = 'spices'; groupName = 'food'; break;
+      case 'tc': groupOffset = 27000; targetDir = 'teacoffee'; groupName = 'food'; break;
+      case 'ju': groupOffset = 28000; targetDir = 'juices'; groupName = 'food'; break;
+      case 'lo': groupOffset = 29000; targetDir = 'localtrad'; groupName = 'food'; break;
+      case 'ci': groupOffset = 29500; targetDir = 'cookingredients'; groupName = 'food'; break;
+      case 'foo': groupOffset = 29900; targetDir = 'foodother'; groupName = 'food'; break;
+
+      // 🔻 گروه Home
+      case 'co': groupOffset = 30000; targetDir = 'cookware'; groupName = 'home'; break;
+      case 'ta': groupOffset = 31000; targetDir = 'tableware'; groupName = 'home'; break;
+      case 'st': groupOffset = 32000; targetDir = 'storage'; groupName = 'home'; break;
+      case 'kt': groupOffset = 33000; targetDir = 'kitchentools'; groupName = 'home'; break;
+      case 'te': groupOffset = 34000; targetDir = 'textiles'; groupName = 'home'; break;
+      case 'cl': groupOffset = 35000; targetDir = 'cleaningtools'; groupName = 'home'; break;
+      case 'de': groupOffset = 36000; targetDir = 'decor'; groupName = 'home'; break;
+      case 'hoo': groupOffset = 37000; targetDir = 'homeother'; groupName = 'home'; break;
+
       default:
         console.warn(`⚠️ Unknown prefix "${prefix}" in file ${fileName}, skipping.`);
         continue;
