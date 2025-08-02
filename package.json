@@ -24,7 +24,20 @@
     "pe-split": "node scripts/beauty/pe-splitter.mjs",
     "hy-split": "node scripts/beauty/hy-splitter.mjs",
     "be-split": "node scripts/beauty/be-splitter.mjs",
-    "beo-split": "node scripts/beauty/beo-splitter.mjs"
+    "beo-split": "node scripts/beauty/beo-splitter.mjs",
+
+    "re-split": "node scripts/food/re-splitter.mjs",
+    "sn-split": "node scripts/food/sn-splitter.mjs",
+    "nu-split": "node scripts/food/nu-splitter.mjs",
+    "sw-split": "node scripts/food/sw-splitter.mjs",
+    "ja-split": "node scripts/food/ja-splitter.mjs",
+    "pf-split": "node scripts/food/pf-splitter.mjs",
+    "sp-split": "node scripts/food/sp-splitter.mjs",
+    "tc-split": "node scripts/food/tc-splitter.mjs",
+    "ju-split": "node scripts/food/ju-splitter.mjs",
+    "lo-split": "node scripts/food/lo-splitter.mjs",
+    "ci-split": "node scripts/food/ci-splitter.mjs",
+    "foo-split": "node scripts/food/foo-splitter.mjs"
   },
   "dependencies": {
     "canvas": "^2.11.2",
