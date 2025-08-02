@@ -37,7 +37,16 @@
     "ju-split": "node scripts/food/ju-splitter.mjs",
     "lo-split": "node scripts/food/lo-splitter.mjs",
     "ci-split": "node scripts/food/ci-splitter.mjs",
-    "foo-split": "node scripts/food/foo-splitter.mjs"
+    "foo-split": "node scripts/food/foo-splitter.mjs",
+
+    "co-split": "node scripts/home/co-splitter.mjs",
+    "ta-split": "node scripts/home/ta-splitter.mjs",
+    "st-split": "node scripts/home/st-splitter.mjs",
+    "kt-split": "node scripts/home/kt-splitter.mjs",
+    "te-split": "node scripts/home/te-splitter.mjs",
+    "cl-split": "node scripts/home/cl-splitter.mjs",
+    "de-split": "node scripts/home/de-splitter.mjs",
+    "hoo-split": "node scripts/home/hoo-splitter.mjs"
   },
   "dependencies": {
     "canvas": "^2.11.2",
