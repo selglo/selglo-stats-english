@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/clothing/women/wo-001.png'
-      - 'scripts/clothing/women-001s.mjs'
-      - '.github/workflows/clothing-wo-001s.yml'
+      - 'scripts/clothing/wo-001s.mjs'
+      - '.github/workflows/wo-001s.yml'
 
 jobs:
   split-clothing-women-001-images:
@@ -33,10 +33,10 @@ jobs:
       - name: Install npm packages
         run: npm install
 
-      - name: Run clothing-women-001s splitter script
-        run: node scripts/clothing/women-001s.mjs
+      - name: Run clothing-women-001 splitter script
+        run: node scripts/clothing/wo-001s.mjs
 
-      - name: Commit and push women-001s sliced images
+      - name: Commit and push women-001 sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
