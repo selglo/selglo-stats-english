@@ -1,4 +1,4 @@
-name: Split haircare Images
+name: Split beauty haircare 001 Images
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/beauty/haircare/hi-001.png'
-      - 'scripts/beauty/hi-splitter.mjs'
-      - '.github/workflows/beauty-hi-split.yml'
+      - 'scripts/beauty/hi-001s.mjs'
+      - '.github/workflows/beauty-hi-001s.yml'
 
 jobs:
   split-haircare-images:
