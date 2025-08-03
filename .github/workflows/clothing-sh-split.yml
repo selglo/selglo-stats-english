@@ -1,4 +1,4 @@
-name: Split shoes Images
+name: Split clothing shoes 001 Images
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/clothing/shoes/sh-001.png'
-      - 'scripts/clothing/sh-splitter.mjs'
-      - '.github/workflows/clothing-sh-split.yml'
+      - 'scripts/clothing/sh-001s.mjs'
+      - '.github/workflows/clothing-sh-001s.yml'
 
 jobs:
   split-shoes-images:
