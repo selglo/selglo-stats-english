@@ -1,4 +1,4 @@
-name: Split scarves Images
+name: Split clothing scarves 001 Images
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/clothing/scarves/sc-001.png'
-      - 'scripts/clothing/sc-splitter.mjs'
-      - '.github/workflows/clothing-sc-split.yml'
+      - 'scripts/clothing/sc-001s.mjs'
+      - '.github/workflows/clothing-sc-001s.yml'
 
 jobs:
   split-scarves-images:
