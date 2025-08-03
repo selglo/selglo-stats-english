@@ -1,4 +1,4 @@
-name: Split clothing-women-001 Images
+name: Split clothing women 001 Images
 
 on:
   workflow_dispatch:
