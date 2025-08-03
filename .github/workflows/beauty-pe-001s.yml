@@ -1,4 +1,4 @@
-name: Split perfume Images
+name: Split beauty perfume 001 Images
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/beauty/perfume/pe-001.png'
-      - 'scripts/beauty/pe-splitter.mjs'
-      - '.github/workflows/beauty-pe-split.yml'
+      - 'scripts/beauty/pe-001s.mjs'
+      - '.github/workflows/beauty-pe-001s.yml'
 
 jobs:
   split-perfume-images:
