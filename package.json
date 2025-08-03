@@ -140,7 +140,7 @@
     "gi-split": "node scripts/software/gi-splitter.mjs",
     "gg-split": "node scripts/software/gg-splitter.mjs",
     "mv-split": "node scripts/software/mv-splitter.mjs",
-    "soo-split": "node scripts/software/soo-splitter.mjs",
+    "soo-split": "node scripts/software/soo-splitter.mjs"
   },
   "dependencies": {
     "canvas": "^2.11.2",
