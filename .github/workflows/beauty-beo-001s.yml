@@ -1,4 +1,4 @@
-name: Split beautyother Images
+name: Split beauty beautyother 001 Images
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/beauty/beautyother/beo-001.png'  # ← این درسته
-      - 'scripts/beauty/beo-splitter.mjs'
-      - '.github/workflows/beauty-beo-split.yml'
+      - 'scripts/beauty/beo-001s.mjs'
+      - '.github/workflows/beauty-beo-001s.yml'
 
 jobs:
   split-beautyother-images:
