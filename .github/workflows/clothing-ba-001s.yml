@@ -1,4 +1,4 @@
-name: Split bags Images
+name: Split clothing bags 001 Images
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/clothing/bags/ba-001.png'
-      - 'scripts/clothing/ba-splitter.mjs'
-      - '.github/workflows/clothing-ba-split.yml'
+      - 'scripts/clothing/ba-001s.mjs'
+      - '.github/workflows/clothing-ba-001s.yml'
 
 jobs:
   split-bags-images:
