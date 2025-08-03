@@ -63,7 +63,7 @@
 
     "cr-split": "node scripts/vehicles/cr-splitter.mjs",
     "mt-split": "node scripts/vehicles/mt-splitter.mjs",
-    "bc-split": "node scripts/vehicles/bc-splitter.mjs",
+    "by-split": "node scripts/vehicles/by-splitter.mjs",
     "so-split": "node scripts/vehicles/so-splitter.mjs",
     "ti-split": "node scripts/vehicles/ti-splitter.mjs",
     "in-split": "node scripts/vehicles/in-splitter.mjs",
@@ -90,7 +90,7 @@
 
     "bb-split": "node scripts/baby/bb-splitter.mjs",
     "to-split": "node scripts/baby/to-splitter.mjs",
-    "by-split": "node scripts/baby/by-splitter.mjs",
+    "bc-split": "node scripts/baby/bc-splitter.mjs",
     "mr-split": "node scripts/baby/mr-splitter.mjs",
     "ss-split": "node scripts/baby/ss-splitter.mjs",
     "fe-split": "node scripts/baby/fe-splitter.mjs",
