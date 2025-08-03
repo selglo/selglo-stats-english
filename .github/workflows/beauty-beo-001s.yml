@@ -1,4 +1,4 @@
-name: Split beauty beautyother 001 Images
+name: Split beautyother 001 Images
 
 on:
   workflow_dispatch:
