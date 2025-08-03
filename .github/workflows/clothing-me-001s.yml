@@ -1,4 +1,4 @@
-name: Split men Images
+name: Split clothing men 001 Images
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/clothing/men/me-001.png'
-      - 'scripts/clothing/me-splitter.mjs'
-      - '.github/workflows/clothing-me-split.yml'
+      - 'scripts/clothing/me-001s.mjs'
+      - '.github/workflows/clothing-me-001s.yml'
 
 jobs:
   split-men-images:
