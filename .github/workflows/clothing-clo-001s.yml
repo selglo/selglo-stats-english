@@ -1,4 +1,4 @@
-name: Split clothingother Images
+name: Split clothingother 001 Images
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/clothing/clothingother/clo-001.png'
-      - 'scripts/clothing/clo-splitter.mjs'
-      - '.github/workflows/clothing-clo-split.yml'
+      - 'scripts/clothing/clo-001s.mjs'
+      - '.github/workflows/clothing-clo-001s.yml'
 
 jobs:
   split-clothingother-images:
