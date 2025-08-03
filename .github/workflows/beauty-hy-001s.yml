@@ -1,4 +1,4 @@
-name: Split hygienecare Images
+name: Split beauty hygienecare 001 Images
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/beauty/hygienecare/hy-001.png'
-      - 'scripts/beauty/hy-splitter.mjs'
-      - '.github/workflows/beauty-hy-split.yml'
+      - 'scripts/beauty/hy-001s.mjs'
+      - '.github/workflows/beauty-hy-001s.yml'
 
 jobs:
   split-hygienecare-images:
