@@ -1,4 +1,4 @@
-name: Split kids Images
+name: Split clothing kids 001 Images
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/clothing/kids/ki-001.png'
-      - 'scripts/clothing/ki-splitter.mjs'
-      - '.github/workflows/clothing-ki-split.yml'
+      - 'scripts/clothing/ki-001s.mjs'
+      - '.github/workflows/clothing-ki-001s.yml'
 
 jobs:
   split-kids-images:
