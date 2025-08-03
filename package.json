@@ -5,7 +5,7 @@
   "scripts": {
     "generate": "node scripts/generator.js",
 
-    "wo-split": "node scripts/clothing/women-001s.mjs",
+    "women-001-split": "node scripts/clothing/women-001s.mjs",
     "me-split": "node scripts/clothing/me-splitter.mjs",
     "ki-split": "node scripts/clothing/ki-splitter.mjs",
     "sh-split": "node scripts/clothing/sh-splitter.mjs",
