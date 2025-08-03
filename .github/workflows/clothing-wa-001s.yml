@@ -1,4 +1,4 @@
-name: Split watches Images
+name: Split clothing watches 001 Images
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/clothing/watches/wa-001.png'
-      - 'scripts/clothing/wa-splitter.mjs'
-      - '.github/workflows/clothing-wa-split.yml'
+      - 'scripts/clothing/wa-001s.mjs'
+      - '.github/workflows/clothing-wa-001s.yml'
 
 jobs:
   split-watches-images:
