@@ -1,4 +1,4 @@
-name: Split beautytools Images
+name: Split beauty beautytools 001 Images
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/beauty/beautytools/be-001.png'
-      - 'scripts/beauty/be-splitter.mjs'
-      - '.github/workflows/beauty-be-split.yml'
+      - 'scripts/beauty/be-001s.mjs'
+      - '.github/workflows/beauty-be-001s.yml'
 
 jobs:
   split-beautytools-images:
