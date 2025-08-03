@@ -1,4 +1,4 @@
-name: Split skincare Images
+name: Split beauty skincare 001 Images
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/beauty/skincare/sk-001.png'
-      - 'scripts/beauty/sk-splitter.mjs'
-      - '.github/workflows/beauty-sk-split.yml'
+      - 'scripts/beauty/sk-001s.mjs'
+      - '.github/workflows/beauty-sk-001s.yml'
 
 jobs:
   split-skincare-images:
