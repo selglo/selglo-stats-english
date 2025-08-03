@@ -1,4 +1,4 @@
-name: Split jewelry Images
+name: Split clothing jewelry 001 Images
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/clothing/jewelry/je-001.png'
-      - 'scripts/clothing/je-splitter.mjs'
-      - '.github/workflows/clothing-je-split.yml'
+      - 'scripts/clothing/je-001s.mjs'
+      - '.github/workflows/clothing-je-001s.yml'
 
 jobs:
   split-jewelry-images:
