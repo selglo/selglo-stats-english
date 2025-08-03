@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/clothing/women/wo-001.png'
       - 'scripts/clothing/wo-001s.mjs'
-      - '.github/workflows/wo-001s.yml'
+      - '.github/workflows/clothing-wo-001s.yml'
 
 jobs:
   split-clothing-women-001-images:
