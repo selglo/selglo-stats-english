@@ -1,4 +1,4 @@
-name: Split sunglasses Images
+name: Split clothing sunglasses 001 Images
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/clothing/sunglasses/su-001.png'
-      - 'scripts/clothing/su-splitter.mjs'
-      - '.github/workflows/su-split.yml'
+      - 'scripts/clothing/su-001s.mjs'
+      - '.github/workflows/clothing-su-001s.yml'
 
 jobs:
   split-sunglasses-images:
