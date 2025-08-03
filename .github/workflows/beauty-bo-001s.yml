@@ -1,4 +1,4 @@
-name: Split bodycare Images
+name: Split beauty bodycare 001 Images
 
 on:
   workflow_dispatch:
@@ -9,8 +9,8 @@ on:
   push:
     paths:
       - 'daily/beauty/bodycare/bo-001.png'
-      - 'scripts/beauty/bo-splitter.mjs'
-      - '.github/workflows/beauty-bo-split.yml'
+      - 'scripts/beauty/bo-001s.mjs'
+      - '.github/workflows/beauty-bo-001s.yml'
 
 jobs:
   split-bodycare-images:
