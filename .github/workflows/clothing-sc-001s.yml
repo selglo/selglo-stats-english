@@ -13,7 +13,7 @@ on:
       - '.github/workflows/clothing-sc-001s.yml'
 
 jobs:
-  split-scarves-images:
+  split-clothing-sc-001s-images:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,10 +33,10 @@ jobs:
       - name: Install npm packages
         run: npm install
 
-      - name: Run scarves splitter script
+      - name: Run sc-001s splitter script
         run: node scripts/clothing/sc-001s.mjs
 
-      - name: Commit and push scarves sliced images
+      - name: Commit and push sc-001s sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
