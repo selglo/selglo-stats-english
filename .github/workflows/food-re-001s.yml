@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run restaurants-001s splitter script
-        run: node scripts/food/restaurants-001s.mjs
+        run: node scripts/food/re-001s.mjs
 
       - name: Commit and push restaurants-001s sliced images
         run: |
