@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run kids splitter script
-        run: node scripts/clothing/ki-splitter.mjs
+        run: node scripts/clothing/ki-001s.mjs
 
       - name: Commit and push kids sliced images
         run: |
