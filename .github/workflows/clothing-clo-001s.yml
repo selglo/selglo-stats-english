@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run clothingother splitter script
-        run: node scripts/clothing/clo-splitter.mjs
+        run: node scripts/clothing/clo-001s.mjs
 
       - name: Commit and push clothingother sliced images
         run: |
