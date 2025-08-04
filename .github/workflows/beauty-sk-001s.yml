@@ -13,7 +13,7 @@ on:
       - '.github/workflows/beauty-sk-001s.yml'
 
 jobs:
-  split-skincare-images:
+  split-beauty-sk-001s-images:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,10 +33,10 @@ jobs:
       - name: Install npm packages
         run: npm install
 
-      - name: Run skincare splitter script
+      - name: Run sk-001s splitter script
         run: node scripts/beauty/sk-001s.mjs
 
-      - name: Commit and push skincare sliced images
+      - name: Commit and push sk-001s sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
