@@ -13,7 +13,7 @@ on:
       - '.github/workflows/clothing-ki-001s.yml'
 
 jobs:
-  split-kids-images:
+  split-clothing-ki-001s-images:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,10 +33,10 @@ jobs:
       - name: Install npm packages
         run: npm install
 
-      - name: Run kids splitter script
+      - name: Run ki-001s splitter script
         run: node scripts/clothing/ki-001s.mjs
 
-      - name: Commit and push kids sliced images
+      - name: Commit and push ki-001s sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
