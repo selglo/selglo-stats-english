@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run sunglasses splitter script
-        run: node scripts/clothing/su-splitter.mjs
+        run: node scripts/clothing/su-001s.mjs
 
       - name: Commit and push sunglasses sliced images
         run: |
