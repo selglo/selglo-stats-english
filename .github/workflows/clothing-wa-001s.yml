@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run watches splitter script
-        run: node scripts/clothing/wa-splitter.mjs
+        run: node scripts/clothing/wa-001s.mjs
 
       - name: Commit and push watches sliced images
         run: |
