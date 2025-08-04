@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run hygienecare splitter script
-        run: node scripts/beauty/hy-splitter.mjs
+        run: node scripts/beauty/hy-001s.mjs
 
       - name: Commit and push hygienecare sliced images
         run: |
