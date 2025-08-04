@@ -1,4 +1,4 @@
-name: Split food-re-001s Images
+name: Split food restaurants 001 Images
 
 on:
   workflow_dispatch:
