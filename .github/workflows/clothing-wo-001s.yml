@@ -33,7 +33,7 @@ jobs:
       - name: Install npm packages
         run: npm install
 
-      - name: Run clothing-wo-001s splitter script
+      - name: Run wo-001s splitter script
         run: node scripts/clothing/wo-001s.mjs
 
       - name: Commit and push wo-001s sliced images
