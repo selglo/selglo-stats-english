@@ -1,0 +1,47 @@
+name: Split food sweets 001 Images
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '0 3 * * *'  # هر روز 06:00 صبح ترکیه (UTC 3:00)
+
+  push:
+    paths:
+      - 'daily/food/sweets/sw-001.png'
+      - 'scripts/food/sw-001s.mjs'
+      - '.github/workflows/food-sw-001s.yml'
+
+jobs:
+  split-food-sw-001s-images:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install canvas dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+
+      - name: Install npm packages
+        run: npm install
+
+      - name: Run sw-001s splitter script
+        run: node scripts/food/sw-001s.mjs
+
+      - name: Commit and push sw-001s sliced images
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add daily/food/sweets/sliced/ || echo "No sliced images to add"
+          git commit -m "Auto-split: updated sliced images from sw-001.png" || echo "No changes to commit"
+          git fetch origin main
+          git pull --rebase
+          git push
