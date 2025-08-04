@@ -13,7 +13,7 @@ on:
       - '.github/workflows/beauty-hy-001s.yml'
 
 jobs:
-  split-hygienecare-images:
+  split-beauty-hy-001s-images:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,10 +33,10 @@ jobs:
       - name: Install npm packages
         run: npm install
 
-      - name: Run hygienecare splitter script
+      - name: Run hy-001s splitter script
         run: node scripts/beauty/hy-001s.mjs
 
-      - name: Commit and push hygienecare sliced images
+      - name: Commit and push hy-001s sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
