@@ -2,8 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import { createCanvas, loadImage } from 'canvas';
 
-const INPUT_PATH = path.join('daily', 'baby', 'bedshouses', 'bh-001.png');
-const OUTPUT_DIR = path.join('daily', 'baby', 'bedshouses', 'sliced');
+const INPUT_PATH = path.join('daily', 'pet', 'bedshouses', 'bh-001.png');
+const OUTPUT_DIR = path.join('daily', 'pet', 'bedshouses', 'sliced');
 
 const startX = 0;
 const startY = 30;
