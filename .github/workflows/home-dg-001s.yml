@@ -1,4 +1,4 @@
-name: Split home electronics 001 Images
+name: Split home Digitalgadgets 001 Images
 
 on:
   workflow_dispatch:
@@ -8,12 +8,12 @@ on:
 
   push:
     paths:
-      - 'daily/home/electronics/el-001.png'
-      - 'scripts/home/el-001s.mjs'
-      - '.github/workflows/home-el-001s.yml'
+      - 'daily/home/Digitalgadgets/dg-001.png'
+      - 'scripts/home/dg-001s.mjs'
+      - '.github/workflows/home-dg-001s.yml'
 
 jobs:
-  split-home-el-001s-images:
+  split-home-dg-001s-images:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,15 +33,15 @@ jobs:
       - name: Install npm packages
         run: npm install
 
-      - name: Run el-001s splitter script
-        run: node scripts/home/el-001s.mjs
+      - name: Run dg-001s splitter script
+        run: node scripts/home/dg-001s.mjs
 
-      - name: Commit and push el-001s sliced images
+      - name: Commit and push dg-001s sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-          git add daily/home/electronics/sliced/ || echo "No sliced images to add"
-          git commit -m "Auto-split: updated sliced images from el-001.png" || echo "No changes to commit"
+          git add daily/home/Digitalgadgets/sliced/ || echo "No sliced images to add"
+          git commit -m "Auto-split: updated sliced images from dg-001.png" || echo "No changes to commit"
           git fetch origin main
           git pull --rebase
           git push
