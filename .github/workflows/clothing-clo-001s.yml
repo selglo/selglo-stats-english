@@ -13,7 +13,7 @@ on:
       - '.github/workflows/clothing-clo-001s.yml'
 
 jobs:
-  split-clothingother-images:
+  split-clothing-clo-001s-images:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,10 +33,10 @@ jobs:
       - name: Install npm packages
         run: npm install
 
-      - name: Run clothingother splitter script
+      - name: Run clo-001s splitter script
         run: node scripts/clothing/clo-001s.mjs
 
-      - name: Commit and push clothingother sliced images
+      - name: Commit and push clo-001s sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
