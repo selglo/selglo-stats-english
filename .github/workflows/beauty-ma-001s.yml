@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run makeup splitter script
-        run: node scripts/beauty/ma-splitter.mjs
+        run: node scripts/beauty/ma-001s.mjs
 
       - name: Commit and push makeup sliced images
         run: |
