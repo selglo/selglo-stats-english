@@ -9,7 +9,7 @@ on:
   push:
     paths:
       - 'daily/food/restaurants/re-001.png'
-      - 'scripts/food/restaurants-001s.mjs'
+      - 'scripts/food/re-001s.mjs'
       - '.github/workflows/food-re-001s.yml'
 
 jobs:
