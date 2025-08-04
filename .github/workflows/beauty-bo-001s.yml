@@ -13,7 +13,7 @@ on:
       - '.github/workflows/beauty-bo-001s.yml'
 
 jobs:
-  split-bodycare-images:
+  split-beauty-bo-001s-images:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,10 +33,10 @@ jobs:
       - name: Install npm packages
         run: npm install
 
-      - name: Run bodycare splitter script
+      - name: Run bo-001s splitter script
         run: node scripts/beauty/bo-001s.mjs
 
-      - name: Commit and push bodycare sliced images
+      - name: Commit and push bo-001s sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
