@@ -8,12 +8,12 @@ on:
 
   push:
     paths:
-      - 'daily/home/kitchentools/kc-001.png'
-      - 'scripts/home/kc-001s.mjs'
-      - '.github/workflows/home-kc-001s.yml'
+      - 'daily/home/kitchentools/kt-001.png'
+      - 'scripts/home/kt-001s.mjs'
+      - '.github/workflows/home-kt-001s.yml'
 
 jobs:
-  split-home-kc-001s-images:
+  split-home-kt-001s-images:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,15 +33,15 @@ jobs:
       - name: Install npm packages
         run: npm install
 
-      - name: Run kc-001s splitter script
-        run: node scripts/home/kc-001s.mjs
+      - name: Run kt-001s splitter script
+        run: node scripts/home/kt-001s.mjs
 
-      - name: Commit and push kc-001s sliced images
+      - name: Commit and push kt-001s sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add daily/home/kitchentools/sliced/ || echo "No sliced images to add"
-          git commit -m "Auto-split: updated sliced images from kc-001.png" || echo "No changes to commit"
+          git commit -m "Auto-split: updated sliced images from kt-001.png" || echo "No changes to commit"
           git fetch origin main
           git pull --rebase
           git push
