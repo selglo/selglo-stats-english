@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run scarves splitter script
-        run: node scripts/clothing/sc-splitter.mjs
+        run: node scripts/clothing/sc-001s.mjs
 
       - name: Commit and push scarves sliced images
         run: |
