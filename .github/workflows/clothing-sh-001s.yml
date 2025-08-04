@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run shoes splitter script
-        run: node scripts/clothing/sh-splitter.mjs
+        run: node scripts/clothing/sh-001s.mjs
 
       - name: Commit and push shoes sliced images
         run: |
