@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run perfume splitter script
-        run: node scripts/beauty/pe-splitter.mjs
+        run: node scripts/beauty/pe-001s.mjs
 
       - name: Commit and push perfume sliced images
         run: |
