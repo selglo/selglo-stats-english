@@ -13,7 +13,7 @@ on:
       - '.github/workflows/clothing-sh-001s.yml'
 
 jobs:
-  split-shoes-images:
+  split-clothing-sh-001s-images:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,10 +33,10 @@ jobs:
       - name: Install npm packages
         run: npm install
 
-      - name: Run shoes splitter script
+      - name: Run sh-001s splitter script
         run: node scripts/clothing/sh-001s.mjs
 
-      - name: Commit and push shoes sliced images
+      - name: Commit and push sh-001s sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
