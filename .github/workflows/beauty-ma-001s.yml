@@ -13,7 +13,7 @@ on:
       - '.github/workflows/beauty-ma-001s.yml'
 
 jobs:
-  split-makeup-images:
+  split-beauty-ma-001s-images:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,10 +33,10 @@ jobs:
       - name: Install npm packages
         run: npm install
 
-      - name: Run makeup splitter script
+      - name: Run ma-001s splitter script
         run: node scripts/beauty/ma-001s.mjs
 
-      - name: Commit and push makeup sliced images
+      - name: Commit and push ma-001s sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
