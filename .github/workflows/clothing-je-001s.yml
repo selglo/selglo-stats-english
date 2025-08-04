@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run jewelry splitter script
-        run: node scripts/clothing/je-splitter.mjs
+        run: node scripts/clothing/je-001s.mjs
 
       - name: Commit and push jewelry sliced images
         run: |
