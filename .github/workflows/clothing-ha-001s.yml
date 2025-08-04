@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run hats splitter script
-        run: node scripts/clothing/ha-splitter.mjs
+        run: node scripts/clothing/ha-001s.mjs
 
       - name: Commit and push hats sliced images
         run: |
