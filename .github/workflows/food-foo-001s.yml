@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/food/foodother/foo-001.png'
       - 'scripts/food/foo-001s.mjs'
-      - '.github/workflows/foo-001s.yml'
+      - '.github/workflows/food-foo-001s.yml'
 
 jobs:
   split-food-foo-001s-images:
