@@ -14,7 +14,7 @@
     "wa-001-split": "node scripts/clothing/wa-001s.mjs",
     "su-001-split": "node scripts/clothing/su-001s.mjs",
     "ha-001-split": "node scripts/clothing/ha-001s.mjs",
-    "sc-001-split": "node scripts/clothing/sc-001s.mjs",
+    "sc-001-split": "node scripts/clothing/sv-001s.mjs",
     "clo-001-split": "node scripts/clothing/clo-001s.mjs",
 
     "sk-001-split": "node scripts/beauty/sk-001s.mjs",
@@ -40,15 +40,15 @@
     "foo-001-split": "node scripts/food/foo-001s.mjs",
 
     "co-001-split": "node scripts/home/co-001s.mjs",
-    "kc-001-split": "node scripts/home/kc-001s.mjs",
+    "kc-001-split": "node scripts/home/kt-001s.mjs",
     "st-001-split": "node scripts/home/st-001s.mjs",
     "cl-001-split": "node scripts/home/cl-001s.mjs",
-    "ap-001-split": "node scripts/home/ap-001s.mjs",
+    "sc-001-split": "node scripts/home/sc-001s.mjs",
     "ta-001-split": "node scripts/home/ta-001s.mjs",
     "li-001-split": "node scripts/home/li-001s.mjs",
     "te-001-split": "node scripts/home/te-001s.mjs",
     "de-001-split": "node scripts/home/de-001s.mjs",
-    "el-001-split": "node scripts/home/el-001s.mjs",
+    "dg-001-split": "node scripts/home/dg-001s.mjs",
     "hoo-001-split": "node scripts/home/hoo-001s.mjs",
 
     "mo-001-split": "node scripts/electronics/mo-001s.mjs",
