@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run beautytools splitter script
-        run: node scripts/beauty/be-splitter.mjs
+        run: node scripts/beauty/be-001s.mjs
 
       - name: Commit and push beautytools sliced images
         run: |
