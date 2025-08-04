@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Run bags splitter script
-        run: node scripts/clothing/ba-splitter.mjs
+        run: node scripts/clothing/ba-001s.mjs
 
       - name: Commit and push bags sliced images
         run: |
