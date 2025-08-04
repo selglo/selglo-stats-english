@@ -14,7 +14,7 @@
     "wa-001-split": "node scripts/clothing/wa-001s.mjs",
     "su-001-split": "node scripts/clothing/su-001s.mjs",
     "ha-001-split": "node scripts/clothing/ha-001s.mjs",
-    "sc-001-split": "node scripts/clothing/sv-001s.mjs",
+    "sv-001-split": "node scripts/clothing/sv-001s.mjs",
     "clo-001-split": "node scripts/clothing/clo-001s.mjs",
 
     "sk-001-split": "node scripts/beauty/sk-001s.mjs",
