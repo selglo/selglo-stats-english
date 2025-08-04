@@ -33,10 +33,10 @@ jobs:
       - name: Install npm packages
         run: npm install
 
-      - name: Run beautytools splitter script
+      - name: Run beo-001s splitter script
         run: node scripts/beauty/beo-001s.mjs
 
-      - name: Commit and push beautyother sliced images
+      - name: Commit and push beo-001s sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
