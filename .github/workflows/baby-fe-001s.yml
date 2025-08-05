@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/baby/feedingsupplies/fe-001.png'
       - 'scripts/baby/fe-001s.mjs'
-      - '.github/workflows/baby-fe-001.yml'
+      - '.github/workflows/baby-fe-001s.yml'
 
 jobs:
   split-baby-fe-001s-images:
