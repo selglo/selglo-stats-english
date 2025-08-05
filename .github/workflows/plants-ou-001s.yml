@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/plants/outdoorplants/ou-001.png'
       - 'scripts/plants/ou-001s.mjs'
-      - '.github/workflows/plants-ou-001.yml'
+      - '.github/workflows/plants-ou-001s.yml'
 
 jobs:
   split-plants-ou-001s-images:
