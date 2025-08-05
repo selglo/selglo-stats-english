@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/pet/bedshouses/bh-001.png'
       - 'scripts/pet/bh-001s.mjs'
-      - '.github/workflows/pet-bh-001.yml'
+      - '.github/workflows/pet-bh-001s.yml'
 
 jobs:
   split-pet-bh-001s-images:
