@@ -1,4 +1,4 @@
-name: Split Tools plumbing 001 Images
+name: Split tools plumbing 001 Images
 
 on:
   workflow_dispatch:
@@ -8,12 +8,12 @@ on:
 
   push:
     paths:
-      - 'daily/Tools/plumbing/pl-001.png'
-      - 'scripts/Tools/pl-001s.mjs'
-      - '.github/workflows/Tools-pl-001.yml'
+      - 'daily/tools/plumbing/pl-001.png'
+      - 'scripts/tools/pl-001s.mjs'
+      - '.github/workflows/tools-pl-001.yml'
 
 jobs:
-  split-Tools-pl-001s-images:
+  split-tools-pl-001s-images:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,13 +34,13 @@ jobs:
         run: npm install
 
       - name: Run pl-001s splitter script
-        run: node scripts/Tools/pl-001s.mjs
+        run: node scripts/tools/pl-001s.mjs
 
       - name: Commit and push pl-001s sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-          git add daily/Tools/plumbing/sliced/ || echo "No sliced images to add"
+          git add daily/tools/plumbing/sliced/ || echo "No sliced images to add"
           git commit -m "Auto-split: updated sliced images from pl-001.png" || echo "No changes to commit"
           git fetch origin main
           git pull --rebase
