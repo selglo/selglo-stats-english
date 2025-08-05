@@ -1,22 +1,22 @@
-name: Daily PNG Cleanup
+name: Clear PNG contents daily
 
 on:
   schedule:
-    - cron: '0 7 * * *'  # هر روز ساعت 10:00 صبح ترکیه
+    - cron: '0 7 * * *'  # ساعت 10 صبح ترکیه (UTC+3)
+
   workflow_dispatch:
 
 jobs:
-  cleanup-pngs:
+  clear-images:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: 20
 
-      - name: Run cleanup script
-        run: node scripts/cleanup-png.mjs
+      - name: Run clear-pngs.mjs
+        run: node scripts/clear-pngs.mjs
