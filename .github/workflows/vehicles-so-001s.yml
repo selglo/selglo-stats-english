@@ -9,7 +9,7 @@ on:
   push:
     paths:
       - 'daily/vehicles/scooters/so-001.png'
-      - 'scripts/scooters/so-001s.mjs'
+      - 'scripts/vehicles/so-001s.mjs'
       - '.github/workflows/vehicles-so-001s.yml'
 
 jobs:
