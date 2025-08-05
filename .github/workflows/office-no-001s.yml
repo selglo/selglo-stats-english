@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/office/notebooks/no-001.png'
       - 'scripts/office/no-001s.mjs'
-      - '.github/workflows/office-no-001.yml'
+      - '.github/workflows/office-no-001s.yml'
 
 jobs:
   split-office-no-001s-images:
