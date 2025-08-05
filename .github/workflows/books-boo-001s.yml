@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/books/booksother/boo-001.png'
       - 'scripts/books/boo-001s.mjs'
-      - '.github/workflows/books-boo-001.yml'
+      - '.github/workflows/books-boo-001s.yml'
 
 jobs:
   split-books-boo-001s-images:
