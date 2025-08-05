@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/sports/swimbeach/sb-001.png'
       - 'scripts/sports/sb-001s.mjs'
-      - '.github/workflows/sports-sb-001.yml'
+      - '.github/workflows/sports-sb-001s.yml'
 
 jobs:
   split-sports-sb-001s-images:
