@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/office/officeother/ofo-001.png'
       - 'scripts/office/ofo-001s.mjs'
-      - '.github/workflows/office-ofo-001.yml'
+      - '.github/workflows/office-ofo-001s.yml'
 
 jobs:
   split-office-ofo-001s-images:
