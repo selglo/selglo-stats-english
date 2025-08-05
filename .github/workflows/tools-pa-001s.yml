@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/tools/paintcoatings/pa-001.png'
       - 'scripts/tools/pa-001s.mjs'
-      - '.github/workflows/tools-pa-001.yml'
+      - '.github/workflows/tools-pa-001s.yml'
 
 jobs:
   split-tools-pa-001s-images:
