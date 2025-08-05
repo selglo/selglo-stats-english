@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/pet/pettoys/py-001.png'
       - 'scripts/pet/py-001s.mjs'
-      - '.github/workflows/pet-py-001.yml'
+      - '.github/workflows/pet-py-001s.yml'
 
 jobs:
   split-pet-py-001s-images:
