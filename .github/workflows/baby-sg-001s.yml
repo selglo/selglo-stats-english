@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/baby/schoolbags/sg-001.png'
       - 'scripts/baby/sg-001s.mjs'
-      - '.github/workflows/baby-sg-001.yml'
+      - '.github/workflows/baby-sg-001s.yml'
 
 jobs:
   split-baby-sg-001s-images:
