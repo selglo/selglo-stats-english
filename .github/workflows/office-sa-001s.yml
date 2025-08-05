@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/office/stationery/sa-001.png'
       - 'scripts/office/sa-001s.mjs'
-      - '.github/workflows/office-sa-001.yml'
+      - '.github/workflows/office-sa-001s.yml'
 
 jobs:
   split-office-sa-001s-images:
