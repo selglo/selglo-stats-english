@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/pet/pethygiene/ph-001.png'
       - 'scripts/pet/ph-001s.mjs'
-      - '.github/workflows/pet-ph-001.yml'
+      - '.github/workflows/pet-ph-001s.yml'
 
 jobs:
   split-pet-ph-001s-images:
