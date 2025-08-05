@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/electronics/electronicsother/elo-001.png'
       - 'scripts/electronics/elo-001s.mjs'
-      - '.github/workflows/electronicsother-elo-001s.yml'
+      - '.github/workflows/electronics-elo-001s.yml'
 
 jobs:
   split-electronics-elo-001s-images:
