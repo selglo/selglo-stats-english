@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/baby/maternitywear/mr-001.png'
       - 'scripts/baby/mr-001s.mjs'
-      - '.github/workflows/baby-mr-001.yml'
+      - '.github/workflows/baby-mr-001s.yml'
 
 jobs:
   split-baby-mr-001s-images:
