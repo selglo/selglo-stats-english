@@ -1,0 +1,24 @@
+# .github/workflows/cleanup-png.yml
+
+name: Daily PNG Cleanup
+
+on:
+  schedule:
+    - cron: '0 7 * * *'  # هر روز ساعت 10:00 صبح ترکیه (UTC 07:00)
+  workflow_dispatch:
+
+jobs:
+  cleanup-pngs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run cleanup script
+        run: node scripts/cleanup-png.mjs
