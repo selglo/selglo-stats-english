@@ -1,22 +1,21 @@
-name: Clear generated PNG images
+name: Clear generated PNGs
 
 on:
   schedule:
-    - cron: '0 7 * * *'  # ساعت 10 صبح ترکیه (UTC+3 → 07:00 UTC)
+    - cron: '0 7 * * *'  # هر روز ساعت 10 صبح ترکیه (UTC+3 → 07:00 UTC)
   workflow_dispatch:
 
 jobs:
   clear-pngs:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Run PNG clearer script
+      - name: Run PNG clear script
         run: node scripts/clear-pngs.mjs
