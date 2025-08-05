@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/sports/campingequipment/ce-001.png'
       - 'scripts/sports/ce-001s.mjs'
-      - '.github/workflows/sports-ce-001.yml'
+      - '.github/workflows/sports-ce-001s.yml'
 
 jobs:
   split-sports-ce-001s-images:
