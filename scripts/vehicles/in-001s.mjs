@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { createCanvas, loadImage } from 'canvas';
 
-const INPUT_PATH = path.join('daily', 'vehicles', 'interior', 'in-001.png');
+const INPUT_PATH = path.join('daily', 'vehicles', 'interiorparts', 'in-001.png');
 const OUTPUT_DIR = path.join('daily', 'vehicles', 'interior', 'sliced');
 
 const startX = 0;
