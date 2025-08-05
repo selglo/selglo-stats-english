@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/sports/travel/tr-001.png'
       - 'scripts/sports/tr-001s.mjs'
-      - '.github/workflows/sports-tr-001.yml'
+      - '.github/workflows/sports-tr-001s.yml'
 
 jobs:
   split-sports-tr-001s-images:
