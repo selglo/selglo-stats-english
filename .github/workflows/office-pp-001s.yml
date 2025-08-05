@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/office/penspencils/pp-001.png'
       - 'scripts/office/pp-001s.mjs'
-      - '.github/workflows/office-pp-001.yml'
+      - '.github/workflows/office-pp-001s.yml'
 
 jobs:
   split-office-pp-001s-images:
