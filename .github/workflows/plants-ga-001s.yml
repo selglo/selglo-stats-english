@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/plants/gardening/ga-001.png'
       - 'scripts/plants/ga-001s.mjs'
-      - '.github/workflows/plants-ga-001.yml'
+      - '.github/workflows/plants-ga-001s.yml'
 
 jobs:
   split-plants-ga-001s-images:
