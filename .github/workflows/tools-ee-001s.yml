@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/tools/electricalsupplies/ee-001.png'
       - 'scripts/tools/ee-001s.mjs'
-      - '.github/workflows/tools-ee-001.yml'
+      - '.github/workflows/tools-ee-001s.yml'
 
 jobs:
   split-tools-ee-001s-images:
