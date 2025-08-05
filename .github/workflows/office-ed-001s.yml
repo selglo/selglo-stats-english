@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/office/educational/ed-001.png'
       - 'scripts/office/ed-001s.mjs'
-      - '.github/workflows/office-ed-001.yml'
+      - '.github/workflows/office-ed-001s.yml'
 
 jobs:
   split-office-ed-001s-images:
