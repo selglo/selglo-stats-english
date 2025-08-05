@@ -79,7 +79,7 @@ function getAllHtmlFiles(dirPath, fileList = []) {
       case 'pf': groupOffset = 35000; targetDir = 'picklesferments'; groupName = 'food'; break;
       case 'sp': groupOffset = 35500; targetDir = 'spices'; groupName = 'food'; break;
       case 'tc': groupOffset = 36000; targetDir = 'teacoffee'; groupName = 'food'; break;
-      case 'ju': groupOffset = 370000; targetDir = 'juices'; groupName = 'food'; break;
+      case 'ju': groupOffset = 37000; targetDir = 'juices'; groupName = 'food'; break;
       case 'lo': groupOffset = 38000; targetDir = 'localtrad'; groupName = 'food'; break;
       case 'ci': groupOffset = 39000; targetDir = 'cookingredients'; groupName = 'food'; break;
       case 'foo': groupOffset = 39500; targetDir = 'foodother'; groupName = 'food'; break;
