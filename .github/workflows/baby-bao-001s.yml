@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/baby/babyother/bao-001.png'
       - 'scripts/baby/bao-001s.mjs'
-      - '.github/workflows/baby-bao-001.yml'
+      - '.github/workflows/baby-bao-001s.yml'
 
 jobs:
   split-baby-bao-001s-images:
