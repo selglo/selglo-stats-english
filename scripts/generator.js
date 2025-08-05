@@ -236,12 +236,17 @@ function getAllHtmlFiles(dirPath, fileList = []) {
       </div>`;
     });
 
-    // ایجاد فایل موقت و گرفتن اسکرین‌شات
-    const tempHtmlPath = path.join(__dirname, 'temp.html');
-    fs.writeFileSync(tempHtmlPath, htmlContent, 'utf8');
+// ایجاد فایل موقت و گرفتن اسکرین‌شات
+const tempHtmlPath = path.join(__dirname, 'temp.html');
+fs.writeFileSync(tempHtmlPath, htmlContent, 'utf8');
 
-    await page.setViewport({ width: 390, height: 5000, deviceScaleFactor: 2 });
-    await page.goto(`file://${tempHtmlPath}`, { waitUntil: 'networkidle0' });
+await page.setViewport({ width: 390, height: 5000, deviceScaleFactor: 2 });
+await page.goto(`file://${tempHtmlPath}`, { waitUntil: 'networkidle0' });
+
+    // پاک کردن فایل PNG قبلی اگر وجود دارد
+    if (fs.existsSync(outputPngPath)) {
+      fs.unlinkSync(outputPngPath);
+    }
 
     await page.screenshot({
       path: outputPngPath,
