@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/plants/soilfertilizer/sf-001.png'
       - 'scripts/plants/sf-001s.mjs'
-      - '.github/workflows/plants-sf-001.yml'
+      - '.github/workflows/plants-sf-001s.yml'
 
 jobs:
   split-plants-sf-001s-images:
