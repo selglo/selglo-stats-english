@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/tools/building/bu-001.png'
       - 'scripts/tools/bu-001s.mjs'
-      - '.github/workflows/tools-bu-001.yml'
+      - '.github/workflows/tools-bu-001s.yml'
 
 jobs:
   split-tools-bu-001s-images:
