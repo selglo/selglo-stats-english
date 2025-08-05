@@ -1,4 +1,4 @@
-name: Split Baby babyclothing 001 Images
+name: Split baby babyclothing 001 Images
 
 on:
   workflow_dispatch:
@@ -8,12 +8,12 @@ on:
 
   push:
     paths:
-      - 'daily/Baby/babyclothing/bb-001.png'
-      - 'scripts/Baby/bb-001s.mjs'
-      - '.github/workflows/Baby-bb-001.yml'
+      - 'daily/baby/babyclothing/bb-001.png'
+      - 'scripts/baby/bb-001s.mjs'
+      - '.github/workflows/baby-bb-001.yml'
 
 jobs:
-  split-Baby-bb-001s-images:
+  split-baby-bb-001s-images:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,13 +34,13 @@ jobs:
         run: npm install
 
       - name: Run bb-001s splitter script
-        run: node scripts/Baby/bb-001s.mjs
+        run: node scripts/baby/bb-001s.mjs
 
       - name: Commit and push bb-001s sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-          git add daily/Baby/babyclothing/sliced/ || echo "No sliced images to add"
+          git add daily/baby/babyclothing/sliced/ || echo "No sliced images to add"
           git commit -m "Auto-split: updated sliced images from bb-001.png" || echo "No changes to commit"
           git fetch origin main
           git pull --rebase
