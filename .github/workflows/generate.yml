@@ -3,15 +3,21 @@ name: Generate Daily Stats
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 1 * * *'  # هر روز ساعت 04:00 ترکیه +3
+    - cron: '0 1 * * *'  # 04:00 TRT
+
+concurrency:
+  group: generate-daily-stats
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0           # تاریخچه کامل برای rebase
+          persist-credentials: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -29,10 +35,21 @@ jobs:
       - name: Run stats generator script
         run: node scripts/generator.js
 
-      - name: Push updated PNGs
+      - name: Commit & push updated PNGs
         run: |
-          git config --global user.name 'selglo-bot'
-          git config --global user.email 'bot@selglo.com'
+          git config user.name 'selglo-bot'
+          git config user.email 'bot@selglo.com'
           git add daily/**/*.png
-          git commit -m "Auto-update product stats images" || echo "No changes to commit"
-          git push
+
+          # اگر تغییری استیج نشده، خارج شو
+          if git diff --cached --quiet; then
+            echo "No PNG changes to commit"
+            exit 0
+          fi
+
+          # قبل از پوش، تاریخچه ریموت را بکش و ری‌بیس کن
+          git fetch origin main
+          git pull --rebase origin main || true
+
+          git commit -m "Auto-update product stats images"
+          git push origin HEAD:main
