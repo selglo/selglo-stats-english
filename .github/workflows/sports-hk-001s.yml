@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/sports/hiking/hk-001.png'
       - 'scripts/sports/hk-001s.mjs'
-      - '.github/workflows/sports-hk-001.yml'
+      - '.github/workflows/sports-hk-001s.yml'
 
 jobs:
   split-sports-hk-001s-images:
