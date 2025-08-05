@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/plants/plantsother/plo-001.png'
       - 'scripts/plants/plo-001s.mjs'
-      - '.github/workflows/plants-plo-001.yml'
+      - '.github/workflows/plants-plo-001s.yml'
 
 jobs:
   split-plants-plo-001s-images:
