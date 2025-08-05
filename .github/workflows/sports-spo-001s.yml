@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/sports/sportsother/spo-001.png'
       - 'scripts/sports/spo-001s.mjs'
-      - '.github/workflows/sports-spo-001.yml'
+      - '.github/workflows/sports-spo-001s.yml'
 
 jobs:
   split-sports-spo-001s-images:
