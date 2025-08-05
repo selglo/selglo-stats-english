@@ -1,23 +1,30 @@
+// clear-pngs.mjs
+
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+// مسیر ریشه خروجی تصاویر
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const ROOT = path.join(__dirname, '..', 'daily');
+const OUTPUT_ROOT = path.join(__dirname, '..', 'daily');
 
-// بازگشتی همه فایل‌های .png را حذف می‌کند
-function deletePngFiles(dir) {
-  const files = fs.readdirSync(dir);
-  for (const file of files) {
-    const fullPath = path.join(dir, file);
-    if (fs.statSync(fullPath).isDirectory()) {
-      deletePngFiles(fullPath); // رفتن به پوشه‌های داخلی
-    } else if (file.endsWith('.png')) {
-      fs.unlinkSync(fullPath);
-      console.log(`❌ Deleted: ${fullPath}`);
+// تابع بازگشتی برای پیدا کردن تمام فایل‌های .png
+function clearAllPngs(dirPath) {
+  const items = fs.readdirSync(dirPath);
+
+  items.forEach(item => {
+    const fullPath = path.join(dirPath, item);
+    const stat = fs.statSync(fullPath);
+
+    if (stat.isDirectory()) {
+      clearAllPngs(fullPath); // ادامه در زیرپوشه‌ها
+    } else if (item.endsWith('.png')) {
+      fs.writeFileSync(fullPath, '');  // پاک کردن محتوا
+      console.log(`✅ Cleared content: ${fullPath}`);
     }
-  }
+  });
 }
 
-deletePngFiles(ROOT);
+// اجرا
+clearAllPngs(OUTPUT_ROOT);
