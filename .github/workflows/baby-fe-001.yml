@@ -1,4 +1,4 @@
-name: Split Baby feedingsupplies 001 Images
+name: Split baby feedingsupplies 001 Images
 
 on:
   workflow_dispatch:
@@ -8,12 +8,12 @@ on:
 
   push:
     paths:
-      - 'daily/Baby/feedingsupplies/fe-001.png'
-      - 'scripts/Baby/fe-001s.mjs'
-      - '.github/workflows/Baby-fe-001.yml'
+      - 'daily/baby/feedingsupplies/fe-001.png'
+      - 'scripts/baby/fe-001s.mjs'
+      - '.github/workflows/baby-fe-001.yml'
 
 jobs:
-  split-Baby-fe-001s-images:
+  split-baby-fe-001s-images:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,13 +34,13 @@ jobs:
         run: npm install
 
       - name: Run fe-001s splitter script
-        run: node scripts/Baby/fe-001s.mjs
+        run: node scripts/baby/fe-001s.mjs
 
       - name: Commit and push fe-001s sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-          git add daily/Baby/feedingsupplies/sliced/ || echo "No sliced images to add"
+          git add daily/baby/feedingsupplies/sliced/ || echo "No sliced images to add"
           git commit -m "Auto-split: updated sliced images from fe-001.png" || echo "No changes to commit"
           git fetch origin main
           git pull --rebase
