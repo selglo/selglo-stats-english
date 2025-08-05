@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/baby/toys/to-001.png'
       - 'scripts/baby/to-001s.mjs'
-      - '.github/workflows/baby-to-001.yml'
+      - '.github/workflows/baby-to-001s.yml'
 
 jobs:
   split-baby-to-001s-images:
