@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/pet/petother/peo-001.png'
       - 'scripts/pet/peo-001s.mjs'
-      - '.github/workflows/pet-peo-001.yml'
+      - '.github/workflows/pet-peo-001s.yml'
 
 jobs:
   split-pet-peo-001s-images:
