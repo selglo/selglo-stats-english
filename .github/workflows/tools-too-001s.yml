@@ -1,4 +1,4 @@
-name: Split Toolsother 001 Images
+name: Split toolsother 001 Images
 
 on:
   workflow_dispatch:
@@ -8,12 +8,12 @@ on:
 
   push:
     paths:
-      - 'daily/Tools/Toolsother/too-001.png'
-      - 'scripts/Tools/too-001s.mjs'
-      - '.github/workflows/Tools-too-001s.yml'
+      - 'daily/tools/toolsother/too-001.png'
+      - 'scripts/tools/too-001s.mjs'
+      - '.github/workflows/tools-too-001s.yml'
 
 jobs:
-  split-Tools-too-001s-images:
+  split-tools-too-001s-images:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,13 +34,13 @@ jobs:
         run: npm install
 
       - name: Run too-001s splitter script
-        run: node scripts/Tools/too-001s.mjs
+        run: node scripts/tools/too-001s.mjs
 
       - name: Commit and push too-001s sliced images
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-          git add daily/Tools/Toolsother/sliced/ || echo "No sliced images to add"
+          git add daily/tools/toolsother/sliced/ || echo "No sliced images to add"
           git commit -m "Auto-split: updated sliced images from too-001.png" || echo "No changes to commit"
           git fetch origin main
           git pull --rebase
