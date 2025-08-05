@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/pet/grooming/gr-001.png'
       - 'scripts/pet/gr-001s.mjs'
-      - '.github/workflows/pet-gr-001.yml'
+      - '.github/workflows/pet-gr-001s.yml'
 
 jobs:
   split-pet-gr-001s-images:
