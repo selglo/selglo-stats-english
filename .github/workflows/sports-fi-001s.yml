@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/sports/fitness/fi-001.png'
       - 'scripts/sports/fi-001s.mjs'
-      - '.github/workflows/sports-fi-001.yml'
+      - '.github/workflows/sports-fi-001s.yml'
 
 jobs:
   split-sports-fi-001s-images:
