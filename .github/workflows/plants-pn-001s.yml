@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/plants/plantdecor/pn-001.png'
       - 'scripts/plants/pn-001s.mjs'
-      - '.github/workflows/plants-pn-001.yml'
+      - '.github/workflows/plants-pn-001s.yml'
 
 jobs:
   split-plants-pn-001s-images:
