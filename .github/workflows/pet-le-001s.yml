@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/pet/leashes/le-001.png'
       - 'scripts/pet/le-001s.mjs'
-      - '.github/workflows/pet-le-001.yml'
+      - '.github/workflows/pet-le-001s.yml'
 
 jobs:
   split-pet-le-001s-images:
