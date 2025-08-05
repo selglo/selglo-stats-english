@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/baby/babycare/bc-001.png'
       - 'scripts/baby/bc-001s.mjs'
-      - '.github/workflows/baby-bc-001.yml'
+      - '.github/workflows/baby-bc-001s.yml'
 
 jobs:
   split-baby-bc-001s-images:
