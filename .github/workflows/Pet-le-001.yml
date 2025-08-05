@@ -8,7 +8,7 @@ on:
 
   push:
     paths:
-      - 'daily/Pet/leashes/lele-001.png'
+      - 'daily/Pet/leashes/le-001.png'
       - 'scripts/Pet/le-001s.mjs'
       - '.github/workflows/Pet-le-001.yml'
 
