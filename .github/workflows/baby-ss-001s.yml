@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/baby/strollers/ss-001.png'
       - 'scripts/baby/ss-001s.mjs'
-      - '.github/workflows/baby-ss-001.yml'
+      - '.github/workflows/baby-ss-001s.yml'
 
 jobs:
   split-baby-ss-001s-images:
