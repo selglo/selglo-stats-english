@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/vehicles/interiorparts/in-001.png'
       - 'scripts/vehicles/in-001s.mjs'
-      - '.github/workflows/vehicles-inin-001s.yml'
+      - '.github/workflows/vehicles-in-001s.yml'
 
 jobs:
   split-vehicles-in-001s-images:
