@@ -1,10 +1,8 @@
-# .github/workflows/cleanup-png.yml
-
 name: Daily PNG Cleanup
 
 on:
   schedule:
-    - cron: '0 7 * * *'  # هر روز ساعت 10:00 صبح ترکیه (UTC 07:00)
+    - cron: '0 7 * * *'  # هر روز ساعت 10:00 صبح ترکیه
   workflow_dispatch:
 
 jobs:
