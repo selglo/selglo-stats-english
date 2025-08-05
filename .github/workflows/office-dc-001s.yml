@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/office/deskschairs/dc-001.png'
       - 'scripts/office/dc-001s.mjs'
-      - '.github/workflows/office-dc-001.yml'
+      - '.github/workflows/office-dc-001s.yml'
 
 jobs:
   split-office-dc-001s-images:
