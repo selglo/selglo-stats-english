@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/office/printers/pr-001.png'
       - 'scripts/office/pr-001s.mjs'
-      - '.github/workflows/office-pr-001.yml'
+      - '.github/workflows/office-pr-001s.yml'
 
 jobs:
   split-office-pr-001s-images:
