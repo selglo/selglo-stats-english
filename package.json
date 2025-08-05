@@ -107,7 +107,7 @@
     "peo-001-split": "node scripts/pet/peo-001s.mjs",
 
     "fi-001-split": "node scripts/sports/fi-001s.mjs",
-    "cq-001-split": "node scripts/sports/cq-001s.mjs",
+    "ce-001-split": "node scripts/sports/ce-001s.mjs",
     "bs-001-split": "node scripts/sports/bs-001s.mjs",
     "tr-001-split": "node scripts/sports/tr-001s.mjs",
     "sb-001-split": "node scripts/sports/sb-001s.mjs",
