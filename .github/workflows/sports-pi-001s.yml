@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/sports/picnic/pi-001.png'
       - 'scripts/sports/pi-001s.mjs'
-      - '.github/workflows/sports-pi-001.yml'
+      - '.github/workflows/sports-pi-001s.yml'
 
 jobs:
   split-sports-pi-001s-images:
