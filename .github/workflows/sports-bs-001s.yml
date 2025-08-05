@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/sports/bicyclesscooters/bs-001.png'
       - 'scripts/sports/bs-001s.mjs'
-      - '.github/workflows/sports-bs-001.yml'
+      - '.github/workflows/sports-bs-001s.yml'
 
 jobs:
   split-sports-bs-001s-images:
