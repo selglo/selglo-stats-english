@@ -10,7 +10,7 @@ on:
     paths:
       - 'daily/tools/plumbing/pl-001.png'
       - 'scripts/tools/pl-001s.mjs'
-      - '.github/workflows/tools-pl-001.yml'
+      - '.github/workflows/tools-pl-001s.yml'
 
 jobs:
   split-tools-pl-001s-images:
