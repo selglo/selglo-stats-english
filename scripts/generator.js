@@ -57,7 +57,7 @@ function getAllHtmlFiles(dirPath, fileList = []) {
       case 'wa': groupOffset = 7000; targetDir = 'watches'; groupName = 'clothing'; break;
       case 'su': groupOffset = 8000; targetDir = 'sunglasses'; groupName = 'clothing'; break;
       case 'ha': groupOffset = 9000; targetDir = 'hats'; groupName = 'clothing'; break;
-      case 'sc': groupOffset = 10000; targetDir = 'scarves'; groupName = 'clothing'; break;
+      case 'sv': groupOffset = 10000; targetDir = 'scarves'; groupName = 'clothing'; break;
       case 'clo': groupOffset = 11000; targetDir = 'clothingother'; groupName = 'clothing'; break;
       
       // 🔻 گروه beauty
