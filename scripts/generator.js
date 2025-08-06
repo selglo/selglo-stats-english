@@ -232,9 +232,11 @@ function getAllHtmlFiles(dir, fileList = []) {
         <p style="margin: 0;"><span class="icon">⭐️</span> <strong>${rating.toFixed(1)}</strong> out of 5</p>
         <p style="margin: 0;"><span class="icon">📦</span> Sold: <strong>${sold}</strong> units</p>
         <p style="margin: 0;"><span class="icon">❤️</span> Liked by <strong>${likes}</strong> customers</p>
-        <p style="margin: 0;"><span class="icon">📊</span> In the past 7 days, <strong>${weekly}</strong> more<br><span style="color: transparent;">---</span>people bought this product.</p>
-        <div style="height: 8px;"></div> <!-- فاصله خط شماره از متن بالا -->
-        <div style="font-size: 14px; color: #2979ff; text-align: center; line-height: 1;">${index}</div>
+        <p style="margin: 0;">
+          <span class="icon">📊</span> In the past 7 days, <strong>${weekly}</strong> more<br>
+          <span style="color: transparent;">---</span>people bought this product.
+          <span style="color: #2979ff; font-size: 14px;">&nbsp;${index}</span>
+        </p>
       </div>`;
     });
 
