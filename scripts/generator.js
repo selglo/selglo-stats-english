@@ -185,7 +185,7 @@ function getAllHtmlFiles(dir, fileList = []) {
       case 'pg': groupOffset = 135000; targetDir = 'painting'; groupName = 'book'; break;
       case 'di': groupOffset = 136000; targetDir = 'diykits'; groupName = 'book'; break;
       case 'mu': groupOffset = 137000; targetDir = 'musical'; groupName = 'book'; break;
-      case 'boo': groupOffset = 139900; targetDir = 'booksother'; groupName = 'book'; break;
+      case 'boo': groupOffset = 139900; targetDir = 'bookother'; groupName = 'book'; break;
         
       // 14 گروه Software
       case 'sl': groupOffset = 141000; targetDir = 'softwarelicenses'; groupName = 'software'; break;

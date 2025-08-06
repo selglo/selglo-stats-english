@@ -20,7 +20,7 @@ const codeMap = {
   petfood: 'pd', pettoys: 'py', bedshouses: 'bh', grooming: 'gr', bowlsfeeders: 'bw', leashes: 'le', pethygiene: 'ph', petother: 'peo',
   fitness: 'fi', campingequipment: 'ce', bicyclesscooters: 'bs', travel: 'tr', swimbeach: 'sb', hiking: 'hk', picnic: 'pi', sportsother: 'spo',
   notebooks: 'no', penspencils: 'pp', officesupplies: 'of', stationery: 'sa', printers: 'pr', deskschairs: 'dc', educational: 'ed', officeother: 'ofo',
-  fiction: 'fc', nonfiction: 'nf', childrensbooks: 'cb', drawing: 'dr', painting: 'pg', diykits: 'di', musical: 'mu', booksother: 'boo',
+  fiction: 'fc', nonfiction: 'nf', childrensbooks: 'cb', drawing: 'dr', painting: 'pg', diykits: 'di', musical: 'mu', bookother: 'boo',
   softwarelicenses: 'sl', mobileapps: 'mb', pcgames: 'pc', consolegames: 'cg', giftcards: 'gi', gaming: 'gg', moviesmusic: 'mv', softwareother: 'soo',
 };
 
