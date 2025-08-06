@@ -8,7 +8,7 @@ const OUTPUT_DIR = path.join('daily', 'baby', 'babycare', 'sliced');
 const startX = 0;
 const startY = 0;
 const cropWidth = 460;
-const cropHeight = 250;
+const cropHeight = 260;
 const itemCount = 10;
 
 if (!fs.existsSync(OUTPUT_DIR)) {
