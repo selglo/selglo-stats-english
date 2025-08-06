@@ -1,31 +1,23 @@
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 
-// مسیر پایه
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const OUTPUT_ROOT = path.join(__dirname, '..', 'daily');
+const baseDir = path.resolve('daily');
 
-// تابع بازگشتی برای دریافت فایل‌های PNG (به‌جز دایرکتوری‌های sliced)
-function getAllPngFiles(dir, result = []) {
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
-  for (const entry of entries) {
-    const fullPath = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      if (entry.name !== 'sliced') {
-        getAllPngFiles(fullPath, result);
-      }
-    } else if (entry.isFile() && fullPath.endsWith('.png')) {
-      result.push(fullPath);
+function clearPngFiles(dir) {
+  const items = fs.readdirSync(dir, { withFileTypes: true });
+
+  for (const item of items) {
+    const fullPath = path.join(dir, item.name);
+
+    // ⛔ از مسیرهای شامل "sliced" صرف‌نظر کن
+    if (item.isDirectory()) {
+      if (fullPath.includes('sliced')) continue;
+      clearPngFiles(fullPath);
+    } else if (item.isFile() && item.name.endsWith('.png')) {
+      fs.writeFileSync(fullPath, ''); // پاک کردن محتوا
+      console.log('✔ Cleared:', fullPath);
     }
   }
-  return result;
 }
 
-// شروع
-const allPngFiles = getAllPngFiles(OUTPUT_ROOT);
-for (const filePath of allPngFiles) {
-  fs.writeFileSync(filePath, '');
-  console.log('✅ Cleared content:', filePath);
-}
+clearPngFiles(baseDir);
