@@ -85,7 +85,108 @@ function getAllHtmlFiles(dir, fileList = []) {
       case 'lo': groupOffset = 38000; targetDir = 'localtrad'; groupName = 'food'; break;
       case 'ci': groupOffset = 39000; targetDir = 'cookingredients'; groupName = 'food'; break;
       case 'foo': groupOffset = 39500; targetDir = 'foodother'; groupName = 'food'; break;
+        
+      // 4 گروه Home
+      case 'co': groupOffset = 41000; targetDir = 'cookware'; groupName = 'home'; break;
+      case 'ta': groupOffset = 42000; targetDir = 'tableware'; groupName = 'home'; break;
+      case 'st': groupOffset = 43000; targetDir = 'storage'; groupName = 'home'; break;
+      case 'kt': groupOffset = 44000; targetDir = 'kitchentools'; groupName = 'home'; break;
+      case 'te': groupOffset = 45000; targetDir = 'textiles'; groupName = 'home'; break;
+      case 'cl': groupOffset = 46000; targetDir = 'cleaningtools'; groupName = 'home'; break;
+      case 'de': groupOffset = 47000; targetDir = 'decor'; groupName = 'home'; break;
+      case 'hoo': groupOffset = 48000; targetDir = 'homeother'; groupName = 'home'; break;
 
+      // 5 گروه Electronics
+      case 'mo': groupOffset = 51000; targetDir = 'mobile'; groupName = 'electronics'; break;
+      case 'tb': groupOffset = 52000; targetDir = 'tablets'; groupName = 'electronics'; break;
+      case 'cp': groupOffset = 53000; targetDir = 'computers'; groupName = 'electronics'; break;
+      case 'ch': groupOffset = 54000; targetDir = 'chargers'; groupName = 'electronics'; break;
+      case 'he': groupOffset = 55000; targetDir = 'headphones'; groupName = 'electronics'; break;
+      case 'sm': groupOffset = 56000; targetDir = 'smartwatches'; groupName = 'electronics'; break;
+      case 'ca': groupOffset = 57000; targetDir = 'cables'; groupName = 'electronics'; break;
+      case 'cm': groupOffset = 58000; targetDir = 'cameras'; groupName = 'electronics'; break;
+      case 'elo': groupOffset = 59000; targetDir = 'electronicsother'; groupName = 'electronics'; break;
+
+      // 6 گروه Vehicles
+      case 'cr': groupOffset = 61000; targetDir = 'car'; groupName = 'vehicles'; break;
+      case 'mt': groupOffset = 62000; targetDir = 'motorcycle'; groupName = 'vehicles'; break;
+      case 'by': groupOffset = 63000; targetDir = 'bicycle'; groupName = 'vehicles'; break;
+      case 'so': groupOffset = 64000; targetDir = 'scooters'; groupName = 'vehicles'; break;
+      case 'ti': groupOffset = 65000; targetDir = 'tires'; groupName = 'vehicles'; break;
+      case 'in': groupOffset = 66000; targetDir = 'interiorparts'; groupName = 'vehicles'; break;
+      case 'ex': groupOffset = 67000; targetDir = 'exteriorparts'; groupName = 'vehicles'; break;
+      case 'veo': groupOffset = 68000; targetDir = 'vehiclesother'; groupName = 'vehicles'; break;
+
+      // 7 گروه Tools
+      case 'hn': groupOffset = 71000; targetDir = 'handtools'; groupName = 'tools'; break;
+      case 'po': groupOffset = 72000; targetDir = 'powertools'; groupName = 'tools'; break;
+      case 'hr': groupOffset = 73000; targetDir = 'hardware'; groupName = 'tools'; break;
+      case 'pa': groupOffset = 74000; targetDir = 'paintcoatings'; groupName = 'tools'; break;
+      case 'pl': groupOffset = 75000; targetDir = 'plumbing'; groupName = 'tools'; break;
+      case 'ee': groupOffset = 76000; targetDir = 'electricalsupplies'; groupName = 'tools'; break;
+      case 'bu': groupOffset = 77000; targetDir = 'building'; groupName = 'tools'; break;
+      case 'too': groupOffset = 79900; targetDir = 'toolsother'; groupName = 'tools'; break;
+
+      // 8 گروه Plants
+      case 'id': groupOffset = 81000; targetDir = 'indoorplants'; groupName = 'plants'; break;
+      case 'ou': groupOffset = 82000; targetDir = 'outdoorplants'; groupName = 'plants'; break;
+      case 'se': groupOffset = 83000; targetDir = 'seeds'; groupName = 'plants'; break;
+      case 'pt': groupOffset = 84000; targetDir = 'pots'; groupName = 'plants'; break;
+      case 'sf': groupOffset = 85000; targetDir = 'soilfertilizer'; groupName = 'plants'; break;
+      case 'ga': groupOffset = 86000; targetDir = 'gardening'; groupName = 'plants'; break;
+      case 'pn': groupOffset = 87000; targetDir = 'plantdecor'; groupName = 'plants'; break;
+      case 'plo': groupOffset = 89900; targetDir = 'plantsother'; groupName = 'plants'; break;
+
+      // 9 گروه Baby
+      case 'bb': groupOffset = 91000; targetDir = 'babyclothing'; groupName = 'baby'; break;
+      case 'to': groupOffset = 92000; targetDir = 'toys'; groupName = 'baby'; break;
+      case 'bc': groupOffset = 93000; targetDir = 'babycare'; groupName = 'baby'; break;
+      case 'mr': groupOffset = 94000; targetDir = 'maternitywear'; groupName = 'baby'; break;
+      case 'ss': groupOffset = 95000; targetDir = 'strollers'; groupName = 'baby'; break;
+      case 'fe': groupOffset = 96000; targetDir = 'feedingsupplies'; groupName = 'baby'; break;
+      case 'sg': groupOffset = 97000; targetDir = 'schoolbags'; groupName = 'baby'; break;
+      case 'bao': groupOffset = 99900; targetDir = 'babyother'; groupName = 'baby'; break;
+
+      // 10 گروه Pet
+      case 'pd': groupOffset = 101000; targetDir = 'petfood'; groupName = 'pet'; break;
+      case 'py': groupOffset = 102000; targetDir = 'pettoys'; groupName = 'pet'; break;
+      case 'bh': groupOffset = 103000; targetDir = 'bedshouses'; groupName = 'pet'; break;
+      case 'gr': groupOffset = 104000; targetDir = 'grooming'; groupName = 'pet'; break;
+      case 'bw': groupOffset = 105000; targetDir = 'bowlsfeeders'; groupName = 'pet'; break;
+      case 'le': groupOffset = 106000; targetDir = 'leashes'; groupName = 'pet'; break;
+      case 'ph': groupOffset = 107000; targetDir = 'pethygiene'; groupName = 'pet'; break;
+      case 'peo': groupOffset = 109900; targetDir = 'petother'; groupName = 'pet'; break;
+
+      // 11 گروه Sports
+      case 'fi': groupOffset = 111000; targetDir = 'fitness'; groupName = 'sports'; break;
+      case 'ce': groupOffset = 112000; targetDir = 'campingequipment'; groupName = 'sports'; break;
+      case 'bs': groupOffset = 113000; targetDir = 'bicyclesscooters'; groupName = 'sports'; break;
+      case 'tr': groupOffset = 114000; targetDir = 'travel'; groupName = 'sports'; break;
+      case 'sb': groupOffset = 115000; targetDir = 'swimbeach'; groupName = 'sports'; break;
+      case 'hk': groupOffset = 116000; targetDir = 'hiking'; groupName = 'sports'; break;
+      case 'pi': groupOffset = 117000; targetDir = 'picnic'; groupName = 'sports'; break;
+      case 'spo': groupOffset = 119900; targetDir = 'sportsother'; groupName = 'sports'; break;
+
+      // 12 گروه Office
+      case 'no': groupOffset = 121000; targetDir = 'notebooks'; groupName = 'office'; break;
+      case 'pp': groupOffset = 122000; targetDir = 'penspencils'; groupName = 'office'; break;
+      case 'of': groupOffset = 123000; targetDir = 'officesupplies'; groupName = 'office'; break;
+      case 'sa': groupOffset = 124000; targetDir = 'stationery'; groupName = 'office'; break;
+      case 'pr': groupOffset = 125000; targetDir = 'printers'; groupName = 'office'; break;
+      case 'dc': groupOffset = 126000; targetDir = 'deskschairs'; groupName = 'office'; break;
+      case 'ed': groupOffset = 127000; targetDir = 'educational'; groupName = 'office'; break;
+      case 'ofo': groupOffset = 129900; targetDir = 'officeother'; groupName = 'office'; break;
+
+      // 13 گروه Books
+      case 'fc': groupOffset = 131000; targetDir = 'fiction'; groupName = 'books'; break;
+      case 'nf': groupOffset = 132000; targetDir = 'nonfiction'; groupName = 'books'; break;
+      case 'cb': groupOffset = 133000; targetDir = 'childrensbooks'; groupName = 'books'; break;
+      case 'dr': groupOffset = 134000; targetDir = 'drawing'; groupName = 'books'; break;
+      case 'pg': groupOffset = 135000; targetDir = 'painting'; groupName = 'books'; break;
+      case 'di': groupOffset = 136000; targetDir = 'diykits'; groupName = 'books'; break;
+      case 'mu': groupOffset = 137000; targetDir = 'musical'; groupName = 'books'; break;
+      case 'boo': groupOffset = 139900; targetDir = 'booksother'; groupName = 'books'; break;
+        
       // 14 گروه Software
       case 'sl': groupOffset = 141000; targetDir = 'softwarelicenses'; groupName = 'software'; break;
       case 'mb': groupOffset = 142000; targetDir = 'mobileapps'; groupName = 'software'; break;
