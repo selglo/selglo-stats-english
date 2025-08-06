@@ -228,18 +228,18 @@ function getAllHtmlFiles(dir, fileList = []) {
       const likes = Math.min(750, Math.floor(sold * (0.6 + Math.sin((seed + dateFactor) / 11) * 0.1)));
       const rating = Math.min(4.8, 3 + ((seed % 20) * 0.1 + Math.sin(seed + dateFactor / 10) * 0.2));
 
-      return `<div class="product" id="${id}">
+      return `<div class="product" id="${id}" style="margin-bottom: 0;">
         <p><span class="icon">⭐️</span> <strong>${rating.toFixed(1)}</strong> out of 5</p>
         <p><span class="icon">📦</span> Sold: <strong>${sold}</strong> units</p>
         <p><span class="icon">❤️</span> Liked by <strong>${likes}</strong> customers</p>
         <p><span class="icon">📊</span> In the past 7 days, <strong>${weekly}</strong> more<br><span style="color: transparent;">---</span>people bought this product.</p>
-        <br>
-        <p style="font-size: 14px; color: #2979ff; text-align: center;">${index}</p>
-      </div><br><br>`;
+        <div style="height: 16px;"></div> <!-- فاصله یک خط خالی -->
+        <div style="font-size: 14px; color: #2979ff; text-align: center;">${index}</div>
+      </div>`;
     });
 
-    // اضافه کردن دو خط خالی در ابتدا و انتهای کل محتوا
-    htmlContent = `<br><br>${allItemsHtml}<br><br>`;
+    // افزودن یک خط خالی بالا و پایین کل صفحه
+    htmlContent = `<div style="height: 16px;"></div>${allItemsHtml}<div style="height: 16px;"></div>`;
 
     // ایجاد فایل موقت و رندر آن
     const tempPath = path.join(__dirname, 'temp.html');
