@@ -178,14 +178,14 @@ function getAllHtmlFiles(dir, fileList = []) {
       case 'ofo': groupOffset = 129900; targetDir = 'officeother'; groupName = 'office'; break;
 
       // 13 گروه Books
-      case 'fc': groupOffset = 131000; targetDir = 'fiction'; groupName = 'books'; break;
-      case 'nf': groupOffset = 132000; targetDir = 'nonfiction'; groupName = 'books'; break;
-      case 'cb': groupOffset = 133000; targetDir = 'childrensbooks'; groupName = 'books'; break;
-      case 'dr': groupOffset = 134000; targetDir = 'drawing'; groupName = 'books'; break;
-      case 'pg': groupOffset = 135000; targetDir = 'painting'; groupName = 'books'; break;
-      case 'di': groupOffset = 136000; targetDir = 'diykits'; groupName = 'books'; break;
-      case 'mu': groupOffset = 137000; targetDir = 'musical'; groupName = 'books'; break;
-      case 'boo': groupOffset = 139900; targetDir = 'booksother'; groupName = 'books'; break;
+      case 'fc': groupOffset = 131000; targetDir = 'fiction'; groupName = 'book'; break;
+      case 'nf': groupOffset = 132000; targetDir = 'nonfiction'; groupName = 'book'; break;
+      case 'cb': groupOffset = 133000; targetDir = 'childrensbooks'; groupName = 'book'; break;
+      case 'dr': groupOffset = 134000; targetDir = 'drawing'; groupName = 'book'; break;
+      case 'pg': groupOffset = 135000; targetDir = 'painting'; groupName = 'book'; break;
+      case 'di': groupOffset = 136000; targetDir = 'diykits'; groupName = 'book'; break;
+      case 'mu': groupOffset = 137000; targetDir = 'musical'; groupName = 'book'; break;
+      case 'boo': groupOffset = 139900; targetDir = 'booksother'; groupName = 'book'; break;
         
       // 14 گروه Software
       case 'sl': groupOffset = 141000; targetDir = 'softwarelicenses'; groupName = 'software'; break;
