@@ -215,7 +215,7 @@ function getAllHtmlFiles(dir, fileList = []) {
     let htmlContent = fs.readFileSync(htmlPath, 'utf8');
     const seedBase = parseInt(fileName.match(/\d+/)?.[0] || '1');
 
-    htmlContent = htmlContent.replace(/<div class="product" id="(p\d+)">([\s\S]*?)<\/div>/g, (match, id) => {
+    let allItemsHtml = htmlContent.replace(/<div class="product" id="(p\d+)">([\s\S]*?)<\/div>/g, (match, id) => {
       const index = parseInt(id.slice(1));
       const seed = groupOffset + seedBase * 100 + index;
 
@@ -233,10 +233,13 @@ function getAllHtmlFiles(dir, fileList = []) {
         <p><span class="icon">📦</span> Sold: <strong>${sold}</strong> units</p>
         <p><span class="icon">❤️</span> Liked by <strong>${likes}</strong> customers</p>
         <p><span class="icon">📊</span> In the past 7 days, <strong>${weekly}</strong> more<br><span style="color: transparent;">---</span>people bought this product.</p>
-        <br><br>
+        <br>
         <p style="font-size: 14px; color: #2979ff; text-align: center;">${index}</p>
-      </div>`;
+      </div><br><br>`;
     });
+
+    // اضافه کردن دو خط خالی در ابتدا و انتهای کل محتوا
+    htmlContent = `<br><br>${allItemsHtml}<br><br>`;
 
     // ایجاد فایل موقت و رندر آن
     const tempPath = path.join(__dirname, 'temp.html');
