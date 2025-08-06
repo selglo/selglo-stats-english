@@ -1,4 +1,4 @@
-name: Clear & Regenerate 00-PNG
+name: Clear 00-PNG
 
 on:
   workflow_dispatch:
