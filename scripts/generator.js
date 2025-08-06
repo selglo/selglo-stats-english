@@ -233,7 +233,7 @@ function getAllHtmlFiles(dir, fileList = []) {
       <p><span class="icon">📦</span> Sold: <strong>${sold}</strong> units</p>
       <p><span class="icon">❤️</span> Liked by <strong>${likes}</strong> customers</p>
       <p><span class="icon">📊</span> In the past 7 days, <strong>${weekly}</strong> more<br><span style="color: transparent;">---</span>people bought this product.</p>
-      <p style="font-size: 12px; color: #999;">Form #${index}</p>
+      <p style="font-size: 12px; color: #000;">Form #${index}</p>
     </div>`;
   });
 
