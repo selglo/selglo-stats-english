@@ -1,6 +1,6 @@
 # ساخت فایل‌های png در مسیر sliced برای همه گروه‌ها، فقط با اجرای دستی
 
-name: generate sliced png
+name: make sliced png
 
 on:
   workflow_dispatch:
