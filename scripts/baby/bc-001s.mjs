@@ -6,7 +6,7 @@ const INPUT_PATH = path.join('daily', 'baby', 'babycare', 'bc-001.png');
 const OUTPUT_DIR = path.join('daily', 'baby', 'babycare', 'sliced');
 
 const startX = 0;
-const startY = 30;
+const startY = 0;
 const cropWidth = 460;
 const cropHeight = 516;
 const itemCount = 10;
