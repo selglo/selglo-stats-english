@@ -1,4 +1,4 @@
-name: Clear & Regenerate PNGs
+name: Clear & Regenerate 00-PNG
 
 on:
   workflow_dispatch:
@@ -33,7 +33,7 @@ jobs:
         run: npm install
 
       - name: Run Clear & Regenerate script
-        run: node scripts/clear-png.mjs
+        run: node scripts/clear-00-png.mjs
 
       - name: Stage modified PNGs
         run: |
