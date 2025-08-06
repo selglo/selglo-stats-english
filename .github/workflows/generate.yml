@@ -35,13 +35,15 @@ jobs:
       - name: Run stats generator script
         run: node scripts/generator.js
 
-      - name: Commit & push updated PNGs
+      - name: Stage only modified PNGs
         run: |
           git config user.name 'selglo-bot'
           git config user.email 'bot@selglo.com'
-          git add daily/**/*.png
 
-          # اگر فایلی برای commit نیست، خارج شو
+          # فقط فایل‌های PNG تغییرکرده رو استیج کن
+          git ls-files -m "daily/**/*.png" | xargs git add
+
+          # اگر هیچ چیزی استیج نشده، خارج شو
           if git diff --cached --quiet; then
             echo "No PNG changes to commit"
             exit 0
@@ -57,7 +59,7 @@ jobs:
           git pull --rebase origin main
         continue-on-error: true
 
-      - name: Final commit and push
+      - name: Commit and push changes
         run: |
           git commit -m "Auto-update product stats images"
           git push origin HEAD:main
