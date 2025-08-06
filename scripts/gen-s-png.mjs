@@ -1,3 +1,4 @@
+// ساخت 100 فایل خالی png با فرمت xx001-001.png تا xx001-100.png برای همه گروه‌ها
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -6,7 +7,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.join(__dirname, '..', 'daily');
 
-// کدهای دوحرفی نهایی همه زیرگروه‌ها
 const codeMap = {
   women: 'wo', men: 'me', kids: 'ki', shoes: 'sh', bags: 'ba', jewelry: 'je', watches: 'wa', sunglasses: 'su', hats: 'ha', scarves: 'sv', clothingother: 'clo',
   skincare: 'sk', haircare: 'hi', bodycare: 'bo', makeup: 'ma', perfume: 'pe', hygienecare: 'hy', beautytools: 'be', beautyother: 'beo',
@@ -24,9 +24,9 @@ const codeMap = {
   softwarelicenses: 'sl', mobileapps: 'mb', pcgames: 'pc', consolegames: 'cg', giftcards: 'gi', gaming: 'gg', moviesmusic: 'mv', softwareother: 'soo',
 };
 
-function regenerateAllSlicedPngs(rootDir) {
-  for (const groupName of fs.readdirSync(rootDir)) {
-    const groupPath = path.join(rootDir, groupName);
+function generatePngs(dir) {
+  for (const group of fs.readdirSync(dir)) {
+    const groupPath = path.join(dir, group);
     if (!fs.statSync(groupPath).isDirectory()) continue;
 
     for (const sub of fs.readdirSync(groupPath)) {
@@ -36,25 +36,24 @@ function regenerateAllSlicedPngs(rootDir) {
       const slicedPath = path.join(subPath, 'sliced');
       if (!fs.existsSync(slicedPath)) fs.mkdirSync(slicedPath, { recursive: true });
 
-      const page = '001';
       const code = codeMap[sub];
       if (!code) {
-        console.warn(`⛔️ کد دوحرفی برای ${sub} پیدا نشد`);
+        console.warn(`⛔️ skipped: unknown code for ${sub}`);
         continue;
       }
 
-      const prefix = `${code}${page}`; // مثل wo001
+      const prefix = `${code}001`;
 
       for (let i = 1; i <= 100; i++) {
         const idx = i.toString().padStart(3, '0');
         const fileName = `${prefix}-${idx}.png`;
         const filePath = path.join(slicedPath, fileName);
         fs.writeFileSync(filePath, '');
-        console.log(`✅ Created: ${filePath}`);
+        console.log(`🟢 created: ${fileName}`);
       }
     }
   }
 }
 
-regenerateAllSlicedPngs(ROOT_DIR);
-console.log('🎉 Done: All groups regenerated with 100 sliced PNGs.');
+generatePngs(ROOT_DIR);
+console.log('✅ done: sliced png files generated.');
