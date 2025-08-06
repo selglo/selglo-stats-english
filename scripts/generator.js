@@ -262,3 +262,7 @@ function getAllHtmlFiles(dir, fileList = []) {
 
     // حذف فایل موقت
     fs.unlinkSync(tempPath);
+  }
+
+  await browser.close();
+})();
