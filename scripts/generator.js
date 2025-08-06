@@ -88,13 +88,16 @@ function getAllHtmlFiles(dir, fileList = []) {
         
       // 4 گروه Home
       case 'co': groupOffset = 41000; targetDir = 'cookware'; groupName = 'home'; break;
-      case 'ta': groupOffset = 42000; targetDir = 'tableware'; groupName = 'home'; break;
-      case 'st': groupOffset = 43000; targetDir = 'storage'; groupName = 'home'; break;
-      case 'kt': groupOffset = 44000; targetDir = 'kitchentools'; groupName = 'home'; break;
-      case 'te': groupOffset = 45000; targetDir = 'textiles'; groupName = 'home'; break;
-      case 'cl': groupOffset = 46000; targetDir = 'cleaningtools'; groupName = 'home'; break;
+      case 'kt': groupOffset = 42000; targetDir = 'kitchentools'; groupName = 'home'; break;
+      case 'st': groupOffset = 42500; targetDir = 'storage'; groupName = 'home'; break;
+      case 'cl': groupOffset = 43000; targetDir = 'cleaningtools'; groupName = 'home'; break;
+      case 'sc': groupOffset = 44000; targetDir = 'smartcleaners'; groupName = 'home'; break;
+      case 'ta': groupOffset = 44500; targetDir = 'tableware'; groupName = 'home'; break;
+      case 'li': groupOffset = 45000; targetDir = 'lighting'; groupName = 'home'; break;
+      case 'te': groupOffset = 46000; targetDir = 'textiles'; groupName = 'home'; break;
       case 'de': groupOffset = 47000; targetDir = 'decor'; groupName = 'home'; break;
-      case 'hoo': groupOffset = 48000; targetDir = 'homeother'; groupName = 'home'; break;
+      case 'dg': groupOffset = 48000; targetDir = 'digitalgadgets'; groupName = 'home'; break;
+      case 'hoo': groupOffset = 49000; targetDir = 'homeother'; groupName = 'home'; break;
 
       // 5 گروه Electronics
       case 'mo': groupOffset = 51000; targetDir = 'mobile'; groupName = 'electronics'; break;
