@@ -228,12 +228,13 @@ function getAllHtmlFiles(dir, fileList = []) {
       const likes = Math.min(750, Math.floor(sold * (0.6 + Math.sin((seed + dateFactor) / 11) * 0.1)));
       const rating = Math.min(4.8, 3 + ((seed % 20) * 0.1 + Math.sin(seed + dateFactor / 10) * 0.2));
 
-      return `<div class="product" id="${id}" style="margin-bottom: 0;">
-        <p><span class="icon">⭐️</span> <strong>${rating.toFixed(1)}</strong> out of 5</p>
-        <p><span class="icon">📦</span> Sold: <strong>${sold}</strong> units</p>
-        <p><span class="icon">❤️</span> Liked by <strong>${likes}</strong> customers</p>
-        <p><span class="icon">📊</span> In the past 7 days, <strong>${weekly}</strong> more<br><span style="color: transparent;">---</span>people bought this product.</p>
-        <p style="font-size: 14px; color: #2979ff; text-align: center; margin: 4px 0 0 0;">${index}</p>
+      return `<div class="product" id="${id}" style="margin: 0; padding: 0;">
+        <p style="margin: 0;"><span class="icon">⭐️</span> <strong>${rating.toFixed(1)}</strong> out of 5</p>
+        <p style="margin: 0;"><span class="icon">📦</span> Sold: <strong>${sold}</strong> units</p>
+        <p style="margin: 0;"><span class="icon">❤️</span> Liked by <strong>${likes}</strong> customers</p>
+        <p style="margin: 0;"><span class="icon">📊</span> In the past 7 days, <strong>${weekly}</strong> more<br><span style="color: transparent;">---</span>people bought this product.</p>
+        <div style="height: 8px;"></div> <!-- فاصله خط شماره از متن بالا -->
+        <div style="font-size: 14px; color: #2979ff; text-align: center; line-height: 1;">${index}</div>
       </div>`;
     });
 
