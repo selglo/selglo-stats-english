@@ -1,0 +1,43 @@
+name: Clear Sliced PNGs
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * *'  # 06:00 TRT (Turkey Time)
+
+concurrency:
+  group: clear-sliced-pngs
+  cancel-in-progress: false
+
+jobs:
+  clean:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run sliced PNG cleaner script
+        run: node scripts/clear-s-png.mjs
+
+      - name: Commit and push deleted changes
+        run: |
+          git config user.name 'selglo-bot'
+          git config user.email 'bot@selglo.com'
+
+          git rm -f daily/**/sliced/*.png
+
+          if git diff --cached --quiet; then
+            echo "No PNGs to remove"
+            exit 0
+          fi
+
+          git commit -m "Clear sliced PNGs"
+          git push origin HEAD:main
