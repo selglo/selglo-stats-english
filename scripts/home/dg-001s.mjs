@@ -35,7 +35,7 @@ if (!fs.existsSync(OUTPUT_DIR)) {
     );
 
     const buffer = canvas.toBuffer('image/png');
-    const outputFileName = `el001-${String(i + 1).padStart(3, '0')}.png`;
+    const outputFileName = `dg001-${String(i + 1).padStart(3, '0')}.png`;
     const outputPath = path.join(OUTPUT_DIR, outputFileName);
     fs.writeFileSync(outputPath, buffer);
     console.log(`✅ Created: ${outputFileName}`);
