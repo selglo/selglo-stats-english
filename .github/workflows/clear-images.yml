@@ -1,21 +1,30 @@
-name: Clear generated PNGs
+name: Clear PNG (Except Sliced)
 
 on:
   schedule:
-    - cron: '0 7 * * *'  # هر روز ساعت 10 صبح ترکیه (UTC+3 → 07:00 UTC)
+    - cron: '0 7 * * *'  # هر روز ساعت 10 صبح ترکیه (UTC 7:00)
   workflow_dispatch:
 
 jobs:
   clear-pngs:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: '20'
 
-      - name: Run PNG clear script
-        run: node scripts/clear-pngs.mjs
+      - name: Run clear script
+        run: node scripts/clear-png.mjs
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "selglo-bot"
+          git config --global user.email "selglo@users.noreply.github.com"
+          git add daily
+          git commit -m "Clear all PNG content (except sliced)"
+          git push
