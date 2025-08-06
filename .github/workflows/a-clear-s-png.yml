@@ -1,17 +1,15 @@
 # پاک‌سازی فایل‌های PNG در پوشه‌های sliced/
-# اجرای خودکار هر روز ساعت ۷:۵۸ صبح به‌وقت ترکیه + امکان اجرای دستی
+# اجرای فقط دستی (نه خودکار)
 
 name: Clear Sliced PNG
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '58 4 * * *'  # 07:58 TRT (Turkey Time)
 
 concurrency:
   group: clear-sliced-png
   cancel-in-progress: false
-
+  
 jobs:
   clean:
     runs-on: ubuntu-latest
