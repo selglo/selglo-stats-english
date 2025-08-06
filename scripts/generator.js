@@ -233,8 +233,7 @@ function getAllHtmlFiles(dir, fileList = []) {
         <p><span class="icon">📦</span> Sold: <strong>${sold}</strong> units</p>
         <p><span class="icon">❤️</span> Liked by <strong>${likes}</strong> customers</p>
         <p><span class="icon">📊</span> In the past 7 days, <strong>${weekly}</strong> more<br><span style="color: transparent;">---</span>people bought this product.</p>
-        <div style="height: 16px;"></div> <!-- فاصله یک خط خالی -->
-        <div style="font-size: 14px; color: #2979ff; text-align: center;">${index}</div>
+        <p style="font-size: 14px; color: #2979ff; text-align: center; margin: 4px 0 0 0;">${index}</p>
       </div>`;
     });
 
