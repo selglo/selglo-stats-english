@@ -1,30 +1,63 @@
-name: Clear PNG (Except Sliced)
+name: Clear & Regenerate PNGs
 
 on:
-  schedule:
-    - cron: '0 15 * * *'  # هر روز ساعت 18 عصر ترکیه (UTC 15:00)
   workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * *'  # 06:00 TRT (Turkey Time)
+
+concurrency:
+  group: clear-png
+  cancel-in-progress: false
 
 jobs:
-  clear-pngs:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Run clear script
-        run: node scripts/clear-png.mjs
-
-      - name: Commit changes
+      - name: Install canvas dependencies
         run: |
-          git config --global user.name "selglo-bot"
-          git config --global user.email "selglo@users.noreply.github.com"
-          git add daily
-          git commit -m "Clear all PNG content (except sliced)"
-          git push
+          sudo apt-get update
+          sudo apt-get install -y libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev librsvg2-dev
+
+      - name: Install Node.js dependencies
+        run: npm install
+
+      - name: Run Clear & Regenerate script
+        run: node scripts/clear-png.js
+
+      - name: Stage modified PNGs
+        run: |
+          git config user.name 'selglo-bot'
+          git config user.email 'bot@selglo.com'
+
+          git ls-files -m "daily/**/*.png" | xargs git add
+
+          if git diff --cached --quiet; then
+            echo "No PNG changes to commit"
+            exit 0
+          fi
+
+          echo "🔍 Files to commit:"
+          git status
+          git diff --cached
+
+      - name: Pull and rebase before push
+        run: |
+          git fetch origin main
+          git pull --rebase origin main
+        continue-on-error: true
+
+      - name: Commit and push PNG updates
+        run: |
+          git commit -m "Clear & regenerate PNGs"
+          git push origin HEAD:main
