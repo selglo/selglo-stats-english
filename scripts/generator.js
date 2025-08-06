@@ -199,7 +199,7 @@ function getAllHtmlFiles(dir, fileList = []) {
       case 'gg': groupOffset = 146000; targetDir = 'gaming'; groupName = 'software'; break;
       case 'mv': groupOffset = 147000; targetDir = 'moviesmusic'; groupName = 'software'; break;
       case 'soo': groupOffset = 149900; targetDir = 'softwareother'; groupName = 'software'; break;
-        
+
       default:
         console.warn(`⚠️ پیشوند ناشناخته: ${prefix} → فایل نادیده گرفته شد`);
         continue;
@@ -262,7 +262,3 @@ function getAllHtmlFiles(dir, fileList = []) {
 
     // حذف فایل موقت
     fs.unlinkSync(tempPath);
-  }
-
-  await browser.close();
-})();
