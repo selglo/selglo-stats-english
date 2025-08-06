@@ -30,18 +30,17 @@ jobs:
       - name: Run sliced PNG cleaner script
         run: node scripts/clear-s-png.mjs
 
-      - name: Commit and push deleted PNG files
+      - name: Commit and push cleared PNG files
         run: |
           git config user.name 'selglo-bot'
           git config user.email 'bot@selglo.com'
 
-          # حذف همه فایل‌های .png در پوشه‌های sliced
-          git rm -f daily/**/sliced/*.png || true
+          git add daily/**/sliced/*.png
 
           if git diff --cached --quiet; then
-            echo "No PNG to remove"
+            echo "No PNG content changes to commit"
             exit 0
           fi
 
-          git commit -m "Clear sliced PNG files"
+          git commit -m "Clear content of sliced PNG files"
           git push origin HEAD:main
