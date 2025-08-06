@@ -86,6 +86,16 @@ function getAllHtmlFiles(dir, fileList = []) {
       case 'ci': groupOffset = 39000; targetDir = 'cookingredients'; groupName = 'food'; break;
       case 'foo': groupOffset = 39500; targetDir = 'foodother'; groupName = 'food'; break;
 
+      // 14 گروه Software
+      case 'sl': groupOffset = 141000; targetDir = 'softwarelicenses'; groupName = 'software'; break;
+      case 'mb': groupOffset = 142000; targetDir = 'mobileapps'; groupName = 'software'; break;
+      case 'pc': groupOffset = 143000; targetDir = 'pcgames'; groupName = 'software'; break;
+      case 'cg': groupOffset = 144000; targetDir = 'consolegames'; groupName = 'software'; break;
+      case 'gi': groupOffset = 145000; targetDir = 'giftcards'; groupName = 'software'; break;
+      case 'gg': groupOffset = 146000; targetDir = 'gaming'; groupName = 'software'; break;
+      case 'mv': groupOffset = 147000; targetDir = 'moviesmusic'; groupName = 'software'; break;
+      case 'soo': groupOffset = 149900; targetDir = 'softwareother'; groupName = 'software'; break;
+        
       default:
         console.warn(`⚠️ پیشوند ناشناخته: ${prefix} → فایل نادیده گرفته شد`);
         continue;
