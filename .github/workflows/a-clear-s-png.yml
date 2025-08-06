@@ -1,4 +1,7 @@
-name: Clear Sliced PNGs
+# پاک‌سازی فایل‌های PNG در پوشه‌های sliced/
+# اجرای خودکار هر روز ساعت ۷:۵۸ صبح به‌وقت ترکیه + امکان اجرای دستی
+
+name: Clear Sliced PNG
 
 on:
   workflow_dispatch:
@@ -6,7 +9,7 @@ on:
     - cron: '58 4 * * *'  # 07:58 TRT (Turkey Time)
 
 concurrency:
-  group: clear-sliced-pngs
+  group: clear-sliced-png
   cancel-in-progress: false
 
 jobs:
@@ -27,18 +30,18 @@ jobs:
       - name: Run sliced PNG cleaner script
         run: node scripts/clear-s-png.mjs
 
-      - name: Commit and push deleted PNGs
+      - name: Commit and push deleted PNG files
         run: |
           git config user.name 'selglo-bot'
           git config user.email 'bot@selglo.com'
 
-          # حذف همه فایل‌های png در پوشه‌های sliced
+          # حذف همه فایل‌های .png در پوشه‌های sliced
           git rm -f daily/**/sliced/*.png || true
 
           if git diff --cached --quiet; then
-            echo "No PNGs to remove"
+            echo "No PNG to remove"
             exit 0
           fi
 
-          git commit -m "Clear sliced PNGs"
+          git commit -m "Clear sliced PNG files"
           git push origin HEAD:main
