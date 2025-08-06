@@ -3,7 +3,7 @@ name: Generate Daily Stats
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 1 * * *'  # 04:00 TRT
+    - cron: '0 4 * * *'  # 07:00 TRT (Turkey Time)
 
 concurrency:
   group: generate-daily-stats
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0           # تاریخچه کامل برای rebase
+          fetch-depth: 0           # لازمه چون باید به آمار روز قبل دسترسی داشته باشیم
           persist-credentials: true
 
       - name: Setup Node.js
@@ -29,27 +29,37 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev librsvg2-dev
 
-      - name: Install dependencies
+      - name: Install Node.js dependencies
         run: npm install
 
       - name: Run stats generator script
         run: node scripts/generator.js
 
-      - name: Commit & push updated PNGs
+      - name: Stage only modified PNGs
         run: |
           git config user.name 'selglo-bot'
           git config user.email 'bot@selglo.com'
-          git add daily/**/*.png
 
-          # اگر تغییری استیج نشده، خارج شو
+          # فقط فایل‌های PNG تغییرکرده رو استیج کن
+          git ls-files -m "daily/**/*.png" | xargs git add
+
+          # اگر هیچ چیزی استیج نشده، خارج شو
           if git diff --cached --quiet; then
             echo "No PNG changes to commit"
             exit 0
           fi
 
-          # قبل از پوش، تاریخچه ریموت را بکش و ری‌بیس کن
-          git fetch origin main
-          git pull --rebase origin main || true
+          echo "🔍 Files to commit:"
+          git status
+          git diff --cached
 
+      - name: Pull and rebase before pushing
+        run: |
+          git fetch origin main
+          git pull --rebase origin main
+        continue-on-error: true
+
+      - name: Commit and push changes
+        run: |
           git commit -m "Auto-update product stats images"
           git push origin HEAD:main
