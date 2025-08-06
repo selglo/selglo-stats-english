@@ -7,7 +7,7 @@ const OUTPUT_DIR = path.join('daily', 'clothing', 'women', 'sliced');
 
 const startX = 0;
 const startY = 30;
-const cropWidth = 460;
+const cropWidth = 465;
 const cropHeight = 270;
 const itemCount = 10;
 
