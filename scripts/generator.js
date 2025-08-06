@@ -235,7 +235,7 @@ function getAllHtmlFiles(dir, fileList = []) {
         <p style="margin: 0;">
           <span class="icon">📊</span> In the past 7 days, <strong>${weekly}</strong> more<br>
           <span style="color: transparent;">---</span>people bought this product.
-          <span style="color: #2979ff; font-size: 14px;">&nbsp;${index}</span>
+          <span style="color: #2979ff; font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;${index}</span>
         </p>
       </div>`;
     });
