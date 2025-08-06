@@ -2,8 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import { createCanvas, loadImage } from 'canvas';
 
-const INPUT_PATH = path.join('daily', 'books', 'booksother', 'boo-001.png');
-const OUTPUT_DIR = path.join('daily', 'books', 'booksother', 'sliced');
+const INPUT_PATH = path.join('daily', 'book', 'diykits', 'di-001.png');
+const OUTPUT_DIR = path.join('daily', 'book', 'diykits', 'sliced');
 
 const startX = 0;
 const startY = 30;
@@ -35,7 +35,7 @@ if (!fs.existsSync(OUTPUT_DIR)) {
     );
 
     const buffer = canvas.toBuffer('image/png');
-    const outputFileName = `boo001-${String(i + 1).padStart(3, '0')}.png`;
+    const outputFileName = `di001-${String(i + 1).padStart(3, '0')}.png`;
     const outputPath = path.join(OUTPUT_DIR, outputFileName);
     fs.writeFileSync(outputPath, buffer);
     console.log(`✅ Created: ${outputFileName}`);

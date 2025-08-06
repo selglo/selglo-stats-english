@@ -48,7 +48,12 @@ function generatePngs(dir) {
         const idx = i.toString().padStart(3, '0');
         const fileName = `${prefix}-${idx}.png`;
         const filePath = path.join(slicedPath, fileName);
-        fs.writeFileSync(filePath, '');
+        if (!fs.existsSync(filePath)) {
+          fs.writeFileSync(filePath, '');
+          console.log(`🟢 created: ${fileName}`);
+        } else {
+          console.log(`⚪ skipped (exists): ${fileName}`);
+        }
         console.log(`🟢 created: ${fileName}`);
       }
     }
