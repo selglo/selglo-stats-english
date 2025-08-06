@@ -1,0 +1,22 @@
+name: Clear bc-001.png Image
+
+on:
+  schedule:
+    - cron: '0 7 * * *'  # هر روز ساعت 10:00 صبح به‌وقت ترکیه (UTC+3)
+  workflow_dispatch:
+
+jobs:
+  clear-bc-001:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Run clear-single script
+        run: node scripts/clear-single.mjs
