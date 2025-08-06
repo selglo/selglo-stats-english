@@ -24,7 +24,6 @@ function deletePngsInSlicedDirs(dir) {
           }
         }
       } else {
-        // رفتن به زیرپوشه‌ها برای پیدا کردن sliced/
         deletePngsInSlicedDirs(fullPath);
       }
     }
