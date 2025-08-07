@@ -8,8 +8,8 @@ const OUTPUT_DIR = path.join('daily', 'baby', 'schoolbags', 'sliced');
 const startX = 0;
 const startY = 30;
 const cropWidth = 460;
-const cropHeight = 516;
-const itemCount = 10;
+const cropHeight = 247.91;
+const itemCount = 100;
 
 if (!fs.existsSync(OUTPUT_DIR)) {
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
