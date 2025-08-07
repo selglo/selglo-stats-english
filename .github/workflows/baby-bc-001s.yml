@@ -16,6 +16,11 @@ on:
 permissions:
   contents: write
 
+# اجرای نوبتی روی یک صف مشترک برای همین شاخه
+concurrency:
+  group: split-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   split-baby-bc-001s-images:
     runs-on: ubuntu-latest
