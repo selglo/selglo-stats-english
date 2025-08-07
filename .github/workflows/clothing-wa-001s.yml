@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: '0 3 * * *'  # هر روز 06:00 صبح ترکیه (UTC 3:00)
+    # هر روز ساعت 06:00 به وقت ترکیه (03:00 UTC)
+    - cron: '0 3 * * *'
 
   push:
     paths:
@@ -12,23 +13,41 @@ on:
       - 'scripts/clothing/wa-001s.mjs'
       - '.github/workflows/clothing-wa-001s.yml'
 
+permissions:
+  contents: write
+
+# اجرای نوبتی روی یک صف مشترک برای همین شاخه
+concurrency:
+  group: split-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   split-clothing-wa-001s-images:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+          ref: main
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Install canvas dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+          sudo apt-get install -y \
+            build-essential \
+            libcairo2-dev \
+            libpango1.0-dev \
+            libjpeg-dev \
+            libgif-dev \
+            librsvg2-dev
 
       - name: Install npm packages
         run: npm install
@@ -40,8 +59,7 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
+          git pull --rebase origin main
           git add daily/clothing/watches/sliced/ || echo "No sliced images to add"
           git commit -m "Auto-split: updated sliced images from wa-001.png" || echo "No changes to commit"
-          git fetch origin main
-          git pull --rebase
-          git push
+          git push origin HEAD:main
