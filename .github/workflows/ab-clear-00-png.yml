@@ -33,7 +33,7 @@ jobs:
         run: npm install
 
       - name: Run Clear & Regenerate script
-        run: node scripts/clear-00-png.mjs
+        run: node scripts/ab-clear-00-png.mjs
 
       - name: Stage modified PNGs
         run: |
