@@ -16,6 +16,11 @@ on:
 permissions:
   contents: write
 
+# جلوگیری از اجرای همزمان این ورک‌فلو روی یک شاخه
+concurrency:
+  group: split-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   split-baby-bao-001s-images:
     runs-on: ubuntu-latest
@@ -29,7 +34,7 @@ jobs:
           ref: main
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
