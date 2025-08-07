@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: '0 3 * * *'  # هر روز 06:00 صبح ترکیه (UTC 3:00)
+    - cron: '0 5 * * *'  # هر روز 08:00 صبح ترکیه (UTC 3:00)
 
   push:
     paths:
