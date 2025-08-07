@@ -7,8 +7,8 @@ const OUTPUT_DIR = path.join('daily', 'home', 'cleaningtools', 'sliced');
 
 const startX = 0;
 const startY = 30;
-const cropWidth = 460;
-const cropHeight = 516;
+const cropWidth = 400;
+const cropHeight = 203.13;
 const itemCount = 10;
 
 if (!fs.existsSync(OUTPUT_DIR)) {
