@@ -5,8 +5,8 @@ import { createCanvas, loadImage } from 'canvas';
 const INPUT_PATH = path.join('daily', 'clothing', 'women', 'wo-001.png');
 const OUTPUT_DIR = path.join('daily', 'clothing', 'women', 'sliced');
 
-const startX = 30;
-const startY = 20;
+const startX = 100;
+const startY = 40;
 const cropWidth = 460;
 const cropHeight = 247.91;
 const itemCount = 100;
