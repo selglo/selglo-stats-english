@@ -3,7 +3,7 @@ name: Clear 00-PNG
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 5 * * *'  # 08:00 TRT (Turkey Time)
+    - cron: '0 3 * * *'  # 06:00 TRT (Turkey Time)
 
 concurrency:
   group: clear-png
