@@ -16,6 +16,11 @@ on:
 permissions:
   contents: write
 
+# اجرای نوبتی برای جلوگیری از تداخل
+concurrency:
+  group: split-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   split-baby-sg-001s-images:
     runs-on: ubuntu-latest
