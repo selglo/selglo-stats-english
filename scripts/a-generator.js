@@ -215,7 +215,7 @@ function getAllHtmlFiles(dir, fileList = []) {
     let htmlContent = fs.readFileSync(htmlPath, 'utf8');
     const seedBase = parseInt(fileName.match(/\d+/)?.[0] || '1');
 
-    let allItemsHtml = htmlContent.replace(/<div class="product" id="(p\d+)">([\s\S]*?)<\/div>/g, (match, id) => {
+    let allItemsHtml = htmlContent.replace(/<(div|article) class="product" id="(p\d+)">([\s\S]*?)<\/\1>/g, (match, tag, id) => {
       const index = parseInt(id.slice(1));
       const seed = groupOffset + seedBase * 100 + index;
 
@@ -228,16 +228,12 @@ function getAllHtmlFiles(dir, fileList = []) {
       const likes = Math.min(750, Math.floor(sold * (0.6 + Math.sin((seed + dateFactor) / 11) * 0.1)));
       const rating = Math.min(4.8, 3 + ((seed % 20) * 0.1 + Math.sin(seed + dateFactor / 10) * 0.2));
 
-      return `<div class="product" id="${id}" style="margin: 0; padding: 0;">
+      return `<article class="product" id="${id}" style="margin: 0; padding: 0;">
         <p style="margin: 0;"><span class="icon">⭐️</span> <strong>${rating.toFixed(1)}</strong> out of 5</p>
         <p style="margin: 0;"><span class="icon">📦</span> Sold: <strong>${sold}</strong> units</p>
         <p style="margin: 0;"><span class="icon">❤️</span> Liked by <strong>${likes}</strong> customers</p>
-        <p style="margin: 0;">
-          <span class="icon">📊</span> In the past 7 days, <strong>${weekly}</strong> more<br>
-          <span style="color: transparent;">---</span>people bought this product.
-          <span style="color: #2979ff; font-size: 14px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${index}</span>
-        </p>
-      </div>`;
+        <p style="margin: 0;"><span class="icon">📊</span> <strong>${weekly}</strong> sold last week</p>
+      </article>`;
     });
 
     // افزودن یک خط خالی بالا و پایین کل صفحه
