@@ -5,8 +5,8 @@ import { createCanvas, loadImage } from 'canvas';
 const INPUT_PATH = path.join('daily', 'clothing', 'women', 'wo-001.png');
 const OUTPUT_DIR = path.join('daily', 'clothing', 'women', 'sliced');
 
-const startX = 100;
-const startY = 40;
+const startY = 3 * cropHeight; // یعنی لاین‌های 1، 2 و 3 رو رد کن
+const startY = 0;
 const cropWidth = 460;
 const cropHeight = 247.91;
 const itemCount = 100;
