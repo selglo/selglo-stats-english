@@ -61,5 +61,10 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git commit -m "Auto-update product stats images"
-          git push origin HEAD:main
+          if git diff --cached --quiet; then
+            echo "✅ No PNG changes to commit"
+          else
+            git commit -m "Auto-update product stats images"
+            git push origin HEAD:main
+          fi
+
