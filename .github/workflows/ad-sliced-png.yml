@@ -25,7 +25,7 @@ jobs:
           node-version: '20'
 
       - name: Run regeneration script
-        run: node scripts/gen-s-png.mjs
+        run: node scripts/ad-gen-s-png.mjs
 
       - name: Commit and push new sliced png
         run: |
