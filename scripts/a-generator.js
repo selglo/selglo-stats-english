@@ -231,9 +231,9 @@ function getAllHtmlFiles(dir, fileList = []) {
       return `<article class="product" id="${id}" style="margin: 0; padding: 0;">
         <p style="margin: 0;"><span class="icon">⭐️</span> <strong>${rating.toFixed(1)}</strong> out of 5</p>
         <p style="margin: 0;"><span class="icon">📦</span> Sold: <strong>${sold}</strong> units</p>
-        <p style="margin: 0;"><span class="icon">📊</span> <strong>${weekly}</strong> sold last week</p>
         <p style="margin: 0;"><span class="icon">❤️</span> Liked by <strong>${likes}</strong> customers</p>
-        <p style="margin: 0; color: #00f;">&nbsp;&nbsp;${index}</p>
+        <p style="margin: 0;"><span class="icon">📊</span> <strong>${weekly}</strong> sold last week</p>
+        <p style="margin: 0; color: #00f;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${index}</p>
       </article>`;
 
     });
