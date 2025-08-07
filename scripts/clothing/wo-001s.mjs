@@ -6,7 +6,7 @@ const INPUT_PATH = path.join('daily', 'clothing', 'women', 'wo-001.png');
 const OUTPUT_DIR = path.join('daily', 'clothing', 'women', 'sliced');
 
 const startX = 0;
-const startY = 3 * 247.91; // شروع از لاین 4
+const startY = 1 * 247.91; // شروع از لاین 4
 const cropWidth = 460;
 const cropHeight = 247.91;
 const itemCount = 100;
