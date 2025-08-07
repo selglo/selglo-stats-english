@@ -215,7 +215,7 @@ function getAllHtmlFiles(dir, fileList = []) {
     let htmlContent = fs.readFileSync(htmlPath, 'utf8');
     const seedBase = parseInt(fileName.match(/\d+/)?.[0] || '1');
 
-    let allItemsHtml = htmlContent.replace(/<(div|article) class="product" id="(p\d+)">([\s\S]*?)<\/\1>/g, (match, tag, id) => {
+    let allItemsHtml = htmlContent.replace(/<(div|article)[^>]*class=["']product["'][^>]*id=["'](p\d+)["'][^>]*>([\s\S]*?)<\/\1>/g, (match, tag, id) => {
       const index = parseInt(id.slice(1));
       const seed = groupOffset + seedBase * 100 + index;
 
