@@ -9,7 +9,7 @@ const startX = 10;
 const startY = 30;
 const cropWidth = 460;
 const cropHeight = 247.91;
-const itemCount = 100;
+const itemCount = 1;
 
 if (!fs.existsSync(OUTPUT_DIR)) {
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
