@@ -26,7 +26,7 @@ jobs:
           node-version: '20'
 
       - name: Run sliced PNG cleaner script
-        run: node scripts/clear-s-png.mjs
+        run: node scripts/ac-clear-s-png.mjs
 
       - name: Commit and push cleared PNG files
         run: |
